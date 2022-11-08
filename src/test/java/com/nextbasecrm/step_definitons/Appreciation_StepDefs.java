@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.nextbasecrm.pages.AppreciationPage;
 import com.nextbasecrm.pages.HomePage;
 import com.nextbasecrm.pages.LoginPage;
+import com.nextbasecrm.utilities.BrowserUtils;
 import com.nextbasecrm.utilities.ConfigurationReader;
 import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -39,7 +40,7 @@ public class Appreciation_StepDefs {
         Assert.assertTrue(appreciationPage.moreTabAppreciationItem.isDisplayed());
 
     }
-    @And("the user clicks appreciation item")
+    @When("the user clicks appreciation item")
     public void the_user_clicks_appreciation_item() {
             appreciationPage.moreTabAppreciationItem.click();
     }
@@ -48,22 +49,30 @@ public class Appreciation_StepDefs {
         // switch to iframe
         Driver.getDriver().switchTo().frame(appreciationPage.iframe);
 
-        appreciationPage.appreciationMessageTitleInput.sendKeys("Thank you for your assistance.");
+        appreciationPage.appreciationMessageTitleInput.sendKeys("Thank you for your assistance. "+faker.funnyName().name());
 
         // switch to parent frame
         Driver.getDriver().switchTo().parentFrame();
 
     }
-    @And("the user clicks send button")
+
+    @Then("the user should be able to see recipient as All employees by default")
+    public void the_user_should_be_able_to_see_recipient_as_all_employees_by_default() {
+        Assert.assertTrue(appreciationPage.allEmployeesAsDefaultRecipient.isDisplayed());
+    }
+
+    @When("the user clicks send button")
     public void the_user_clicks_send_button() {
+
         appreciationPage.sendAppreciationButton.click();
+
     }
     @Then("the user should be able to see the appreciation message on activity stream")
     public void the_user_should_be_able_to_see_the_appreciation_message_on_activity_stream() {
 
         String expectedMessage = "Thank you for your assistance.";
         String actualMessage = homePage.firstSentActivity.getText();
-            Assert.assertEquals(expectedMessage,actualMessage);
+            Assert.assertTrue(actualMessage.contains(expectedMessage));
 
     }
 

@@ -22,8 +22,12 @@ public class AppreciationPage {
     @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
     public WebElement iframe;
 
+    @FindBy(xpath = "//span[@data-id='UA']//span[.='All employees']")
+    public WebElement allEmployeesAsDefaultRecipient;
+
     @FindBy(id = "blog-submit-button-save")
     public WebElement sendAppreciationButton;
+
 
 
 }

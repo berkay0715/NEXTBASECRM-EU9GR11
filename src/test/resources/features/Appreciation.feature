@@ -12,9 +12,10 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     Given the user logs in as a "<userType>"
     When  the user clicks more tab on portal homepage
     Then the user should be able to see appreciation on menu popup
-    And the user clicks appreciation item
+    When the user clicks appreciation item
     And the user writes appreciation message title
-    And the user clicks send button
+    Then the user should be able to see recipient as All employees by default
+    When the user clicks send button
     Then the user should be able to see the appreciation message on activity stream
 
 
