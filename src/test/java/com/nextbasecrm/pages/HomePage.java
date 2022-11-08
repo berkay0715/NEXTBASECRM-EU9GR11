@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class HomePage {
 
     public HomePage(){
@@ -28,17 +30,12 @@ public class HomePage {
     @FindBy(id = "feed-add-post-form-link-more")
     public WebElement moreTab;
 
-    @FindBy(id = "//span[contains(@class,'feed-add-post-form-file')]")
-    public WebElement moreTabFileItem;
+    @FindBy(xpath = "//div[@id='menu-popup-feed-add-post-form-popup']//span[@class='menu-popup-item-text']")
+    public List<WebElement> moreTabItems;
 
-    @FindBy(id = "//span[contains(@class,'feed-add-post-form-grat')]")
-    public WebElement moreTabAppreciationItem;
+    @FindBy(xpath = "(//div[contains(@id,'blog_post_body')])[1]")
+    public WebElement firstSentActivity;
 
-    @FindBy(id = "//span[contains(@class,'feed-add-post-form-important')]")
-    public WebElement moreTabAnnouncementItem;
-
-    @FindBy(id = "//span[contains(@class,'feed-add-post-form-lists')]")
-    public WebElement moreTabWorkflowItem;
 
 
 
