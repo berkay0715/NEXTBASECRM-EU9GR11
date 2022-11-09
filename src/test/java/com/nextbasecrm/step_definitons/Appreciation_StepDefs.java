@@ -22,6 +22,8 @@ public class Appreciation_StepDefs {
     Faker faker = new Faker();
 
 
+    // TC1
+
     @Given("the user logs in as a {string}")
     public void the_user_logsIn_as_a(String userType) {
 
@@ -42,6 +44,7 @@ public class Appreciation_StepDefs {
     }
     @When("the user clicks appreciation item")
     public void the_user_clicks_appreciation_item() {
+        BrowserUtils.waitForVisibility(appreciationPage.moreTabAppreciationItem,10);
             appreciationPage.moreTabAppreciationItem.click();
     }
     @And("the user writes appreciation message title")
@@ -75,6 +78,24 @@ public class Appreciation_StepDefs {
             Assert.assertTrue(actualMessage.contains(expectedMessage));
 
     }
+
+    // TC2
+
+    @Then("--The message title is not specified-- error message should be displayed")
+    public void the_message_title_is_not_specified_error_message_should_be_displayed() {
+            Assert.assertTrue(appreciationPage.emptyMessageErrorText.isDisplayed());
+    }
+
+    @Then("the user deletes all recipients")
+    public void the_user_deletes_all_recipients() {
+            appreciationPage.deleteAllEmployees.click();
+    }
+
+    @Then("--Please specify at least one person-- error message should be displayed")
+    public void please_specify_at_least_one_person_error_message_should_be_displayed() {
+            Assert.assertTrue(appreciationPage.noRecipientErrorText.isDisplayed());
+    }
+
 
 
 
