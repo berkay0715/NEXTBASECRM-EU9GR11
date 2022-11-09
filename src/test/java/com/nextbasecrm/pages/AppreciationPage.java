@@ -28,6 +28,15 @@ public class AppreciationPage {
     @FindBy(id = "blog-submit-button-save")
     public WebElement sendAppreciationButton;
 
+    @FindBy(xpath = "//span[.='The message title is not specified']")
+    public WebElement emptyMessageErrorText;
+
+    @FindBy(xpath = "//span[.='Please specify at least one person.']")
+    public WebElement noRecipientErrorText;
+
+    @FindBy(xpath = "//span[@class='feed-add-post-del-but']")
+    public WebElement deleteAllEmployees;
+
 
 
 }
