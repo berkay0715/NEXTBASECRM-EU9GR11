@@ -1,13 +1,13 @@
-
-Feature:
+@NEXTBASE-1498
+Feature: As a user, I should be able to create a poll by clicking on Poll tab under Active Stream.
 
   Users :
   helpdesk1@cybertekschool.com
   marketing1@cybertekschool.com
   hr1@cybertekschool.com
 
-
-  Scenario Outline: Verify that users can send a appreciation by filling the mandatory fields.
+  @poll1
+  Scenario Outline: Verify
 
     Given the user logs in as a "<userType>"
 
