@@ -21,6 +21,12 @@ public class UploadFilesAndPicturesPage {
     @FindBy(xpath = "(//table[@class='diskuf-selector-table wd-fa-add-file-light-table']/tbody/tr/td)[1]")
     public WebElement uploadFilesANDimagesLink;
 
+    @FindBy(xpath = "//button[@class='ui-btn ui-btn-lg ui-btn-primary']")
+    public WebElement sendButton;
+
+    @FindBy(id = "blog-submit-button-cancel")
+    public WebElement cancelButton;
+
 
 
 

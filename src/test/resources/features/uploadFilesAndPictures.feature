@@ -9,13 +9,13 @@ Feature: Upload files and pictures as messages
   @wip
   Scenario Outline: User should be able to upload multiple files at the same time(3 files).
     Given the user logs in as a "<userType>"
+    When user clicks "message" button on the quick navigate menu
+    And user clicks upload files icon
+    And user clicks 'Upload files and images' option and upload 3 files from own computer
+    When the user clicks send button
+    Then verify the user sent the files successfully
     Examples:
       | userType       |
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
-    When user clicks "message" button on the quick navigate menu
-    And user clicks upload files icon on the left corner below on the message field
-    And user clicks 'Upload files and images' option and upload 3 files from his/her own computer
-    When the user clicks send button
-    Then verify the user sent the files successfully
