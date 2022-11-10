@@ -12,6 +12,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 public class Appreciation_StepDefs {
 
@@ -39,6 +41,7 @@ public class Appreciation_StepDefs {
     }
     @Then("the user should be able to see appreciation on menu popup")
     public void the_user_should_be_able_to_see_appreciation_on_menu_popup() {
+        BrowserUtils.waitForVisibility(appreciationPage.moreTabAppreciationItem,10);
         Assert.assertTrue(appreciationPage.moreTabAppreciationItem.isDisplayed());
 
     }
@@ -95,6 +98,46 @@ public class Appreciation_StepDefs {
     public void please_specify_at_least_one_person_error_message_should_be_displayed() {
             Assert.assertTrue(appreciationPage.noRecipientErrorText.isDisplayed());
     }
+
+    // TC3
+
+    @When("the user clicks add persons link text")
+    public void the_user_clicks_add_persons_link_text() {
+       appreciationPage.addPersonsGroupsDepartment.click();
+    }
+    @Then("the user should be able to select different recipients from the list")
+    public void the_user_should_be_able_to_select_different_recipients_from_the_list() {
+
+        //select recipients from recent tab
+        for (WebElement recipient : appreciationPage.recipientsListForAppreciation) {
+            recipient.click();
+            Assert.assertTrue(recipient.isDisplayed());
+            recipient.click();
+            System.out.println("Recent :"+recipient.getText());
+        }
+
+        //select recipients from Employees and Departments tab
+        appreciationPage.employeesAndDepsRecipientsTab.click();
+        appreciationPage.recipientsListFromEmployeesAndDeps.get(0).click();
+        appreciationPage.recipientsListFromEmployeesAndDeps.forEach(p -> Assert.assertTrue(p.isDisplayed()));
+        appreciationPage.appreciationRecipientsInputBox.sendKeys(Keys.BACK_SPACE);
+        appreciationPage.recipientsListFromEmployeesAndDeps.get(1).click();
+        System.out.println("Employees and Departments"+appreciationPage.recipientsListFromEmployeesAndDeps.get(1).getText());
+        System.out.println("Employees and Departments"+appreciationPage.recipientsListFromEmployeesAndDeps.get(2).getText());
+        System.out.println("Employees and Departments"+appreciationPage.recipientsListFromEmployeesAndDeps.get(3).getText());
+
+        //select recipients from My groups tab
+        appreciationPage.myGroupsRecipientstab.click();
+
+        for (WebElement recipient : appreciationPage.recipientsListFromMyGroups) {
+            recipient.click();
+            Assert.assertTrue(recipient.isDisplayed());
+            recipient.click();
+            System.out.println("My Groups :"+recipient.getText());
+        }
+
+    }
+
 
 
 

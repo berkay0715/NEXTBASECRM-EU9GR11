@@ -14,6 +14,14 @@ public class HomePage {
     }
 
 
+    @FindBy(xpath = "//div[@id='sonet-groups-content-container']//span[.='Join']")
+    public List<WebElement> workGroupList;
+
+    @FindBy(xpath = "//a[@title='Activity Stream']")
+    public WebElement activityStreamTab;
+
+    @FindBy(xpath = "//a[@title='Workgroups']")
+    public WebElement workGroupsTab;
 
     @FindBy(id = "feed-add-post-form-tab-message")
     public WebElement messageTab;
@@ -35,6 +43,24 @@ public class HomePage {
 
     @FindBy(xpath = "(//div[contains(@id,'blog_post_body')])[1]")
     public WebElement firstSentActivity;
+
+
+    public void joinWorkGroups(){
+
+
+        workGroupsTab.click();
+
+        for (WebElement each : workGroupList) {
+            if (each.isDisplayed()){
+                each.click();
+            }else {
+                activityStreamTab.click();
+            }
+        }
+
+        activityStreamTab.click();
+
+    }
 
 
 
