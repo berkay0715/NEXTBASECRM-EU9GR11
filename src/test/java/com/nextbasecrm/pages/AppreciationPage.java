@@ -15,6 +15,8 @@ public class AppreciationPage {
     }
 
 
+    @FindBy(xpath = "//input[@id='feed-add-post-destination-input']")
+    public WebElement appreciationRecipientsInputBox;
 
     @FindBy(xpath = "//span[@class='popup-window-close-icon']")
     public WebElement popupWindowCloseIcon;
@@ -29,7 +31,7 @@ public class AppreciationPage {
     public List<WebElement> recipientsListFromEmployeesAndDeps;
 
     @FindBy(linkText = "Employees and departments")
-    public WebElement employeesAndDepsRecipientstab;
+    public WebElement employeesAndDepsRecipientsTab;
 
     @FindBy(xpath = "//div[@id='bx-lm-box-group-content']//a")
     public List<WebElement> recipientsListFromMyGroups;
