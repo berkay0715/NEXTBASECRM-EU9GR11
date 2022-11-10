@@ -1,4 +1,4 @@
-@NEXTBASE-1502 @smoke
+@NEXTBASE-1502
 Feature: As a user, I should be able to send appreciation by clicking on Appreciation tab from Quick Navigate Menu
 
   Users :
