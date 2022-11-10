@@ -12,6 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 public class Appreciation_StepDefs {
 
@@ -95,6 +96,44 @@ public class Appreciation_StepDefs {
     public void please_specify_at_least_one_person_error_message_should_be_displayed() {
             Assert.assertTrue(appreciationPage.noRecipientErrorText.isDisplayed());
     }
+
+    // TC3
+
+    @When("the user clicks add persons link text")
+    public void the_user_clicks_add_persons_link_text() {
+       appreciationPage.addPersonsGroupsDepartment.click();
+    }
+    @Then("the user should be able to select different recipients from the list")
+    public void the_user_should_be_able_to_select_different_recipients_from_the_list() {
+
+        for (WebElement recipient : appreciationPage.recipientsListForAppreciation) {
+            recipient.click();
+            Assert.assertTrue(recipient.isDisplayed());
+            recipient.click();
+            System.out.println(recipient.getText());
+        }
+
+
+        appreciationPage.employeesAndDepsRecipientstab.click();
+
+
+        for (WebElement recipient : appreciationPage.recipientsListFromEmployeesAndDeps) {
+            Assert.assertTrue(recipient.isDisplayed());
+
+        }
+
+        appreciationPage.emailUsersRecipientstab.click();
+
+        for (WebElement recipient : appreciationPage.recipientsListFromEmailUsers) {
+
+            recipient.click();
+            Assert.assertTrue(recipient.isDisplayed());
+            recipient.click();
+        }
+
+
+    }
+
 
 
 

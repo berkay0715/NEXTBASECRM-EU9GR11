@@ -6,12 +6,42 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class AppreciationPage {
 
     public AppreciationPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+
+
+    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
+    public WebElement popupWindowCloseIcon;
+
+    @FindBy(xpath = "//div[@id='bx-lm-box-email-content']//a")
+    public List<WebElement> recipientsListFromEmailUsers;
+
+    @FindBy(linkText = "E-mail users")
+    public WebElement emailUsersRecipientstab;
+
+    @FindBy(xpath = "//div[@id='bx-lm-category-relation-129']//a")
+    public List<WebElement> recipientsListFromEmployeesAndDeps;
+
+    @FindBy(linkText = "Employees and departments")
+    public WebElement employeesAndDepsRecipientstab;
+
+    @FindBy(xpath = "//div[@id='bx-lm-box-group-content']//a")
+    public List<WebElement> recipientsListFromMyGroups;
+
+    @FindBy(linkText = "My Groups")
+    public WebElement myGroupsRecipientstab;
+
+    @FindBy(xpath = "//span[@class='bx-finder-groupbox-content']//a")
+    public List<WebElement> recipientsListForAppreciation;
+
+    @FindBy(id = "bx-destination-tag")
+    public WebElement addPersonsGroupsDepartment;
 
     @FindBy(xpath = "(//div[@id='menu-popup-feed-add-post-form-popup']//span[@class='menu-popup-item-text'])[2]")
     public WebElement moreTabAppreciationItem;
