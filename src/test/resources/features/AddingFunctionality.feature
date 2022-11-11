@@ -10,7 +10,8 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
   Scenario Outline: User should be able to add mentions about only department employees.
     Given the user logs in as a "<userType>"
-    When user clicks the "Message Button".
+
+    When user clicks the "Message Tab".
     And user enters any message.
     And user clicks the "Add Mention Button".
     And user clicks the "EmpAndDep Button".
