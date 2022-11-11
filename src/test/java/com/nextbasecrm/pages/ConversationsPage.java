@@ -18,13 +18,13 @@ public class ConversationsPage {
     @FindBy(xpath = "//button[@id='blog-submit-button-save']")
     public WebElement SendButton;
 
-/*
-    @FindBy(xpath = "(//iframe)[2]")
+
+    @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
     public WebElement InputTextBox;
-*/
+/*
     @FindBy(xpath = "//body[@style='min-height: 184px;']")
     public WebElement InputTextBox;
-
+*/
     @FindBy(xpath = "//span[@id='bx-b-mention-blogPostForm']")
     public WebElement MentionButton;
 
@@ -41,5 +41,7 @@ public class ConversationsPage {
     @FindBy(xpath = "//span[@data-id='U522']")
     public WebElement VerifyAddMention;
 
+    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='helpdesk32@cybertekschool.com']")
+    public WebElement VerifyMentionedMsg;
 
 }

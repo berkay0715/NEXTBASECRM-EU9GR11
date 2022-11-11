@@ -23,6 +23,7 @@ public class AddingFunctionality_StepDefs {
 
             case "Message Tab":
                 conversationsPage.MessageTab.click();
+                BrowserUtils.waitForVisibility(conversationsPage.SendButton,10);
                 BrowserUtils.verifyElementDisplayed(conversationsPage.SendButton);
                 break;
 
@@ -49,7 +50,10 @@ public class AddingFunctionality_StepDefs {
     }
     @When("user enters any message.")
     public void user_enters_any_message() {
+
+       // BrowserUtils.waitForVisibility(conversationsPage.InputTextBox,10);
         conversationsPage.InputTextBox.sendKeys(faker.weather().description());
+
     }
     @Then("verify that user should be able to see list of employees.")
     public void verify_that_user_should_be_able_to_see_list_of_employees() {
@@ -62,7 +66,7 @@ public class AddingFunctionality_StepDefs {
 
     @Then("verify that user should be able to send the mentioned message successfully.")
     public void verify_that_user_should_be_able_to_send_the_mentioned_message_successfully() {
-        System.out.println("I need to do it");
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyMentionedMsg);
     }
 
 
