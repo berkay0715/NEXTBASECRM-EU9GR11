@@ -10,6 +10,16 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
   Scenario Outline: User should be able to add mentions about only department employees.
     Given the user logs in as a "<userType>"
+    When user clicks the "Message" button.
+    And user enters any message.
+    And user clicks the "Add Mention" button.
+    And user clicks the "EmpAndDep" button.
+    Then verify that user should be able to see list of employees.
+    When user clicks one of the "Employee's Mail".
+    Then verify that user should be able to mention the employee successfully.
+    When user clicks "Send" button.
+    Then verify that user should be able to send the mentioned message successfully.
+
 
 
     Examples:
