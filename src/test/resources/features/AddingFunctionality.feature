@@ -17,7 +17,7 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
     Then verify that user should be able to see list of employees.
     When user clicks the "On of the Employee's Mail".
     Then verify that user should be able to mention the employee successfully.
-    When user clicks "Send Button".
+    When user clicks the "Send Button".
     Then verify that user should be able to send the mentioned message successfully.
 
 
