@@ -49,8 +49,15 @@ public class AddingFunctionality_StepDefs {
                 break;
 
             case "Save Button":
-                conversationsPage.SaveLinkButton.click();
+                conversationsPage.SaveButton.click();
                 break;
+
+            case "Insert Video Button":
+                conversationsPage.InsertVideoButton.click();
+                break;
+
+
+
         }
 
 
@@ -82,6 +89,9 @@ public class AddingFunctionality_StepDefs {
 
 
 
+
+
+
     @Then("verify that user should be able to see Link page.")
     public void verify_that_user_should_be_able_to_see_link_page() {
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyLink);
@@ -104,5 +114,38 @@ public class AddingFunctionality_StepDefs {
     public void verify_that_user_should_be_able_to_send_the_added_link_message_successfully() {
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyLinkedMsg);
     }
+
+
+
+
+
+
+
+
+    @Then("verify that user should be able to see video page.")
+    public void verify_that_user_should_be_able_to_see_video_page() {
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyVideoPage);
+    }
+    @When("user enter the URL from Vimeo to video source input box.")
+    public void user_enter_the_url_from_vimeo_to_video_source_input_box() {
+        conversationsPage.VideoSourceInputBox.sendKeys("https://vimeo.com/565327806");
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyVideoIsAdded,10);
+    }
+    @Then("verify that user should be able to add the video from Vimeo successfully.")
+    public void verify_that_user_should_be_able_to_add_the_video_from_vimeo_successfully() {
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyVideoIsAdded);
+    }
+    @Then("verify that user should be able to save the add video function successfully.")
+    public void verify_that_user_should_be_able_to_save_the_add_video_function_successfully() {
+        Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyVideoIsSaved);
+        Driver.getDriver().switchTo().parentFrame();
+    }
+    @Then("verify that user should be able to send the video added from Vimeo message successfully.")
+    public void verify_that_user_should_be_able_to_send_the_video_added_from_vimeo_message_successfully() {
+        Driver.getDriver().switchTo().frame(conversationsPage.VerifyVideoIsSentIframe);
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyVideoSent);
+    }
+
 
 }

@@ -63,7 +63,7 @@ public class ConversationsPage {
     public WebElement LinkURLInputTextBox;
 
     @FindBy(xpath = "//input[@class='adm-btn-save']")
-    public WebElement SaveLinkButton;
+    public WebElement SaveButton;
 
     //You can change the LinkText based on What did you write as linkText
     @FindBy(xpath = "//a[.='Surprise Link From JavaFaker ']")
@@ -72,6 +72,33 @@ public class ConversationsPage {
     //You can change the LinkText based on What did you write as linkText but if you have space after text here you don't put that
     @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='Surprise Link From JavaFaker']")
     public WebElement VerifyLinkedMsg;
+
+
+
+
+
+
+
+    @FindBy(xpath = "//span[@title='Insert video']")
+    public WebElement InsertVideoButton;
+
+    @FindBy(xpath = "//span[.='Video']")
+    public WebElement VerifyVideoPage;
+
+    @FindBy(xpath = "//input[@placeholder='YouTube or Vimeo video URL']")
+    public WebElement VideoSourceInputBox;
+
+    @FindBy(xpath = "//label[.='Video title:']")
+    public WebElement VerifyVideoIsAdded;
+
+    @FindBy(xpath = "//span[@title='Video']")
+    public WebElement VerifyVideoIsSaved;
+
+    @FindBy(xpath = "//div[@class='feed-post-text-block-inner-inner']/iframe")
+    public WebElement VerifyVideoIsSentIframe;
+
+    @FindBy(xpath = "//div[@id='player']")
+    public WebElement VerifyVideoSent;
 
 
 

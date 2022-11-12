@@ -60,6 +60,18 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
     When user clicks the "Message Tab".
     And user enters any message.
+    And user clicks the "Insert Video Button".
+    Then verify that user should be able to see video page.
+    When user enter the URL from Vimeo to video source input box.
+    Then verify that user should be able to add the video from Vimeo successfully.
+    When user clicks the "Save Button".
+    Then verify that user should be able to save the add video function successfully.
+    When user clicks the "Send Button".
+    Then verify that user should be able to send the video added from Vimeo message successfully.
+
+
+
+
 
 
     Examples:
