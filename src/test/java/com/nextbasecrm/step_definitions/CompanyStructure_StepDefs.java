@@ -18,6 +18,7 @@ import java.util.List;
 
 public class CompanyStructure_StepDefs {
 
+
     LoginPage loginPage=new LoginPage();
     CompanyStructurePage companyStructurePage=new CompanyStructurePage();
 
@@ -86,7 +87,6 @@ public class CompanyStructure_StepDefs {
         companyStructurePage.supervisorRecent.click();
         BrowserUtils.waitFor(2);
     }
-
 }
 
 
