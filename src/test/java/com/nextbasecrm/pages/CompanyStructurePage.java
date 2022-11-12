@@ -39,6 +39,26 @@ public class CompanyStructurePage {
     public WebElement parentDepartmentDropdown;
 
 
+@FindBy(xpath ="//a[@id='single-user-choice']")
+    public WebElement selectFromStructure;
+
+
+@FindBy(xpath ="(//span[@class='finder-box-tab-text']/..)[1]")
+    public WebElement RecentBox;
+
+
+@FindBy(xpath ="(//span[@class='finder-box-tab-text']/..)[2]")
+    public WebElement companyBox;
+
+    @FindBy(xpath ="(//span[@class='finder-box-tab-text']/..)[3]")
+    public WebElement searchBox;
+
+
+ @FindBy(xpath ="")
+    public WebElement supervisorRecent;
+
+
+
 
 
 }
