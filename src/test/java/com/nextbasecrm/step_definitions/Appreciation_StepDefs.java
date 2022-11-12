@@ -1,4 +1,4 @@
-package com.nextbasecrm.step_definitons;
+package com.nextbasecrm.step_definitions;
 
 import com.github.javafaker.Faker;
 import com.nextbasecrm.pages.AppreciationPage;
