@@ -23,20 +23,20 @@ public class CompanyStructure_StepDefs {
 
     @When("user clicks the employees link")
     public void user_clicks_the_employees_link() {
-       companyStructurePage.employeesLink.click();
+        companyStructurePage.employeesLink.click();
     }
     @When("user clicks company structure")
     public void user_clicks_company_structure() {
-     companyStructurePage.companyStructure.click();
+        companyStructurePage.companyStructure.click();
     }
     @Then("user should see star next to company structure")
     public void user_should_see_star_next_to_company_structure() {
-     Assert.assertTrue(companyStructurePage.starNexToCompany.isDisplayed());
+        Assert.assertTrue(companyStructurePage.starNexToCompany.isDisplayed());
     }
 
     @When("user clicks the add department button")
     public void user_clicks_the_add_department_button() {
-      companyStructurePage.addDepartmentButton.click();
+        companyStructurePage.addDepartmentButton.click();
     }
 
     @When("user types {string} in the department name")
@@ -47,13 +47,13 @@ public class CompanyStructure_StepDefs {
     }
     @When("user clicks the Add  button")
     public void user_clicks_the_add_button() {
-  companyStructurePage.addButton.click();
+        companyStructurePage.addButton.click();
         BrowserUtils.waitFor(5);
 
     }
     @Then("user should see default parent department title")
     public void user_should_see_default_parent_department_title() {
-       Assert.assertTrue(companyStructurePage.parentDepartmentTitle.isDisplayed());
+        Assert.assertTrue(companyStructurePage.parentDepartmentTitle.isDisplayed());
     }
 
     @When("user select a parent department from the department dropdown")
@@ -70,24 +70,26 @@ public class CompanyStructure_StepDefs {
     @When("user clicks select from structure")
     public void user_clicks_select_from_structure() {
 
-BrowserUtils.scrollToElement(companyStructurePage.selectFromStructure);
-companyStructurePage.selectFromStructure.click();
+        BrowserUtils.scrollToElement(companyStructurePage.selectFromStructure);
+        companyStructurePage.selectFromStructure.click();
     }
 
     @When("user clicks the recent box")
     public void user_clicks_the_recent_box() {
 
-BrowserUtils.scrollToElement(companyStructurePage.RecentBox);
-companyStructurePage.RecentBox.click();
+        BrowserUtils.scrollToElement(companyStructurePage.RecentBox);
+        companyStructurePage.RecentBox.click();
 
     }
     @When("user clicks a supervisor from recent box")
     public void user_clicks_a_supervisor_from_recent_box() {
-       companyStructurePage.supervisorRecent.click();
-       BrowserUtils.waitFor(2);
+        companyStructurePage.supervisorRecent.click();
+        BrowserUtils.waitFor(2);
     }
 
-    }
+}
+
+
 
 
 
