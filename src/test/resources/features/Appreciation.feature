@@ -61,6 +61,19 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
       | Marketing      |
 
 
+  @tc4
+  Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
+    Given the user logs in as a "<userType>"
+    When the user clicks more tab on portal homepage
+
+
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+
   #1. User should be able to send a appreciation by filling the mandatory fields.
   #2. The message delivery should be to 'All employees' by default and should be changeable.
   #3. User should be able to cancel sending appreciation at any time before sending.
