@@ -8,9 +8,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
 
   @tc1
   Scenario Outline: Verify that users can send a appreciation by filling the mandatory fields.
-
     Given the user logs in as a "<userType>"
-
     When the user clicks more tab on portal homepage
     Then the user should be able to see appreciation on menu popup
     When the user clicks appreciation item
@@ -28,9 +26,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
 
   @tc2
   Scenario Outline: Verifying Error messages for mandatory fields
-
     Given the user logs in as a "<userType>"
-
     When the user clicks more tab on portal homepage
     And  the user clicks appreciation item
     And  the user clicks send button
@@ -49,9 +45,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
 
   @tc3
   Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
-
     Given the user logs in as a "<userType>"
-
     When the user clicks more tab on portal homepage
     And  the user clicks appreciation item
     And  the user writes appreciation message title
