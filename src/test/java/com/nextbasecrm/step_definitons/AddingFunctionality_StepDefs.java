@@ -44,6 +44,13 @@ public class AddingFunctionality_StepDefs {
                 conversationsPage.SendButton.click();
                 break;
 
+            case "Add Link Button":
+                conversationsPage.AddLinkButton.click();
+                break;
+
+            case "Save Button":
+                conversationsPage.SaveLinkButton.click();
+                break;
         }
 
 
@@ -72,5 +79,30 @@ public class AddingFunctionality_StepDefs {
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyMentionedMsg);
     }
 
+
+
+
+    @Then("verify that user should be able to see Link page.")
+    public void verify_that_user_should_be_able_to_see_link_page() {
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyLink);
+    }
+    @When("user enters the link text to the link text input box.")
+    public void user_enters_the_link_text_to_the_link_text_input_box() {
+        conversationsPage.LinkTextInputTextBox.sendKeys("Surprise Link From JavaFaker ");
+    }
+    @When("user enters the link url to the link url input box.")
+    public void user_enters_the_link_url_to_the_link_url_input_box() {
+        conversationsPage.LinkURLInputTextBox.sendKeys(faker.internet().url());
+    }
+    @Then("verify that user should be able to add the link successfully.")
+    public void verify_that_user_should_be_able_to_add_the_link_successfully() {
+        Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyLinkIsAdded);
+        Driver.getDriver().switchTo().parentFrame();
+    }
+    @Then("verify that user should be able to send the added link message successfully.")
+    public void verify_that_user_should_be_able_to_send_the_added_link_message_successfully() {
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyLinkedMsg);
+    }
 
 }

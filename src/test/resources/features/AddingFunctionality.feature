@@ -6,8 +6,6 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
   hr1@cybertekschool.com
 
 
-  @Background:
-
 
 
   Scenario Outline: User should be able to add mentions about only department employees.
@@ -39,6 +37,14 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
     When user clicks the "Message Tab".
     And user enters any message.
+    And user clicks the "Add Link Button".
+    Then verify that user should be able to see Link page.
+    When user enters the link text to the link text input box.
+    And user enters the link url to the link url input box.
+    And user clicks the "Save Button".
+    Then verify that user should be able to add the link successfully.
+    When user clicks the "Send Button".
+    Then verify that user should be able to send the added link message successfully.
 
     Examples:
       | userType       |

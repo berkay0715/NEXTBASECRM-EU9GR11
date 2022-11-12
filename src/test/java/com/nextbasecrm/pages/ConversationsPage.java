@@ -44,4 +44,36 @@ public class ConversationsPage {
     @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='helpdesk32@cybertekschool.com']")
     public WebElement VerifyMentionedMsg;
 
+
+
+
+
+
+
+    @FindBy(xpath = "//span[@title='Link']")
+    public WebElement AddLinkButton;
+
+    @FindBy(xpath = "//span[.='Link']")
+    public WebElement VerifyLink;
+
+    @FindBy(xpath = "//input[@id='linkidPostFormLHE_blogPostForm-text']")
+    public WebElement LinkTextInputTextBox;
+
+    @FindBy(xpath = "//input[@id='linkidPostFormLHE_blogPostForm-href']")
+    public WebElement LinkURLInputTextBox;
+
+    @FindBy(xpath = "//input[@class='adm-btn-save']")
+    public WebElement SaveLinkButton;
+
+    //You can change the LinkText based on What did you write as linkText
+    @FindBy(xpath = "//a[.='Surprise Link From JavaFaker ']")
+    public WebElement VerifyLinkIsAdded;
+
+    //You can change the LinkText based on What did you write as linkText but if you have space after text here you don't put that
+    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='Surprise Link From JavaFaker']")
+    public WebElement VerifyLinkedMsg;
+
+
+
+
 }
