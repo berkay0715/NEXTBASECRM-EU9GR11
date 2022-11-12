@@ -12,20 +12,26 @@ public class UploadFilesAndPicturesPage {
     }
 
 
-    @FindBy(xpath = "//span[text()='Message']")
-    public WebElement messageButton;
 
     @FindBy(id = "bx-b-uploadfile-blogPostForm")
     public WebElement uploadFilesIcon;
 
-    @FindBy(xpath = "(//table[@class='diskuf-selector-table wd-fa-add-file-light-table']/tbody/tr/td)[1]")
+
+    @FindBy(xpath = "(//table[@class='diskuf-selector-table wd-fa-add-file-light-table']//div[@class='diskuf-uploader'])[1]")
     public WebElement uploadFilesANDimagesLink;
 
-    @FindBy(xpath = "//button[@class='ui-btn ui-btn-lg ui-btn-primary']")
+    @FindBy(xpath = "//button[@id='blog-submit-button-save']")
     public WebElement sendButton;
 
     @FindBy(id = "blog-submit-button-cancel")
     public WebElement cancelButton;
+
+    @FindBy(xpath = "//span[@class='insert-btn']")
+    public WebElement insertInTextBtn;
+
+    @FindBy(xpath = "//input[@name='BLOG_POST_DISK_ATTACHED_OBJECT_ALLOW_EDIT']")
+    public WebElement allowRecipientToEditCheckbox;
+
 
 
 

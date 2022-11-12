@@ -1,38 +1,73 @@
 package com.nextbasecrm.step_definitons;
 
-import io.cucumber.java.en.Given;
+import com.nextbasecrm.pages.HomePage;
+import com.nextbasecrm.pages.LoginPage;
+import com.nextbasecrm.pages.UploadFilesAndPicturesPage;
+import com.nextbasecrm.utilities.BrowserUtils;
+import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 
 public class UploadFilesPictures_StepDefs {
 
+    LoginPage loginPage= new LoginPage();
+    UploadFilesAndPicturesPage uploadFilesAndPicturesPage= new UploadFilesAndPicturesPage();
+    HomePage homePage= new HomePage();
+
+    Actions actions= new Actions(Driver.getDriver());
 
 
-    @Given("the user logs in as a {string}")
-    public void the_user_logs_in_as_a(String string) {
 
+
+
+    @When("user clicks {string} on the quick navigate menu")
+    public void userClicksOnTheQuickNavigateMenu(String messageTab) {
+        homePage.messageTab.click();
+        BrowserUtils.sleep(2);
     }
-    @When("user clicks {string} button on the quick navigate menu")
-    public void user_clicks_button_on_the_quick_navigate_menu(String string) {
 
-    }
     @When("user clicks upload files icon")
     public void user_clicks_upload_files_icon() {
+        uploadFilesAndPicturesPage.uploadFilesIcon.click();
+        BrowserUtils.sleep(3);
 
     }
-    @When("user clicks {string} option and upload {int} files from own computer")
-    public void user_clicks_option_and_upload_files_from_own_computer(String string, Integer int1) {
+
+    @When("user clicks -Upload files and images- option and upload file")
+    public void user_clicks_upload_files_and_images_option_and_upload_file() {
+
+       // String path2="C:\\Users\\hicre\\OneDrive\\Masaüstü\\GIThub  sessions\\branch.png";
+       // String path3="C:\\Users\\hicre\\OneDrive\\Masaüstü\\GIThub  sessions\\GIThub.png";
+
+       // uploadFilesAndPicturesPage.uploadFilesANDimagesLink.click();
+
+
+        String path1= "C:\\Users\\hicre\\OneDrive\\Masaüstü\\GIThub  sessions\\branch on GIT.png";
+        BrowserUtils.sleep(5);
+        uploadFilesAndPicturesPage.uploadFilesANDimagesLink.sendKeys(path1);
+
+        BrowserUtils.sleep(3);
+    }
+
+    @When("the user clicks send button for uploading")
+    public void the_user_clicks_send_button_for_uploading() {
+        BrowserUtils.sleep(3);
+
+        //BrowserUtils.clickWithJS(uploadFilesAndPicturesPage.sendButton);
+        uploadFilesAndPicturesPage.sendButton.click();
+
+        BrowserUtils.waitForPageToLoad(3);
 
     }
-    @When("the user clicks send button")
-    public void the_user_clicks_send_button() {
 
-    }
+
+
     @Then("verify the user sent the files successfully")
     public void verify_the_user_sent_the_files_successfully() {
 
     }
-
 
 
 

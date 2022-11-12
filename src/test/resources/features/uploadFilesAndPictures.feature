@@ -2,20 +2,81 @@ Feature: Upload files and pictures as messages
   User Story: As a user, I should be able to upload files and pictures as messages
 
   Users :
-  helpdesk1@cybertekschool.com
-  marketing1@cybertekschool.com
-  hr1@cybertekschool.com
+  helpdesk ,marketing, hr
 
-  @wip
-  Scenario Outline: User should be able to upload multiple files at the same time(3 files).
+
+  @hicret
+  Scenario Outline: 1,2 User should be able to upload multiple files in different formats at the same time(3 files).
     Given the user logs in as a "<userType>"
-    When user clicks "message" button on the quick navigate menu
+    When user clicks "messageTab" on the quick navigate menu
     And user clicks upload files icon
-    And user clicks 'Upload files and images' option and upload 3 files from own computer
-    When the user clicks send button
+    And user clicks -Upload files and images- option and upload file
+    When the user clicks send button for uploading
     Then verify the user sent the files successfully
+
     Examples:
       | userType       |
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
+
+
+
+  Scenario Outline: 3,4 User should be able to upload pictures and then display the picture in Activity Stream.
+    Given the user logs in as a "<userType>"
+
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+
+
+
+  Scenario Outline: 5 User should be able to insert the files and images into the text.
+    Given the user logs in as a "<userType>"
+
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+  Scenario Outline: 6 User should be able to allow a recipient to edit documents.
+    Given the user logs in as a "<userType>"
+
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+  Scenario Outline: 7 User should be able to remove files and images at any time before sending.
+    Given the user logs in as a "<userType>"
+
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

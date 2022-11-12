@@ -15,9 +15,9 @@ import org.junit.runner.RunWith;
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
         features = "src/test/resources/features",
-        glue = "com/nextbasecrm/step_definitions",
-        dryRun = true,
-        tags = "@wip"
+        glue = "com/nextbasecrm/step_definitons",
+        dryRun = false,
+        tags = "@hicret"
        // publish = true
 )
 public class CukesRunner {
