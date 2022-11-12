@@ -54,7 +54,7 @@ public class AddingFunctionality_StepDefs {
 
        // BrowserUtils.waitForVisibility(conversationsPage.InputTextBox,10);
         Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
-        conversationsPage.TextInputTextBox.sendKeys(faker.weather().description());
+        conversationsPage.TextInputTextBox.sendKeys(faker.weather().description()+". ");
         Driver.getDriver().switchTo().parentFrame();
 
     }

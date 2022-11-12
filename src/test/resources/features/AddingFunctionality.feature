@@ -6,6 +6,8 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
   hr1@cybertekschool.com
 
 
+  @Background:
+
 
 
   Scenario Outline: User should be able to add mentions about only department employees.
@@ -35,6 +37,8 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
   Scenario Outline: User should be able to attach a link to the specified text.
     Given the user logs in as a "<userType>"
 
+    When user clicks the "Message Tab".
+    And user enters any message.
 
     Examples:
       | userType       |
@@ -47,6 +51,9 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
   Scenario Outline: User should be able to insert YouTube and Vimeo videos.
     Given the user logs in as a "<userType>"
+
+    When user clicks the "Message Tab".
+    And user enters any message.
 
 
     Examples:
@@ -61,6 +68,8 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
   Scenario Outline: User should be able to cancel links and videos before sending the message.
     Given the user logs in as a "<userType>"
 
+    When user clicks the "Message Tab".
+    And user enters any message.
 
     Examples:
       | userType       |
@@ -74,6 +83,9 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
   Scenario Outline: User should be able to add quotes.
     Given the user logs in as a "<userType>"
 
+    When user clicks the "Message Tab".
+    And user enters any message.
+
 
     Examples:
       | userType       |
@@ -86,6 +98,9 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
   Scenario Outline: User should be able to add tags to messages.
     Given the user logs in as a "<userType>"
+
+    When user clicks the "Message Tab".
+    And user enters any message.
 
 
     Examples:
@@ -101,6 +116,8 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
   Scenario Outline: User should be able to remove tags before sending the message.
     Given the user logs in as a "<userType>"
 
+    When user clicks the "Message Tab".
+    And user enters any message.
 
     Examples:
       | userType       |
