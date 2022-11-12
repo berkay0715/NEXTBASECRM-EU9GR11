@@ -21,8 +21,6 @@ public class CompanyStructure_StepDefs {
     LoginPage loginPage=new LoginPage();
     CompanyStructurePage companyStructurePage=new CompanyStructurePage();
 
-
-
     @When("user clicks the employees link")
     public void user_clicks_the_employees_link() {
        companyStructurePage.employeesLink.click();
@@ -35,10 +33,6 @@ public class CompanyStructure_StepDefs {
     public void user_should_see_star_next_to_company_structure() {
      Assert.assertTrue(companyStructurePage.starNexToCompany.isDisplayed());
     }
-
-
-
-
 
     @When("user clicks the add department button")
     public void user_clicks_the_add_department_button() {
@@ -62,8 +56,6 @@ public class CompanyStructure_StepDefs {
        Assert.assertTrue(companyStructurePage.parentDepartmentTitle.isDisplayed());
     }
 
-
-
     @When("user select a parent department from the department dropdown")
     public void user_select_a_parent_department_from_the_department_dropdown() {
 
@@ -73,10 +65,7 @@ public class CompanyStructure_StepDefs {
 
         BrowserUtils.waitFor(5);
 
-
     }
-
-
 
     @When("user clicks select from structure")
     public void user_clicks_select_from_structure() {
@@ -97,8 +86,6 @@ companyStructurePage.RecentBox.click();
        companyStructurePage.supervisorRecent.click();
        BrowserUtils.waitFor(2);
     }
-
-
 
     }
 
