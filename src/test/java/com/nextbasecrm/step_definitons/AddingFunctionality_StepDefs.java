@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.poi.ss.formula.atp.Switch;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class AddingFunctionality_StepDefs {
@@ -131,8 +132,8 @@ public class AddingFunctionality_StepDefs {
         conversationsPage.VideoSourceInputBox.sendKeys("https://vimeo.com/565327806");
         BrowserUtils.waitForVisibility(conversationsPage.VerifyVideoIsAdded,10);
     }
-    @Then("verify that user should be able to add the video from Vimeo successfully.")
-    public void verify_that_user_should_be_able_to_add_the_video_from_vimeo_successfully() {
+    @Then("verify that user should be able to add the video successfully.")
+    public void verify_that_user_should_be_able_to_add_the_video_successfully() {
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyVideoIsAdded);
     }
     @Then("verify that user should be able to save the add video function successfully.")
@@ -148,4 +149,42 @@ public class AddingFunctionality_StepDefs {
     }
 
 
+
+    @When("user enter the URL from Youtube to video source input box.")
+    public void userEnterTheURLFromYoutubeToVideoSourceInputBox() {
+        conversationsPage.VideoSourceInputBox.sendKeys("https://youtu.be/53rCIbKHCeU");
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyVideoIsAdded,10);
+    }
+
+
+    @When("user removes the {string} from message box.")
+    public void userRemovesTheFromMessageBox(String arg) {
+
+        switch (arg) {
+
+            case "Video":
+                Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+                conversationsPage.VerifyVideoIsSaved.clear();
+                break;
+            case "Link":
+                Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+                conversationsPage.VerifyLinkIsAdded.clear();
+                break;
+            case "Tag":
+                break;
+            }
+
+        }
+
+    @Then("verify that user should be able to remove the video from message box.")
+    public void verifyThatUserShouldBeAbleToRemoveTheVideoFromMessageBox() {
+        BrowserUtils.verifyElementNotDisplayed(By.xpath("//span[@title='Video']"));
+
+    }
+
+    @Then("verify that user should be able to remove the link from message box.")
+    public void verifyThatUserShouldBeAbleToRemoveTheLinkFromMessageBox() {
+        BrowserUtils.verifyElementNotDisplayed(By.xpath("//a[.='Surprise Link From JavaFaker ']"));
+        Driver.getDriver().switchTo().parentFrame();
+    }
 }
