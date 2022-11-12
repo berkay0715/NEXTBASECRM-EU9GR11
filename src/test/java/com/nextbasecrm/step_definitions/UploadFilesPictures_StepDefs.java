@@ -65,7 +65,7 @@ public class UploadFilesPictures_StepDefs {
 
     @Then("verify the user sent the files successfully")
     public void verify_the_user_sent_the_files_successfully() {
-
+        System.out.println("done");
     }
 
 
