@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/nextbasecrm/step_definitions",
-        dryRun = true,
+        dryRun = false,
         tags = ""
        // publish = true
 )
