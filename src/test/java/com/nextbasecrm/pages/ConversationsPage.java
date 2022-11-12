@@ -21,10 +21,10 @@ public class ConversationsPage {
 
     @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
     public WebElement InputTextBox;
-/*
+
     @FindBy(xpath = "//body[@style='min-height: 184px;']")
-    public WebElement InputTextBox;
-*/
+    public WebElement TextInputTextBox;
+
     @FindBy(xpath = "//span[@id='bx-b-mention-blogPostForm']")
     public WebElement MentionButton;
 

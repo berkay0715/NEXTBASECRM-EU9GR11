@@ -3,6 +3,7 @@ package com.nextbasecrm.step_definitons;
 import com.github.javafaker.Faker;
 import com.nextbasecrm.pages.ConversationsPage;
 import com.nextbasecrm.utilities.BrowserUtils;
+import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.poi.ss.formula.atp.Switch;
@@ -52,7 +53,9 @@ public class AddingFunctionality_StepDefs {
     public void user_enters_any_message() {
 
        // BrowserUtils.waitForVisibility(conversationsPage.InputTextBox,10);
-        conversationsPage.InputTextBox.sendKeys(faker.weather().description());
+        Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+        conversationsPage.TextInputTextBox.sendKeys(faker.weather().description());
+        Driver.getDriver().switchTo().parentFrame();
 
     }
     @Then("verify that user should be able to see list of employees.")
