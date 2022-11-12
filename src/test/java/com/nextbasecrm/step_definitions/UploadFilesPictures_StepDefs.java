@@ -1,4 +1,4 @@
-package com.nextbasecrm.step_definitons;
+package com.nextbasecrm.step_definitions;
 
 import com.nextbasecrm.pages.HomePage;
 import com.nextbasecrm.pages.LoginPage;
@@ -7,7 +7,6 @@ import com.nextbasecrm.utilities.BrowserUtils;
 import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 
 public class UploadFilesPictures_StepDefs {

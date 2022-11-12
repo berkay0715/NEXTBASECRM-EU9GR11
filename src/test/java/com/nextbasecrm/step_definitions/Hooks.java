@@ -1,4 +1,4 @@
-package com.nextbasecrm.step_definitons;
+package com.nextbasecrm.step_definitions;
 
 /*
 In this class we will be able to pass pre- & post- conditions to

@@ -15,9 +15,9 @@ public class UploadFilesAndPicturesPage {
 
     @FindBy(id = "bx-b-uploadfile-blogPostForm")
     public WebElement uploadFilesIcon;
-
-
-    @FindBy(xpath = "(//table[@class='diskuf-selector-table wd-fa-add-file-light-table']//div[@class='diskuf-uploader'])[1]")
+//(//table[@class='diskuf-selector-table wd-fa-add-file-light-table']//div[@class='diskuf-uploader'])[1]
+//
+    @FindBy(xpath = "//input[@name='bxu_files[]']")
     public WebElement uploadFilesANDimagesLink;
 
     @FindBy(xpath = "//button[@id='blog-submit-button-save']")
