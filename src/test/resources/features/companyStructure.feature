@@ -48,7 +48,6 @@ Feature:As a user, I should be able to use functions on Company Structure under 
       | userType       |
       | Human Resource |
 
-
   @NEXTBASE-1496
   Scenario Outline: Verify that   Hr user should be able to select a supervisor from "recent", "company" and "search"
     Given the user logs in as a "<userType>"
@@ -57,10 +56,35 @@ Feature:As a user, I should be able to use functions on Company Structure under 
     And user clicks select from structure
     And  user clicks the recent box
     And user clicks a supervisor from recent box
-    Then user should see default parent department title
+
+    Examples:
+      | userType       |
+      | Human Resource |
+
+  @NEXTBASE-1496
+  Scenario Outline: Verify that   Hr user should be able to select a supervisor from "recent", "company" and "search"
+    Given the user logs in as a "<userType>"
+    When user clicks the employees link
+    And user clicks the add department button
+    And user clicks select from structure
+    And user clicks the company box
+    And user clicks the Cyber Vet
+    And user clicks a supervisor from company box
+
+    Examples:
+      | userType       |
+      | Human Resource |
 
 
-
+  @NEXTBASE-1496
+  Scenario Outline: Verify that   Hr user should be able to select a supervisor from "recent", "company" and "search"
+    Given the user logs in as a "<userType>"
+    When user clicks the employees link
+    And user clicks the add department button
+    And user clicks select from structure
+    And user clicks the search box
+    And user types in the search input "Guljannat"
+    And user clicks the Guljannat
 
     Examples:
       | userType       |

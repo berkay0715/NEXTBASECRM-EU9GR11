@@ -47,15 +47,36 @@ public class CompanyStructurePage {
     public WebElement RecentBox;
 
 
-@FindBy(xpath ="(//span[@class='finder-box-tab-text']/..)[2]")
+ @FindBy(xpath ="(//div[@class='finder-box-item-text']/..)[1]")
+    public WebElement supervisorRecent;
+
+
+
+    @FindBy(xpath ="(//span[@class='finder-box-tab-text']/..)[2]")
     public WebElement companyBox;
+
+    @FindBy(xpath ="(//div[@class='company-department-text'])[1]")
+    public WebElement cyberVet;
+
+
+@FindBy(xpath ="(//div[@class='company-department-employee-name']/../..)[4]")
+    public WebElement supervisorCompany;
+
 
     @FindBy(xpath ="(//span[@class='finder-box-tab-text']/..)[3]")
     public WebElement searchBox;
 
 
- @FindBy(xpath ="")
-    public WebElement supervisorRecent;
+@FindBy(xpath ="//input[@class='finder-box-search-textbox']")
+    public WebElement searchInput;
+
+
+
+     @FindBy(xpath ="//div[@bx-tooltip-user-id='481']/..")
+    public WebElement GuljannatSearch;
+
+
+
 
 
 
