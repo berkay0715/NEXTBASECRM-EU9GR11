@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class Filter_Search_Page {
     public Filter_Search_Page() {
         PageFactory.initElements(Driver.getDriver(), this);
@@ -60,4 +62,32 @@ public class Filter_Search_Page {
 
     @FindBy(xpath = "//span[@title='To']")
     public WebElement toTitle;
+
+    @FindBy(xpath = "//div[@data-name='DATE_CREATE_datesel']")
+    public WebElement anyDateInbox;
+
+    @FindBy(xpath = "(//div[.='Yesterday']/div)[1]")
+    public WebElement yesterdayDateType;
+
+    @FindBy(xpath = "//button[@class='ui-btn ui-btn-primary ui-btn-icon-search main-ui-filter-field-button main-ui-filter-find']")
+    public WebElement searchButton;
+
+    @FindBy(xpath = "//div[.='Date: Yesterday']")
+    public WebElement yesterdayDateTypeVerifying;
+
+
+    @FindBy(xpath = "(//div[@data-name='EVENT_ID'])[2]")
+    public WebElement typeInbox;
+
+    @FindBy(xpath = "//div[@class='main-ui-select-inner-label']")
+    public List<WebElement> typeDropBoxElements;
+
+    @FindBy(xpath = "//button[@class='ui-btn ui-btn-primary ui-btn-icon-search main-ui-filter-field-button  main-ui-filter-find']")
+    public WebElement typeSearchButton;
+
+    @FindBy(xpath = "//div[@class='main-ui-square-item']")
+    public WebElement filterResult;
+
+    @FindBy(xpath = "//span[@class='ui-btn ui-btn-light-border main-ui-filter-field-button main-ui-filter-reset']")
+    public WebElement typeResetButton;
 }
