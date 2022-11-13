@@ -139,6 +139,7 @@ public class Filter_Search_Step_Def {
         filterSearchPage.filterResult.click();
         BrowserUtils.waitFor(1);
         filterSearchPage.typeResetButton.click();
+
     }
 
 }
