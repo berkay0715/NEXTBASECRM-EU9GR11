@@ -1,14 +1,21 @@
 package com.nextbasecrm.step_definitions;
 
 
+import com.github.javafaker.Faker;
 import com.nextbasecrm.pages.Filter_Search_Page;
 import com.nextbasecrm.utilities.BrowserUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.bouncycastle.est.LimitedSource;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class Filter_Search_Step_Def {
     Filter_Search_Page filterSearchPage = new Filter_Search_Page();
+    Faker faker = new Faker();
 
     @When("user clicks to the -Filter and search- box")
     public void user_clicks_to_the_filter_and_search_box() {
@@ -63,6 +70,76 @@ public class Filter_Search_Step_Def {
         BrowserUtils.waitFor(1);
         Assert.assertTrue(filterSearchPage.toTitle.isEnabled());
         BrowserUtils.waitFor(1);
+    }
+
+    @And("user clicks the any date in the date  drop inbox")
+    public void user_clicks_the_any_date_in_the_date_drop_inbox() {
+        filterSearchPage.restoreDefaultFields.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.anyDateInbox.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.yesterdayDateType.click();
+        BrowserUtils.waitFor(1);
+    }
+    @And("user clicks the search button")
+    public void user_clicks_the_search_button() {
+        filterSearchPage.searchButton.click();
+        BrowserUtils.waitFor(1);
+    }
+    @Then("user should see the date type in the -Filter and search- box")
+    public void user_should_see_the_date_type_in_the_filter_and_search_box() {
+        Assert.assertTrue(filterSearchPage.yesterdayDateTypeVerifying.isDisplayed());
+        BrowserUtils.waitFor(1);
+    }
+
+    @When("user clicks any types in the type drop inbox and clicks the search button")
+    public void user_clicks_any_types_in_the_type_drop_inbox_and_clicks_the_search_button() {
+        filterSearchPage.typeInbox.click();
+        int numberBetween = faker.number().numberBetween(1,13);
+        List<WebElement> list = filterSearchPage.typeDropBoxElements;
+        for (int i = numberBetween; i <numberBetween+1 ; i++) {
+            WebElement element = list.get(i);
+            element.click();
+            BrowserUtils.waitFor(1);
+            Assert.assertTrue(element.isDisplayed());
+            break;
+        }
+        filterSearchPage.filterTitle.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.typeSearchButton.click();
+        BrowserUtils.waitFor(1);
+    }
+
+    @Then("user should see the selected type in the -Filter and search- box")
+    public void user_should_see_the_selected_type_in_the_filter_and_search_box() {
+        Assert.assertTrue(filterSearchPage.filterResult.isDisplayed());
+        BrowserUtils.waitFor(1);
+        filterSearchPage.filterResult.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.typeResetButton.click();
+    }
+
+    @And("user clicks the multiple types in the type drop inbox and clicks the search button")
+    public void user_clicks_the_multiple_types_in_the_type_drop_inbox_and_clicks_the_search_button() {
+        filterSearchPage.typeInbox.click();
+        for (WebElement webElement : filterSearchPage.typeDropBoxElements) {
+            webElement.click();
+            BrowserUtils.waitFor(1);
+            Assert.assertTrue(webElement.isDisplayed());
+        }
+        filterSearchPage.filterTitle.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.typeSearchButton.click();
+        BrowserUtils.waitFor(1);
+    }
+    @Then("user should see the selected multiple types in the -Filter and search- box")
+    public void user_should_see_the_selected_multiple_types_in_the_filter_and_search_box() {
+        Assert.assertTrue(filterSearchPage.filterResult.isDisplayed());
+        BrowserUtils.waitFor(1);
+        filterSearchPage.filterResult.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.typeResetButton.click();
+
     }
 
 }
