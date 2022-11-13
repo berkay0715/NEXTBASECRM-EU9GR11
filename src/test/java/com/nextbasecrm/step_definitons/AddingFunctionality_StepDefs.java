@@ -30,6 +30,7 @@ public class AddingFunctionality_StepDefs {
                 break;
 
             case "Add Mention Button":
+                Driver.getDriver().switchTo().parentFrame();
                 conversationsPage.MentionButton.click();
                 break;
 
@@ -42,19 +43,28 @@ public class AddingFunctionality_StepDefs {
                 break;
 
             case "Send Button":
+                Driver.getDriver().switchTo().parentFrame();
                 conversationsPage.SendButton.click();
                 break;
 
             case "Add Link Button":
+                Driver.getDriver().switchTo().parentFrame();
                 conversationsPage.AddLinkButton.click();
                 break;
 
             case "Save Button":
+
                 conversationsPage.SaveButton.click();
                 break;
 
             case "Insert Video Button":
+                Driver.getDriver().switchTo().parentFrame();
                 conversationsPage.InsertVideoButton.click();
+                break;
+
+            case "Quote Text Button":
+                Driver.getDriver().switchTo().parentFrame();
+                conversationsPage.QuoteTextButton.click();
                 break;
 
 
@@ -70,7 +80,7 @@ public class AddingFunctionality_StepDefs {
        // BrowserUtils.waitForVisibility(conversationsPage.InputTextBox,10);
         Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
         conversationsPage.TextInputTextBox.sendKeys(faker.weather().description()+". ");
-        Driver.getDriver().switchTo().parentFrame();
+
 
     }
     @Then("verify that user should be able to see list of employees.")
@@ -109,7 +119,7 @@ public class AddingFunctionality_StepDefs {
     public void verify_that_user_should_be_able_to_add_the_link_successfully() {
         Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyLinkIsAdded);
-        Driver.getDriver().switchTo().parentFrame();
+
     }
     @Then("verify that user should be able to send the added link message successfully.")
     public void verify_that_user_should_be_able_to_send_the_added_link_message_successfully() {
@@ -129,23 +139,27 @@ public class AddingFunctionality_StepDefs {
     }
     @When("user enter the URL from Vimeo to video source input box.")
     public void user_enter_the_url_from_vimeo_to_video_source_input_box() {
-        conversationsPage.VideoSourceInputBox.sendKeys("https://vimeo.com/565327806");
+        conversationsPage.VideoSourceInputBox.sendKeys("https://vimeo.com/760830321");
         BrowserUtils.waitForVisibility(conversationsPage.VerifyVideoIsAdded,10);
     }
     @Then("verify that user should be able to add the video successfully.")
     public void verify_that_user_should_be_able_to_add_the_video_successfully() {
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyVideoIsAdded,10);
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyVideoIsAdded);
     }
     @Then("verify that user should be able to save the add video function successfully.")
     public void verify_that_user_should_be_able_to_save_the_add_video_function_successfully() {
         Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyVideoIsSaved,10);
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyVideoIsSaved);
-        Driver.getDriver().switchTo().parentFrame();
+
     }
     @Then("verify that user should be able to send the video added from Vimeo message successfully.")
     public void verify_that_user_should_be_able_to_send_the_video_added_from_vimeo_message_successfully() {
         Driver.getDriver().switchTo().frame(conversationsPage.VerifyVideoIsSentIframe);
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyVideoSent,10);
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyVideoSent);
+        Driver.getDriver().switchTo().parentFrame();
     }
 
 
@@ -185,6 +199,33 @@ public class AddingFunctionality_StepDefs {
     @Then("verify that user should be able to remove the link from message box.")
     public void verifyThatUserShouldBeAbleToRemoveTheLinkFromMessageBox() {
         BrowserUtils.verifyElementNotDisplayed(By.xpath("//a[.='Surprise Link From JavaFaker ']"));
-        Driver.getDriver().switchTo().parentFrame();
+
+    }
+
+
+
+
+
+
+
+
+
+    @Then("verify that user should be able to see the block quote.")
+    public void verifyThatUserShouldBeAbleToSeeTheBlockQuote() {
+        Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+        BrowserUtils.waitForVisibility(conversationsPage.BlockQuote,10);
+        BrowserUtils.verifyElementDisplayed(conversationsPage.BlockQuote);
+    }
+
+    @When("user types something.")
+    public void userTypesSomething() {
+        conversationsPage.BlockQuote.sendKeys("The mind is like a parachute, it's useless if it's not open. Cagri");
+
+    }
+
+    @Then("verify that user should be able to add the quote successfully.")
+    public void verifyThatUserShouldBeAbleToAddTheQuoteSuccessfully() {
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyQuoteIsSent,10);
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyQuoteIsSent);
     }
 }

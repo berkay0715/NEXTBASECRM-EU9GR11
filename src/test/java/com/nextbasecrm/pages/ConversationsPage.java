@@ -103,4 +103,17 @@ public class ConversationsPage {
 
 
 
+
+    @FindBy(xpath = "//span[@title='Quote text']")
+    public WebElement QuoteTextButton;
+
+    @FindBy(xpath = "//blockquote[@class='bxhtmled-quote']")
+    public WebElement BlockQuote;
+
+    @FindBy(xpath = "(//table[@class='blogquote'])[1]//td") ////table[@class='blogquote']//td[contains(@text,"The mind is like")]
+    public WebElement VerifyQuoteIsSent;
+
+
+
+
 }
