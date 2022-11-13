@@ -50,6 +50,9 @@ public class CompanyStructurePage {
  @FindBy(xpath ="(//div[@class='finder-box-item-text']/..)[1]")
     public WebElement supervisorRecent;
 
+  @FindBy(xpath ="//span[@id='structure-department-head']")
+    public WebElement structureDepartmentHeadCrossDelete;
+
 
 
     @FindBy(xpath ="(//span[@class='finder-box-tab-text']/..)[2]")
@@ -74,6 +77,15 @@ public class CompanyStructurePage {
 
      @FindBy(xpath ="//div[@bx-tooltip-user-id='481']/..")
     public WebElement GuljannatSearch;
+
+
+      @FindBy(xpath ="//span[@class='popup-window-button popup-window-button-link popup-window-button-link-cancel']")
+    public WebElement closeAddDepartmentPopUp;
+
+
+
+
+
 
 
 
