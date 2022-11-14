@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/nextbasecrm/step_definitions",
-        dryRun = false,
-        tags = ""
+        dryRun = true,
+        tags = "@Event"
        // publish = true
 )
 public class CukesRunner {
