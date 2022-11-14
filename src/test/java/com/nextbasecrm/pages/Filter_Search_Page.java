@@ -90,4 +90,30 @@ public class Filter_Search_Page {
 
     @FindBy(xpath = "//span[@class='ui-btn ui-btn-light-border main-ui-filter-field-button main-ui-filter-reset']")
     public WebElement typeResetButton;
+
+    @FindBy(xpath = "//span[@class='main-ui-filter-add-item']")
+    public WebElement saveFilterLink;
+
+    @FindBy(xpath = "//input[@class='main-ui-filter-sidebar-edit-control']")
+    public WebElement newFilterLinkBox;
+
+    @FindBy(xpath = "(//span[@class='main-ui-filter-sidebar-item-text'])[8]")
+    public WebElement newFilterLink;
+
+    @FindBy(xpath = "//span[@class='ui-btn ui-btn-success main-ui-filter-field-button main-ui-filter-save']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//span[@class='ui-btn ui-btn-light-border main-ui-filter-field-button main-ui-filter-reset']")
+    public WebElement resetButton;
+
+    @FindBy(xpath = "//span[@title='Configure filter']")
+    public WebElement configureButton;
+
+    @FindBy(xpath = "(//span[@title='Delete filter'])[8]")
+    public WebElement deleteButton;
+
+
+
+
+
 }
