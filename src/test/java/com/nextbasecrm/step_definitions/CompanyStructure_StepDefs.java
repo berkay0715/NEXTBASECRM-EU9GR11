@@ -178,16 +178,16 @@ public class CompanyStructure_StepDefs {
     }
     @When("user clicks the delete departments")
     public void user_clicks_the_delete_departments() {
-       for (WebElement delete : companyStructurePage.deleteDepartment) {
+
 
          JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-         js.executeScript("arguments[0].click();", delete);
+         js.executeScript("arguments[0].click();",companyStructurePage.deleteDepartment);
 
         Alert alert =Driver.getDriver().switchTo().alert();
            alert.accept();
 
 
-           BrowserUtils.sleep(10);
+           BrowserUtils.sleep(5);
 
 
 
@@ -202,7 +202,6 @@ public class CompanyStructure_StepDefs {
     }
 
 
-}
 
 
 

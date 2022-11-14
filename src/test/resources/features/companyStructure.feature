@@ -106,6 +106,11 @@ Feature:As a user, I should be able to use functions on Company Structure under 
 
 
 
+  #@7
+  Scenario:Verify that Hr user should be able to edit departments, add child departments, and delete departments after adding the department.
+    Given the user logs in as a "Human Resource"
+    When user clicks the employees link
+
 
 
  #1. All user types should be able to display company structure.

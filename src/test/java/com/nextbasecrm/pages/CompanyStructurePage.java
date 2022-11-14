@@ -94,9 +94,9 @@ public class CompanyStructurePage {
     @FindBy(xpath ="(//div[@title='Add child department'])[1]")
     public WebElement addChildDepartment;
 
-    @FindBy(xpath ="(//div[@title='Delete department'])[1]")
-    public List<WebElement> deleteDepartment;
 
+    @FindBy(xpath ="(//div[@title='Delete department'])[1]")
+    public WebElement deleteDepartment;
 
 
 
