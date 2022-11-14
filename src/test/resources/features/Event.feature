@@ -46,11 +46,14 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
     Then user should select All day
     And user should be able to select event location
     Then user should be able send event
+    And sjdujgf
 
     Examples:
       | userType       |
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
+
+
 
 
