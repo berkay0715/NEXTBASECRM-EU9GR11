@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.nextbasecrm.pages.AppreciationPage;
 import com.nextbasecrm.pages.HomePage;
 import com.nextbasecrm.pages.LoginPage;
+import com.nextbasecrm.pages.UploadFilesAndPicturesPage;
 import com.nextbasecrm.utilities.BrowserUtils;
 import com.nextbasecrm.utilities.ConfigurationReader;
 import com.nextbasecrm.utilities.Driver;
@@ -16,6 +17,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class Appreciation_StepDefs {
+
+    UploadFilesAndPicturesPage uploadFilesAndPicturesPage = new UploadFilesAndPicturesPage();
 
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
@@ -138,6 +141,17 @@ public class Appreciation_StepDefs {
 
     }
 
+
+    @Then("the user should be able to click cancel button before sending appreciation any time")
+    public void the_user_should_be_able_to_cancel_sending_appreciation() {
+
+        BrowserUtils.waitForClickablility(uploadFilesAndPicturesPage.cancelButton,10);
+
+        Assert.assertTrue(uploadFilesAndPicturesPage.cancelButton.isDisplayed());
+
+        uploadFilesAndPicturesPage.cancelButton.click();
+
+    }
 
 
 
