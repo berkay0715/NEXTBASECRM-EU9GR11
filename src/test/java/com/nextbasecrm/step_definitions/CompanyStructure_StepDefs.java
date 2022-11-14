@@ -7,13 +7,16 @@ import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class CompanyStructure_StepDefs {
 
     LoginPage loginPage = new LoginPage();
     CompanyStructurePage companyStructurePage = new CompanyStructurePage();
+
 
     @When("user clicks the employees link")
     public void user_clicks_the_employees_link() {
@@ -154,8 +157,51 @@ public class CompanyStructure_StepDefs {
 
 
 
+    @When("user clicks the edit department icon")
+    public void user_clicks_the_edit_department_icon() {
+        BrowserUtils.clickWithJS(companyStructurePage.editDepartment);
+    }
 
-}
+
+    @When("user delete the old department name")
+    public void user_delete_the_old_department_name() {
+       companyStructurePage.departmentNameInput.clear();
+    }
+
+    @When("user clicks save button")
+    public void user_clicks_save_button() {
+      companyStructurePage.saveButton.click();
+    }
+    @When("user clicks add child departments")
+    public void user_clicks_add_child_departments() {
+       companyStructurePage.addChildDepartment.click();
+    }
+    @When("user clicks the delete departments")
+    public void user_clicks_the_delete_departments() {
+
+
+         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+         js.executeScript("arguments[0].click();",companyStructurePage.deleteDepartment);
+
+        Alert alert =Driver.getDriver().switchTo().alert();
+           alert.accept();
+
+
+           BrowserUtils.sleep(5);
+
+
+
+       }
+
+
+
+
+
+
+
+    }
+
+
 
 
 
