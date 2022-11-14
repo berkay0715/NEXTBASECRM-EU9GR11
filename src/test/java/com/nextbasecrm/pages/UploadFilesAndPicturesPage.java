@@ -15,8 +15,7 @@ public class UploadFilesAndPicturesPage {
 
     @FindBy(id = "bx-b-uploadfile-blogPostForm")
     public WebElement uploadFilesIcon;
-//(//table[@class='diskuf-selector-table wd-fa-add-file-light-table']//div[@class='diskuf-uploader'])[1]
-//
+
     @FindBy(xpath = "//input[@name='bxu_files[]']")
     public WebElement uploadFilesANDimagesLink;
 
@@ -31,6 +30,35 @@ public class UploadFilesAndPicturesPage {
 
     @FindBy(xpath = "//input[@name='BLOG_POST_DISK_ATTACHED_OBJECT_ALLOW_EDIT']")
     public WebElement allowRecipientToEditCheckbox;
+
+    @FindBy(xpath = "//a[@class='feed-con-file-changes-link']")
+    public WebElement editButton;
+
+    @FindBy()
+    public WebElement iframe;
+
+    @FindBy(xpath = "//span[@class='insert-btn-text']")
+    public WebElement inText;
+
+    @FindBy(xpath = "//span[@class='del-but']")
+    public WebElement delButtonForFileInText;
+
+    @FindBy(xpath = "//span[@class='del-but']")
+    public WebElement delButton;
+
+    @FindBy(xpath = "//div[contains(@id,'disk-attach-block-')]")
+    public WebElement sentMultipleDifferentFiles;
+
+    @FindBy(xpath = "//img[contains(@id,'disk-attach-image')]")
+    public WebElement sentImage;
+
+    @FindBy(xpath = "//span[@class='files-name-edit-btn']")
+    public WebElement renameButton;
+
+
+    @FindBy(xpath = "//span[@class='files-text']")
+    public WebElement changeableFileName;
+    //input[@class='files-name-edit-inp']
 
 
 
