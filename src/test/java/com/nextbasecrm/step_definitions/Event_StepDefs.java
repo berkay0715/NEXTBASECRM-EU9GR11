@@ -23,6 +23,7 @@ public class Event_StepDefs {
     Actions actions = new Actions(Driver.getDriver());
 
 
+
     @When("user clicks to the event box")
     public void user_clicks_to_the_event_box() {
         eventPage.eventButton.click();
