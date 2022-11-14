@@ -142,4 +142,32 @@ public class Filter_Search_Step_Def {
 
     }
 
+    @And("user clicks the -save filter link- and names the -new filter-")
+    public void userClicksTheSaveFilterLinkAndNamesTheNewFilter() {
+        filterSearchPage.saveFilterLink.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.newFilterLinkBox.sendKeys("SDET_FILTER");
+        BrowserUtils.waitFor(1);
+        filterSearchPage.saveButton.click();
+        BrowserUtils.waitFor(1);
+        Assert.assertTrue(filterSearchPage.newFilterLink.isDisplayed());
+        BrowserUtils.waitFor(1);
+        filterSearchPage.configureButton.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.deleteButton.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.saveButton.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.resetButton.click();
+        BrowserUtils.waitFor(1);
+    }
+
+    @And("user clicks the -save button-")
+    public void userClicksTheSaveButton() {
+        
+    }
+
+    @Then("user should see the new filter type under the default filters")
+    public void userShouldSeeTheNewFilterTypeUnderTheDefaultFilters() {
+    }
 }

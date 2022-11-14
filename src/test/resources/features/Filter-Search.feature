@@ -1,4 +1,4 @@
-  @ac,@NEXTBASE-1500
+  @NEXTBASE-1500
 
   Feature: As a user, I should be able to use "Filter and search" functionality on Active Stream.
 
@@ -60,7 +60,7 @@
         | Marketing      |
 
   @NEXTBASE-1507
-  Scenario Outline: 5- Verify that user should be able to search by selecting single type.
+  Scenario Outline: 5- Verify that user should be able to search by selecting multiple type.
 
   Given the user logs in as a "<userType>"
   When user clicks to the -Filter and search- box
@@ -72,15 +72,18 @@
           | Helpdesk |
           | Human Resource |
           | Marketing      |
-
+@ac
   @NEXTBASE-1508
   Scenario Outline: 6- Verify that user should be able to save the filter.
+    Given the user logs in as a "<userType>"
+    When user clicks to the -Filter and search- box
+    And user clicks the -save filter link- and names the -new filter-
+    And user clicks the -save button-
+    Then user should see the new filter type under the default filters
 
     Examples:
       | userType |
       | Helpdesk |
-      | Human Resource |
-      | Marketing      |
 
   @NEXTBASE-1509
   Scenario Outline: 7- Verify that user should be able to restore the default field.
