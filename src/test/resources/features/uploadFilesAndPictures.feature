@@ -1,3 +1,4 @@
+@hicret
 Feature: Upload files and pictures as messages
   User Story: As a user, I should be able to upload files and pictures as messages
 
@@ -84,7 +85,7 @@ Feature: Upload files and pictures as messages
       | Human Resource |
       | Marketing      |
 
-  @hicret
+
   Scenario Outline: 8- User should be able to RENAME the file before sending it.
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
@@ -96,8 +97,8 @@ Feature: Upload files and pictures as messages
 
     Examples:
       | userType       |
-    #  | Helpdesk       |
-    #  | Human Resource |
+      | Helpdesk       |
+      | Human Resource |
       | Marketing      |
 
 
