@@ -11,11 +11,15 @@ public class SendMessagePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//span[@id='feed-add-post-form-tab-message']")
+    @FindBy(id = "feed-add-post-form-tab-message")
     public WebElement messageTab;
+
+    @FindBy(xpath = "//span[@class='feed-add-post-micro-title']")
+    public WebElement sendMessageTextIsDisplayed;
 
     @FindBy(xpath = "//div[@class='feed-add-post-text']")
     public WebElement messageBox;
+
 
     @FindBy(xpath = "//span[@data-id='UA']")
     public WebElement allEmployeesEmailAddressGroup;

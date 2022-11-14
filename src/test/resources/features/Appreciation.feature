@@ -1,4 +1,4 @@
-@wip
+
 Feature: As a user, I should be able to send appreciation by clicking on Appreciation tab from Quick Navigate Menu
 
   Users :
