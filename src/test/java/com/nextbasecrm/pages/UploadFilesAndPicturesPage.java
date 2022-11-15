@@ -56,7 +56,7 @@ public class UploadFilesAndPicturesPage {
     public WebElement renameButton;
 
 
-    @FindBy(xpath = "//span[@class='files-text']")
+    @FindBy(xpath = "//input[@class='files-name-edit-inp']")
     public WebElement changeableFileName;
     //input[@class='files-name-edit-inp']
 

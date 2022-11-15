@@ -15,6 +15,7 @@ public class AppreciationPage {
     }
 
 
+
     @FindBy(xpath = "//input[@id='feed-add-post-destination-input']")
     public WebElement appreciationRecipientsInputBox;
 

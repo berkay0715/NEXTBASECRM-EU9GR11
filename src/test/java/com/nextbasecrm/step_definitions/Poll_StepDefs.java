@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.nextbasecrm.pages.HomePage;
 import com.nextbasecrm.pages.LoginPage;
 import com.nextbasecrm.pages.PollTabPage;
+import com.nextbasecrm.utilities.BrowserUtils;
 import com.nextbasecrm.utilities.ConfigurationReader;
 import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -11,6 +12,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 public class Poll_StepDefs {
     LoginPage loginPage = new LoginPage();
@@ -86,6 +89,50 @@ public class Poll_StepDefs {
     @Then("the user se the questions text error message")
     public void theUserSeTheQuestionsTextErrorMessage() {
         Assert.assertTrue(pollTabPage.questionsErrorMessage.isDisplayed());
+    }
+
+    @Then("the user se error message for ungiven answers")
+    public void theUserSeErrorMessageForUngivenAnswers() {
+        Assert.assertTrue(pollTabPage.ungivenAnswerError.isDisplayed());
+    }
+
+
+    @Then("user should see Please specify at least two answers. Error message")
+    public void userShouldSeePleaseSpecifyAtLeastTwoAnswersErrorMessage() {
+        pollTabPage.errorMessageVerification.isDisplayed();
+    }
+
+    @And("the user clicks the Add question link")
+    public void theUserClicksTheAddQuestionLink() {
+        pollTabPage.addQuestionLink.click();
+    }
+
+    @And("the user clicks the Add question link again")
+    public void theUserClicksTheAddQuestionLinkAgain() {
+        pollTabPage.addQuestionLink.click();
+    }
+    
+    @Then("the user deletes the questions and answers")
+    public void theUserDeletesTheQuestionsAndAnswers() {
+        for (WebElement deleteQuestion : pollTabPage.deleteQuestions) {
+            JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+            js.executeScript("arguments[0].click();", deleteQuestion);
+
+            BrowserUtils.sleep(3);
+        }
+    }
+
+    
+    @And("the user clicks the Allow multiple choice input")
+    public void theUserClicksTheAllowMultipleChoiceInput() {
+        pollTabPage.allowMultipleChoiceBoxInput.click();
+        
+    }
+
+
+    @And("the user should see The Allow multiple choice label")
+    public void theUserShouldSeeTheAllowMultipleChoiceLabel() {
+        pollTabPage.allowMultipleChoiceBoxLabel.isDisplayed();
     }
 }
 

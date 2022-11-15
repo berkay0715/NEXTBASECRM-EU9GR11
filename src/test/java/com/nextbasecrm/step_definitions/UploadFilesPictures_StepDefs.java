@@ -8,6 +8,7 @@ import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -142,15 +143,18 @@ public class UploadFilesPictures_StepDefs {
     public void user_rename_the_file_before_sending_it() {
         uploadFilesAndPicturesPage.renameButton.isEnabled();
 
-        uploadFilesAndPicturesPage.renameButton.sendKeys(Keys.COMMAND+"a",Keys.BACK_SPACE);
-       // BrowserUtils.sleep(3);
-      //  uploadFilesAndPicturesPage.changeableFileName.sendKeys("new name"+ Keys.ENTER);
-      //  BrowserUtils.sleep(2);
+        BrowserUtils.clickWithJS(uploadFilesAndPicturesPage.renameButton);
+        BrowserUtils.waitForVisibility(uploadFilesAndPicturesPage.changeableFileName,5);
+
+        uploadFilesAndPicturesPage.changeableFileName.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
+        BrowserUtils.sleep(1);
+       uploadFilesAndPicturesPage.changeableFileName.sendKeys("new name"+ Keys.ENTER);
+
 
     }
     @Then("verify the file is renamed successfully")
     public void verify_the_file_is_renamed_successfully() {
-
+        BrowserUtils.verifyElementDisplayed(By.xpath("//img[@data-bx-title='new name.jpg']"));
     }
 
 
