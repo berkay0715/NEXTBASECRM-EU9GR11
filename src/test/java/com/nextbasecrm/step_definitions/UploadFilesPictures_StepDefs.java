@@ -128,6 +128,12 @@ public class UploadFilesPictures_StepDefs {
     }
 
 
+    @When("user uploads a file")
+    public void user_uploads_a_file() {
+        String path= "C:\\Users\\hicre\\OneDrive\\Masaüstü\\HTML Class\\minions-animated-movies-movies-three-wallpaper.jpg";
+        uploadFilesAndPicturesPage.uploadFilesANDimagesLink.sendKeys(path);
+    }
+
 
     @When("user remove the file")
     public void user_remove_the_file() {
@@ -135,7 +141,7 @@ public class UploadFilesPictures_StepDefs {
     }
     @Then("verify the file is removed successfully")
     public void verify_the_file_is_removed_successfully() {
-       BrowserUtils.verifyElementNotDisplayed(By.xpath("//input[@value='sunnyDay']"));
+       BrowserUtils.verifyElementNotDisplayed(By.xpath("//span[contains(text(),'minions')]"));
 
     }
 

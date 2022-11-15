@@ -6,7 +6,6 @@ Feature: Upload files and pictures as messages
   helpdesk ,marketing, hr
 
 
-
   Scenario Outline: 1,2 - User should be able to upload multiple files in different formats at the same time(3 files).
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
@@ -75,7 +74,7 @@ Feature: Upload files and pictures as messages
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
     And user clicks upload files icon
-    And user uploads picture
+    And user uploads a file
     And user remove the file
     Then verify the file is removed successfully
 
