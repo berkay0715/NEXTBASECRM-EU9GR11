@@ -22,7 +22,7 @@ Feature: Upload files and pictures as messages
       | Marketing      |
 
 
-
+ @smoke
   Scenario Outline: 3,4 - User should be able to upload pictures and then display the picture in Activity Stream.
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu

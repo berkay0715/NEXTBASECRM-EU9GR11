@@ -18,7 +18,7 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
-
+  @smoke
   Scenario Outline: 2-  User should be able to set reminder.
 
     Given the user logs in as a "<userType>"
