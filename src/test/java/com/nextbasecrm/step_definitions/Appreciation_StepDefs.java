@@ -73,7 +73,7 @@ public class Appreciation_StepDefs {
     @When("the user clicks send button")
     public void the_user_clicks_send_button() {
 
-        appreciationPage.sendAppreciationButton.click();
+        uploadFilesAndPicturesPage.sendButton.click();
 
     }
     @Then("the user should be able to see the appreciation message on activity stream")
@@ -154,6 +154,25 @@ public class Appreciation_StepDefs {
     }
 
 
+    @Then("the user should be able to select different grat icons")
+    public void theUserShouldBeAbleToSelectDifferentGratIcons() {
+
+
+        for (WebElement grat : appreciationPage.gratIconList) {
+            appreciationPage.selectGratIcon.click();
+            grat.click();
+        }
+        BrowserUtils.waitFor(4);
+
+    }
+
+    @And("the user selects a recipient")
+    public void theUserSelectsARecipient() {
+
+        appreciationPage.gratIconRecipientInput.sendKeys("helpdesk5@cybertekschool.com","hr5@cybertekschool.com","marketing5@cybertekschool.com");
+        BrowserUtils.waitFor(4);
+
+    }
 
 
 }
