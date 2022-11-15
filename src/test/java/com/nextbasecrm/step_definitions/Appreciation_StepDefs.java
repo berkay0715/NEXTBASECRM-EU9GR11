@@ -12,13 +12,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class Appreciation_StepDefs {
-
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
     AppreciationPage appreciationPage = new AppreciationPage();
 
     Faker faker = new Faker();
+
 
 
     @Given("the user logs in as a {string}")
@@ -36,11 +35,12 @@ public class Appreciation_StepDefs {
     }
     @Then("the user should be able to see appreciation on menu popup")
     public void the_user_should_be_able_to_see_appreciation_on_menu_popup() {
-        Assert.assertTrue(appreciationPage.moreTabAppreciationItem.isDisplayed());
+
 
     }
     @When("the user clicks appreciation item")
     public void the_user_clicks_appreciation_item() {
+
             appreciationPage.moreTabAppreciationItem.click();
     }
     @And("the user writes appreciation message title")
