@@ -41,7 +41,7 @@ Feature: As a user, I should be able to create a poll by clicking on Poll tab un
       | Marketing      |
 
   @poll3
-  Scenario Outline: Verify the user be able to se""The message title is not specified" error message.
+  Scenario Outline: Verify the user able to create a poll with mandatory fields (without message title) and se""The message title is not specified" error message.
 
     Given the user logs in as a "<userType>"
     Then the user click on the poll button
@@ -59,7 +59,7 @@ Feature: As a user, I should be able to create a poll by clicking on Poll tab un
       | Marketing      |
 
     @poll4
-  Scenario Outline: Verify the user be able to se "Please specify at least one person."  error message.
+  Scenario Outline: Verify the user able to create a poll with mandatory fields (without recipient) and se "Please specify at least one person."  error message.
 
     Given the user logs in as a "<userType>"
     Then the user click on the poll button
@@ -78,7 +78,7 @@ Feature: As a user, I should be able to create a poll by clicking on Poll tab un
       | Human Resource |
       | Marketing      |
   @poll5
-  Scenario Outline: Verify the user be able to se "The question text is not specified."  error message.
+  Scenario Outline: Verify the user able to create a poll with mandatory fields (without question) and se "The question text is not specified."  error message.
 
     Given the user logs in as a "<userType>"
     Then the user click on the poll button
@@ -91,6 +91,67 @@ Feature: As a user, I should be able to create a poll by clicking on Poll tab un
 
     Examples:
       | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+@poll6
+  Scenario Outline: Verify the user able to create a poll with mandatory fields (without answers) and se "The question "........." has no answers." error message.
+
+    Given the user logs in as a "<userType>"
+    Then the user click on the poll button
+    And the user write a question in to question field
+    Then user enters something in the message field
+    Then the user send to message
+    Then the user se error message for ungiven answers
+
+
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+  @poll7
+  Scenario Outline:Verify the user able to create a poll with mandatory fields(with only one answer) and se "Please specify at least two answers."
+
+    Given the user logs in as a "<userType>"
+    Then the user click on the poll button
+    And the user write a question in to question field
+    Then user enters something in the message field
+    And the user write a answer into answer one field
+    Then the user send to message
+    Then user should see Please specify at least two answers. Error message
+
+
+    Examples:
+      | userType |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+  @poll8
+  Scenario Outline: Verify delete questions and multiple answers input boxes
+    Given the user logs in as a "<userType>"
+    Then the user click on the poll button
+    And  the user clicks the Add question link
+    And  the user clicks the Add question link again
+    Then the user deletes the questions and answers
+
+    Examples:
+      | userType |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+  @poll9
+  Scenario Outline: Verify the Allow multiple choice checkbox
+    Given the user logs in as a "<userType>"
+    Then the user click on the poll button
+    And  the user clicks the Allow multiple choice input
+    And the user should see The Allow multiple choice label
+    Examples:
+      | userType |
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
