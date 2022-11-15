@@ -33,7 +33,9 @@ public class Appreciation_StepDefs {
     public void the_user_logsIn_as_a(String userType) {
 
         Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+        BrowserUtils.waitFor(2);
         loginPage.loginAs(userType);
+
 
     }
 

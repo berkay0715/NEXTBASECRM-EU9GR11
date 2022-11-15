@@ -70,7 +70,7 @@ Feature: Upload files and pictures as messages
 
 
 
-  Scenario Outline: 7 User should be able to remove files and images at any time before sending.
+  Scenario Outline: 7- User should be able to remove files and images at any time before sending.
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
     And user clicks upload files icon

@@ -154,16 +154,15 @@ public class UploadFilesPictures_StepDefs {
 
         uploadFilesAndPicturesPage.changeableFileName.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
         BrowserUtils.sleep(1);
-       uploadFilesAndPicturesPage.changeableFileName.sendKeys("new name"+ Keys.ENTER);
+       uploadFilesAndPicturesPage.changeableFileName.sendKeys("renamed"+ Keys.ENTER);
 
 
     }
     @Then("verify the file is renamed successfully")
     public void verify_the_file_is_renamed_successfully() {
-        BrowserUtils.verifyElementDisplayed(By.xpath("//img[@data-bx-title='new name.jpg']"));
+        BrowserUtils.waitFor(2);
+        BrowserUtils.verifyElementDisplayed(By.xpath("//img[contains(@data-bx-title,'renamed.jpg')]"));
     }
-
-
 
 
 }
