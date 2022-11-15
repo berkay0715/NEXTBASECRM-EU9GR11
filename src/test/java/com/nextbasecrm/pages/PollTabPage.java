@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class PollTabPage {
 
     public PollTabPage(){
@@ -40,6 +42,24 @@ public class PollTabPage {
 
     @FindBy(xpath = "//span[.='The question text is not specified.']")
     public WebElement questionsErrorMessage;
+
+    @FindBy(xpath = "//span[@class='feed-add-info-text']")
+    public WebElement ungivenAnswerError;
+
+    @FindBy (id="feed-add-post-form-notice-blockblogPostForm")
+    public WebElement errorMessageVerification;
+
+    @FindBy(xpath="//a[.='Add question']")
+    public WebElement  addQuestionLink;
+
+    @FindBy(xpath ="//label[@title='Delete question']")
+    public List<WebElement> deleteQuestions;
+
+    @FindBy(xpath = "//input[@id='multi_0']")
+    public  WebElement allowMultipleChoiceBoxInput;
+
+    @FindBy(xpath = "//label[@for='multi_0']")
+    public  WebElement allowMultipleChoiceBoxLabel;
 
 
 }
