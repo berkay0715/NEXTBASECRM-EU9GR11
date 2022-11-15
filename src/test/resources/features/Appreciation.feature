@@ -76,8 +76,8 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
       | Marketing      |
 
   #@tc5
-   # Scenario Outline: Verify Icons
-     # Given the user logs in as a "<userType>"
+    #Scenario Outline: Verify Icons
+    #Given the user logs in as a "<userType>"
     #When the user clicks more tab on portal homepage
     #And  the user clicks appreciation item
     #And the user writes appreciation message title
@@ -88,7 +88,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
 
     #Examples:
       #| userType       |
-     # | Helpdesk       |
+      #| Helpdesk       |
       #| Human Resource |
       #| Marketing      |
 
