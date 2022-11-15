@@ -1,10 +1,9 @@
-package com.nextbasecrm.step_definitons;
+package com.nextbasecrm.step_definitions;
 
 import com.github.javafaker.Faker;
 import com.nextbasecrm.pages.AppreciationPage;
 import com.nextbasecrm.pages.HomePage;
 import com.nextbasecrm.pages.LoginPage;
-import com.nextbasecrm.utilities.BrowserUtils;
 import com.nextbasecrm.utilities.ConfigurationReader;
 import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.And;

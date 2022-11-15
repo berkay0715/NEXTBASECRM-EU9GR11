@@ -1,4 +1,4 @@
-package com.nextbasecrm.step_definitons;
+package com.nextbasecrm.step_definitions;
 
 import com.nextbasecrm.pages.LoginPage;
 import com.nextbasecrm.pages.SendMessagePage;
@@ -9,7 +9,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import junit.framework.AssertionFailedError;
 import org.junit.Assert;
 
 
@@ -21,12 +20,7 @@ public class SendMessagePage_StepDefs {
 
 
 
-    @Given("the user logs in as a {string}")
-    public void the_user_logs_in_as_a(String string) {
-        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
-        Driver.getDriver().manage().window().maximize();
-        loginPage.loginAs(userType);
-    }
+
     @When("the use clicks on message tab on the dashboard page")
     public void the_use_clicks_on_message_tab_on_the_dashboard_page() {
         BrowserUtils.waitForClickablility(sendMessagePage.messageTab,10);
