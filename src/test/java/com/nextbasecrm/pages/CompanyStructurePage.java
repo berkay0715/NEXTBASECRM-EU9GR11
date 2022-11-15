@@ -39,27 +39,22 @@ public class CompanyStructurePage {
     public WebElement parentDepartmentDropdown;
 
 
-   @FindBy(xpath ="//a[@id='single-user-choice']")
+   @FindBy(linkText ="Select from structure")
     public WebElement selectFromStructure;
 
 
-   @FindBy(xpath ="(//span[@class='finder-box-tab-text']/..)[1]")
-    public WebElement RecentBox;
+   @FindBy(xpath ="//span[.='Recent']")
+    public WebElement recentBox;
 
+ @FindBy(xpath = "//*[contains(@id,'last_employee')]")
+ public WebElement recentSupervisor1;
 
-   @FindBy(xpath ="(//div[@class='finder-box-item-text']/..)[1]")
-    public WebElement supervisorRecent;
-
-   @FindBy(xpath ="//span[@id='structure-department-head']")
-    public WebElement structureDepartmentHeadCrossDelete;
-
+ @FindBy(xpath = "//span[@id='uf_head_name']")
+ public WebElement supervisorFullName;
 
 
     @FindBy(xpath ="(//span[@class='finder-box-tab-text']/..)[2]")
     public WebElement companyBox;
-
-    @FindBy(xpath ="(//div[@class='company-department-text'])[1]")
-    public WebElement cyberVet;
 
 
   @FindBy(xpath ="(//div[@class='company-department-employee-name']/../..)[4]")
@@ -75,13 +70,20 @@ public class CompanyStructurePage {
 
 
 
-    @FindBy(xpath ="//div[@bx-tooltip-user-id='481']/..")
+    //@FindBy(xpath ="//div[@bx-tooltip-user-id='481']/..")
+    @FindBy(xpath ="(//div[@class='finder-box-item']//div[@bx-tooltip-user-id='481'])[2]")
     public WebElement GuljannatSearch;
 
 
-      @FindBy(xpath ="//span[@class='popup-window-button popup-window-button-link popup-window-button-link-cancel']")
-    public WebElement closeAddDepartmentPopUp;
 
+    @FindBy(xpath = "//a[@title='Employees']")
+    public WebElement employeeTab;
+
+    @FindBy(xpath = "//span[.='Close']")
+    public WebElement closeButton;
+
+    @FindBy(xpath ="//a[.='New department']")
+    public WebElement newDepartment;
 
     @FindBy(xpath ="(//div[@title='Edit department'])[1]")
     public WebElement editDepartment;
