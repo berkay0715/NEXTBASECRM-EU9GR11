@@ -8,7 +8,7 @@ Feature:As a user, I should be able to use functions on Company Structure under 
 
 
 
-#@1
+@wip1
   Scenario Outline: Verify that  all user types should be able to display company structure.
     Given the user logs in as a "<userType>"
     When user clicks the employees link
@@ -22,95 +22,62 @@ Feature:As a user, I should be able to use functions on Company Structure under 
       | Marketing      |
 
 
- # @2
+
+ @wip2
   Scenario: Verify that  Hr user should be able to add a department from the company structure.
     Given the user logs in as a "Human Resource"
     When user clicks the employees link
     And user clicks the add department button
-    And user types "New head office" in the department name
+    And user fills the department name
     And user clicks the Add  button
-    Then user should see default parent department title
+    Then user should be able to add a department
 
 
 
-  #@3
+  @wip3
   Scenario: Verify that  Hr user should be able to select a parent department from the department dropdown.
     Given the user logs in as a "Human Resource"
     When user clicks the employees link
     And user clicks the add department button
-    And user select a parent department from the department dropdown
-    Then user should see default parent department title
+    And user clicks parent department dropdown
+    Then user should be able to select a parent department
 
 
 
-  #@4
+
+
+  @wip4
   Scenario: Verify that   Hr user should be able to select a supervisor from "recent", "company" and "search"
     Given the user logs in as a "Human Resource"
     When user clicks the employees link
     And user clicks the add department button
     And user clicks select from structure
     And  user clicks the recent box
-    And user clicks a supervisor from recent box
-    Then user should be able to see structure department head delete cross
-
-
-  #@4
-  Scenario: Verify that   Hr user should be able to select a supervisor from "recent", "company" and "search"
-    Given the user logs in as a "Human Resource"
-    When user clicks the employees link
-    And user clicks the add department button
-    And user clicks select from structure
+    Then user should be able to select a supervisor from recent box
     And user clicks the company box
-    And user clicks the Cyber Vet
-    And user clicks a supervisor from company box
-    Then user should be able to see structure department head delete cross
-
-  #@4
-  Scenario: Verify that   Hr user should be able to select a supervisor from "recent", "company" and "search"
-    Given the user logs in as a "Human Resource"
-    When user clicks the employees link
-    And user clicks the add department button
-    And user clicks select from structure
+    Then user should be able to select a supervisor from company box
     And user clicks the search box
-    And user types in the search input "Guljannat"
-    And user clicks the Guljannat
-    Then user should be able to see structure department head delete cross
+    Then user should be able to select a supervisor from search box
 
 
 
-  #@5
+  @wip5
   Scenario:Verify that Hr user should be able to close add department pop-up at any time before sending.
     Given the user logs in as a "Human Resource"
     When user clicks the employees link
     And user clicks the add department button
-    And user types "New head office" in the department name
-    And user clicks the close department pop up
-    Then user should be able to see add department button
-
-  @NEXTBASE-1496
-  #@6
-  Scenario:Verify that Hr user should be able to edit departments, add child departments, and delete departments after adding the department.
-    Given the user logs in as a "Human Resource"
-    When user clicks the employees link
-    And user clicks the edit department icon
-    And user delete the old department name
-    And user types "New head office" in the department name
-    And user clicks save button
-    And user clicks add child departments
-    And user types "New head office" in the department name
-    And user clicks the Add  button
-    And user clicks the delete departments
+    Then user should be able to click to close at any time
 
 
 
 
 
 
-  #@7
-  Scenario:Verify that Hr user should be able to edit departments, add child departments, and delete departments after adding the department.
-    Given the user logs in as a "Human Resource"
 
-    When user clicks the employees link
+
+
+
+
 
 
 
