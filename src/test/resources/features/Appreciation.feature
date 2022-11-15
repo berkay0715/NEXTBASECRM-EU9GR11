@@ -6,7 +6,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
   marketing1@cybertekschool.com
   hr1@cybertekschool.com
 
-  @tc1
+  @smoke
   Scenario Outline: Verify that users can send a appreciation by filling the mandatory fields.
     Given the user logs in as a "<userType>"
     When the user clicks more tab on portal homepage
@@ -24,7 +24,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
       | Human Resource |
       | Marketing      |
 
-  @smoke
+  @tc2
   Scenario Outline: Verifying Error messages for mandatory fields
     Given the user logs in as a "<userType>"
     When the user clicks more tab on portal homepage
