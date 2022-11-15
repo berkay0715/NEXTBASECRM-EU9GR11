@@ -137,14 +137,6 @@ Assert.assertTrue(companyStructurePage.newDepartment.isDisplayed());
         BrowserUtils.verifyElementNotDisplayed(By.xpath("//span[.='Close']"));
 
     }
-
-
-
-
-
-
-
-
     }
 
 
