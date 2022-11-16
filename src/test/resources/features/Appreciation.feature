@@ -1,4 +1,4 @@
-@NEXTBASE-1502 @smoke
+@NEXTBASE-1502
 Feature: As a user, I should be able to send appreciation by clicking on Appreciation tab from Quick Navigate Menu
 
   Users :
@@ -6,7 +6,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
   marketing1@cybertekschool.com
   hr1@cybertekschool.com
 
-  @tc1
+  @tc1 @smoke
   Scenario Outline: Verify that users can send a appreciation by filling the mandatory fields.
     Given the user logs in as a "<userType>"
     When the user clicks more tab on portal homepage
@@ -75,6 +75,9 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
   @tc5
     Scenario Outline: Verify Icons
     Given the user logs in as a "<userType>"
+
+
+
     When the user clicks more tab on portal homepage
     And  the user clicks appreciation item
     And the user writes appreciation message title
