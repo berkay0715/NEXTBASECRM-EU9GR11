@@ -15,6 +15,26 @@ public class AppreciationPage {
     }
 
 
+    @FindBy(xpath = "(//div[@class='bx-finder-company-department-employee-name'])[1]")
+    public WebElement firstEmployeeOfList;
+    @FindBy(xpath = "//input[@id='feed-add-post-grat-input']")
+    public WebElement gratIconRecipientInput;
+
+    @FindBy(xpath = "//div[@id='feed-add-post-grat-container']")
+    public WebElement gratRecipientInputBox;
+
+    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
+    public WebElement closeRecipientsPopup;
+
+    @FindBy(xpath = "//div[@class='feed-add-grat-list']/div/span")
+    public List<WebElement> gratIconList;
+
+    @FindBy(id = "feed-add-post-grat-others")
+    public WebElement otherGratsLink;
+
+    @FindBy(xpath = "//span[contains(@class,'feed-add-grat-box')]")
+    public WebElement selectGratIcon;
+
     @FindBy(xpath = "//input[@id='feed-add-post-destination-input']")
     public WebElement appreciationRecipientsInputBox;
 
@@ -56,9 +76,6 @@ public class AppreciationPage {
 
     @FindBy(xpath = "//span[@data-id='UA']//span[.='All employees']")
     public WebElement allEmployeesAsDefaultRecipient;
-
-    @FindBy(id = "blog-submit-button-save")
-    public WebElement sendAppreciationButton;
 
     @FindBy(xpath = "//span[.='The message title is not specified']")
     public WebElement emptyMessageErrorText;

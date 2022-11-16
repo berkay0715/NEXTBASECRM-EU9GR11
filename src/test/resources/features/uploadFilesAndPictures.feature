@@ -1,9 +1,9 @@
+@hicret
 Feature: Upload files and pictures as messages
   User Story: As a user, I should be able to upload files and pictures as messages
 
   Users :
   helpdesk ,marketing, hr
-
 
 
   Scenario Outline: 1,2 - User should be able to upload multiple files in different formats at the same time(3 files).
@@ -70,11 +70,11 @@ Feature: Upload files and pictures as messages
 
 
 
-  Scenario Outline: 7 User should be able to remove files and images at any time before sending.
+  Scenario Outline: 7- User should be able to remove files and images at any time before sending.
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
     And user clicks upload files icon
-    And user uploads picture
+    And user uploads a file
     And user remove the file
     Then verify the file is removed successfully
 
@@ -84,7 +84,7 @@ Feature: Upload files and pictures as messages
       | Human Resource |
       | Marketing      |
 
-  @hicret
+
   Scenario Outline: 8- User should be able to RENAME the file before sending it.
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
@@ -96,8 +96,8 @@ Feature: Upload files and pictures as messages
 
     Examples:
       | userType       |
-    #  | Helpdesk       |
-    #  | Human Resource |
+      | Helpdesk       |
+      | Human Resource |
       | Marketing      |
 
 

@@ -8,6 +8,7 @@ import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -127,6 +128,12 @@ public class UploadFilesPictures_StepDefs {
     }
 
 
+    @When("user uploads a file")
+    public void user_uploads_a_file() {
+        String path= "C:\\Users\\hicre\\OneDrive\\Masaüstü\\HTML Class\\minions-animated-movies-movies-three-wallpaper.jpg";
+        uploadFilesAndPicturesPage.uploadFilesANDimagesLink.sendKeys(path);
+    }
+
 
     @When("user remove the file")
     public void user_remove_the_file() {
@@ -134,7 +141,7 @@ public class UploadFilesPictures_StepDefs {
     }
     @Then("verify the file is removed successfully")
     public void verify_the_file_is_removed_successfully() {
-       BrowserUtils.verifyElementNotDisplayed(By.xpath("//input[@value='sunnyDay']"));
+       BrowserUtils.verifyElementNotDisplayed(By.xpath("//span[contains(text(),'minions')]"));
 
     }
 
@@ -142,18 +149,20 @@ public class UploadFilesPictures_StepDefs {
     public void user_rename_the_file_before_sending_it() {
         uploadFilesAndPicturesPage.renameButton.isEnabled();
 
-        uploadFilesAndPicturesPage.renameButton.sendKeys(Keys.COMMAND+"a",Keys.BACK_SPACE);
-       // BrowserUtils.sleep(3);
-      //  uploadFilesAndPicturesPage.changeableFileName.sendKeys("new name"+ Keys.ENTER);
-      //  BrowserUtils.sleep(2);
+        BrowserUtils.clickWithJS(uploadFilesAndPicturesPage.renameButton);
+        BrowserUtils.waitForVisibility(uploadFilesAndPicturesPage.changeableFileName,5);
+
+        uploadFilesAndPicturesPage.changeableFileName.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
+        BrowserUtils.sleep(1);
+       uploadFilesAndPicturesPage.changeableFileName.sendKeys("renamed"+ Keys.ENTER);
+
 
     }
     @Then("verify the file is renamed successfully")
     public void verify_the_file_is_renamed_successfully() {
-
+        BrowserUtils.waitFor(2);
+        BrowserUtils.verifyElementDisplayed(By.xpath("//img[contains(@data-bx-title,'renamed.jpg')]"));
     }
-
-
 
 
 }
