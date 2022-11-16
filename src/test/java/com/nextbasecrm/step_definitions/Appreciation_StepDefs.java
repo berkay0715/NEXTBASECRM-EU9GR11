@@ -73,7 +73,8 @@ public class Appreciation_StepDefs {
     @When("the user clicks send button")
     public void the_user_clicks_send_button() {
 
-        appreciationPage.sendAppreciationButton.click();
+        BrowserUtils.waitForVisibility(uploadFilesAndPicturesPage.sendButton,10);
+        uploadFilesAndPicturesPage.sendButton.click();
 
     }
     @Then("the user should be able to see the appreciation message on activity stream")
@@ -154,6 +155,37 @@ public class Appreciation_StepDefs {
     }
 
 
+    @Then("the user should be able to select different grat icons")
+    public void theUserShouldBeAbleToSelectDifferentGratIcons() {
+
+
+        appreciationPage.selectGratIcon.click();
+
+
+        for (int i = 1; i < appreciationPage.gratIconList.size(); i++) {
+
+            appreciationPage.gratIconList.get(i).click();
+            appreciationPage.selectGratIcon.click();
+
+        }
+        appreciationPage.gratIconList.get(11).click();
+        Assert.assertTrue(appreciationPage.selectGratIcon.isDisplayed());
+
+
+    }
+
+    @And("the user selects a recipient")
+    public void theUserSelectsARecipient() {
+
+
+        appreciationPage.gratRecipientInputBox.click();
+        appreciationPage.firstEmployeeOfList.click();
+        appreciationPage.closeRecipientsPopup.click();
+        BrowserUtils.waitFor(1);
+
+
+
+    }
 
 
 }
