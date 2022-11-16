@@ -65,7 +65,7 @@ Feature: Task creation
     And user clicks to the Checklist and type text
     And user clicks on the Time planning
     And user select the start and finish date
-    Then user should see on the count on the homepage under "MY TASKS" table
+    Then user should see on the count on the homepage under "MY TASKS"table
     Examples:
       | username                      | password |
       | hr4@cybertekschool.com        | UserUser |
