@@ -71,7 +71,22 @@ public class EventPage {
     @FindBy(xpath = "//a[.='Add persons, groups or department']")
     public WebElement addPeopleAndGroups;
 
-    @FindBy(xpath = "(//input[@class='feed-add-destination-inp'])[1]")
+    @FindBy(xpath = "//div[@class='feed-event-destination-wrap']")
     public WebElement membersInputBox;
+
+    @FindBy(xpath = "//span[@class='bx-finder-groupbox-content']//a[3]")
+    public WebElement person;
+
+    @FindBy(xpath = "//a[@class='bx-finder-box-tab bx-lm-tab-sonetgroup']")
+    public WebElement groupBox;
+
+    @FindBy(xpath = "//div[@class='bx-finder-box-tab-content bx-lm-box-tab-content-sonetgroup bx-finder-box-tab-content-selected']//a[1]")
+    public WebElement selectedGroup;
+
+    @FindBy(xpath = "//a[@class='bx-finder-box-tab bx-lm-tab-department']")
+    public WebElement EmployeesAndDepartments;
+
+    @FindBy(xpath = "//div[@id='bx-lm-category-relation-129']//a[1]")
+    public WebElement selectedEmployees;
 
 }

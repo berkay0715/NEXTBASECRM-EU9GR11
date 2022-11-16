@@ -53,7 +53,7 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
-
+@people
   Scenario Outline: 4- User should be able to add members
   by selecting contacts individually or adding groups and departments.
 
@@ -61,6 +61,7 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
     When user clicks to the event box
     Then user should enter a event name "Meeting"
     Then user should be able to select individuals, groups and departments
+     Then user should be able send event
 
     Examples:
       | userType       |

@@ -80,7 +80,14 @@ public class Event_StepDefs {
     @Then("user should be able to select individuals, groups and departments")
     public void user_should_be_able_to_select_individuals_groups_and_departments() {
         eventPage.addPeopleAndGroups.click();
-        eventPage.membersInputBox.sendKeys("hr30@cybertekschool.com");
+        eventPage.person.click();
+        BrowserUtils.waitFor(1);
+        eventPage.groupBox.click();
+        eventPage.selectedGroup.click();
+        BrowserUtils.waitFor(1);
+        eventPage.EmployeesAndDepartments.click();
+        eventPage.selectedEmployees.click();
+        BrowserUtils.waitFor(2);
 
 
     }
