@@ -41,7 +41,6 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
       | Human Resource |
       | Marketing      |
 
-
   @tc3
   Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
     Given the user logs in as a "<userType>"
@@ -71,6 +70,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
+
 
   #@tc5
     #Scenario Outline: Verify Icons
