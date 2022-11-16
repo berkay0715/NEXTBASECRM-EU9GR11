@@ -71,6 +71,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
       | Human Resource |
       | Marketing      |
 
+
   #@tc5
     #Scenario Outline: Verify Icons
     #Given the user logs in as a "<userType>"
