@@ -17,6 +17,11 @@ public class HomePage {
     @FindBy(xpath = "//div[@id='sonet-groups-content-container']//span[.='Join']")
     public List<WebElement> workGroupList;
 
+    @FindBy(className = "tasks-task-mpf-link")
+    public WebElement checkList;
+
+
+
     @FindBy(xpath = "//a[@title='Activity Stream']")
     public WebElement activityStreamTab;
 
@@ -43,6 +48,57 @@ public class HomePage {
 
     @FindBy(xpath = "(//div[contains(@id,'blog_post_body')])[1]")
     public WebElement firstSentActivity;
+
+
+    @FindBy(xpath = "//input[@id='tasks-task-priority-cb']")
+    public WebElement highPriority;
+
+    @FindBy(xpath = "//span[.='Task']")
+    public WebElement taskButton;
+
+
+
+    @FindBy (xpath = "(//a[@class=\"js-id-tdp-mem-sel-is-open-form task-form-field-when-filled task-form-field-link add\"])[1]\n")
+    public WebElement addmoreButton;
+
+            @FindBy (xpath = " //div[.=\"helpdesk30@cybertekschool.com\"]\n")
+            public WebElement addPeople;
+
+            @FindBy (xpath ="(//input[@data-bx-id=\"datepicker-display\"])[1]" )
+            public WebElement deadlineButton;
+
+            @FindBy (xpath = "//a[.=\"17\"]")
+            public WebElement nov17;
+
+            @FindBy (xpath = "//span[.=\"Select\"]")
+            public WebElement selectButton;
+
+            @FindBy (xpath = "//span[.=\"Time planning\"]")
+            public WebElement timePlanningButton;
+
+
+            @FindBy (xpath = "(//button[@class=\"ui-btn ui-btn-lg ui-btn-primary\"])[1]\n")
+            public WebElement sendButton;
+
+
+            @FindBy (xpath = "//div[@class=\"task-info-panel\"]")
+            public WebElement taskPanel;
+
+            @FindBy (xpath = "//*[@id=\"post-buttons-bottom\"]/span[5]")
+            public WebElement checkListBtn;
+
+            @FindBy (xpath = "//input[@data-bx-id=\"task-edit-title\"]")
+            public WebElement taskTitle;
+
+            @FindBy (id= "bx-component-scope-lifefeed_task_form-responsible")
+            public WebElement addMoreBtn;
+
+
+            @FindBy (xpath = "//button[@id='blog-submit-button-save']")
+            public WebElement sendBtn;
+
+
+
 
 
     public void joinWorkGroups(){
