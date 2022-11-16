@@ -47,13 +47,27 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
     Then user should select All day
     And user should be able to select event location
     Then user should be able send event
-    And sjdujgf
 
     Examples:
       | userType       |
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
+
+  Scenario Outline: 4- User should be able to add members
+  by selecting contacts individually or adding groups and departments.
+
+    Given the user logs in as a "<userType>"
+    When user clicks to the event box
+    Then user should enter a event name "Meeting"
+    Then user should be able to select individuals, groups and departments
+
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
 
 
 

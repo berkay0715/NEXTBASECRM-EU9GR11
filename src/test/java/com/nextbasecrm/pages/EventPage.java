@@ -68,4 +68,10 @@ public class EventPage {
     @FindBy(xpath ="//input[@name='EVENT_LOCATION']" )
     public WebElement eventLocation;
 
+    @FindBy(xpath = "//a[.='Add persons, groups or department']")
+    public WebElement addPeopleAndGroups;
+
+    @FindBy(xpath = "(//input[@class='feed-add-destination-inp'])[1]")
+    public WebElement membersInputBox;
+
 }
