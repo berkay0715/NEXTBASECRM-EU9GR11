@@ -15,14 +15,24 @@ public class AppreciationPage {
     }
 
 
-    @FindBy(id = "//div[@id='feed-add-post-grat-container']")
+    @FindBy(xpath = "(//div[@class='bx-finder-company-department-employee-name'])[1]")
+    public WebElement firstEmployeeOfList;
+    @FindBy(xpath = "//input[@id='feed-add-post-grat-input']")
     public WebElement gratIconRecipientInput;
 
-    @FindBy(id = "//div[@class='feed-add-grat-list']/div/span")
+    @FindBy(xpath = "//div[@id='feed-add-post-grat-container']")
+    public WebElement gratRecipientInputBox;
+
+    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
+    public WebElement closeRecipientsPopup;
+
+    @FindBy(xpath = "//div[@class='feed-add-grat-list']/div/span")
     public List<WebElement> gratIconList;
 
+    @FindBy(id = "feed-add-post-grat-others")
+    public WebElement otherGratsLink;
 
-    @FindBy(id = "//span[contains(@class,'feed-add-grat-box')]")
+    @FindBy(xpath = "//span[contains(@class,'feed-add-grat-box')]")
     public WebElement selectGratIcon;
 
     @FindBy(xpath = "//input[@id='feed-add-post-destination-input']")

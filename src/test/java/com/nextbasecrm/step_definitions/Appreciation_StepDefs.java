@@ -73,6 +73,7 @@ public class Appreciation_StepDefs {
     @When("the user clicks send button")
     public void the_user_clicks_send_button() {
 
+        BrowserUtils.waitForVisibility(uploadFilesAndPicturesPage.sendButton,10);
         uploadFilesAndPicturesPage.sendButton.click();
 
     }
@@ -158,19 +159,31 @@ public class Appreciation_StepDefs {
     public void theUserShouldBeAbleToSelectDifferentGratIcons() {
 
 
-        for (WebElement grat : appreciationPage.gratIconList) {
+        appreciationPage.selectGratIcon.click();
+
+
+        for (int i = 1; i < appreciationPage.gratIconList.size(); i++) {
+
+            appreciationPage.gratIconList.get(i).click();
             appreciationPage.selectGratIcon.click();
-            grat.click();
+
         }
-        BrowserUtils.waitFor(4);
+        appreciationPage.gratIconList.get(11).click();
+        Assert.assertTrue(appreciationPage.selectGratIcon.isDisplayed());
+
 
     }
 
     @And("the user selects a recipient")
     public void theUserSelectsARecipient() {
 
-        appreciationPage.gratIconRecipientInput.sendKeys("helpdesk5@cybertekschool.com","hr5@cybertekschool.com","marketing5@cybertekschool.com");
-        BrowserUtils.waitFor(4);
+
+        appreciationPage.gratRecipientInputBox.click();
+        appreciationPage.firstEmployeeOfList.click();
+        appreciationPage.closeRecipientsPopup.click();
+        BrowserUtils.waitFor(1);
+
+
 
     }
 

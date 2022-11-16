@@ -72,20 +72,20 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
       | Marketing      |
 
 
-  #@tc5
-    #Scenario Outline: Verify Icons
-    #Given the user logs in as a "<userType>"
-    #When the user clicks more tab on portal homepage
-    #And  the user clicks appreciation item
-    #And the user writes appreciation message title
-    #Then the user should be able to select different grat icons
-    #And the user selects a recipient
-    #And the user clicks send button
+  @tc5
+    Scenario Outline: Verify Icons
+    Given the user logs in as a "<userType>"
+    When the user clicks more tab on portal homepage
+    And  the user clicks appreciation item
+    And the user writes appreciation message title
+    Then the user should be able to select different grat icons
+    And the user selects a recipient
+    And the user clicks send button
 
 
-    #Examples:
-      #| userType       |
-      #| Helpdesk       |
-      #| Human Resource |
-      #| Marketing      |
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
 
