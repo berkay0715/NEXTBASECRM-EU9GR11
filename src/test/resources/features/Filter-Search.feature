@@ -84,9 +84,15 @@
     Examples:
       | userType |
       | Helpdesk |
+      | Human Resource |
+      | Marketing      |
 
   @NEXTBASE-1509
   Scenario Outline: 7- Verify that user should be able to restore the default field.
+    Given the user logs in as a "<userType>"
+    When user clicks to the -Filter and search- box
+    And user clicks the -restore default fields link- after adding new fields
+    Then user should see the default type fields
 
     Examples:
       | userType       |
