@@ -148,8 +148,16 @@ public class Filter_Search_Step_Def {
         BrowserUtils.waitFor(1);
         filterSearchPage.newFilterLinkBox.sendKeys("SDET_FILTER");
         BrowserUtils.waitFor(1);
+    }
+
+    @And("user clicks the -save button-")
+    public void userClicksTheSaveButton() {
         filterSearchPage.saveButton.click();
         BrowserUtils.waitFor(1);
+    }
+
+    @Then("user should see the new filter type under the default filters")
+    public void userShouldSeeTheNewFilterTypeUnderTheDefaultFilters() {
         Assert.assertTrue(filterSearchPage.newFilterLink.isDisplayed());
         BrowserUtils.waitFor(1);
         filterSearchPage.configureButton.click();
@@ -162,12 +170,28 @@ public class Filter_Search_Step_Def {
         BrowserUtils.waitFor(1);
     }
 
-    @And("user clicks the -save button-")
-    public void userClicksTheSaveButton() {
-        
+    @When("user clicks the -restore default fields link- after adding new fields")
+    public void user_clicks_the_restore_default_fields_link_after_adding_new_fields() {
+        filterSearchPage.addFieldLink.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.favoritesFilterCheckBox.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.filterTitle.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.restoreDefaultFields.click();
+        BrowserUtils.waitFor(1);
     }
 
-    @Then("user should see the new filter type under the default filters")
-    public void userShouldSeeTheNewFilterTypeUnderTheDefaultFilters() {
+    @Then("user should see the default type fields")
+    public void user_should_see_the_default_type_fields() {
+        Assert.assertTrue(filterSearchPage.dateTitle.isEnabled());
+        BrowserUtils.waitFor(1);
+        Assert.assertTrue(filterSearchPage.typeTitle.isEnabled());
+        BrowserUtils.waitFor(1);
+        Assert.assertTrue(filterSearchPage.authorTitle.isEnabled());
+        BrowserUtils.waitFor(1);
+        Assert.assertTrue(filterSearchPage.toTitle.isEnabled());
+        BrowserUtils.waitFor(1);
     }
+
 }
