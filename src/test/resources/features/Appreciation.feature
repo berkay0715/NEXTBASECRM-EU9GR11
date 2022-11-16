@@ -17,7 +17,6 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     When the user clicks send button
     Then the user should be able to see the appreciation message on activity stream
 
-
     Examples:
       | userType       |
       | Helpdesk       |
@@ -60,14 +59,12 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
       | Human Resource |
       | Marketing      |
 
-
   @tc4
   Scenario Outline: Verify Cancel Button
     Given the user logs in as a "<userType>"
     When the user clicks more tab on portal homepage
     And  the user clicks appreciation item
     Then the user should be able to click cancel button before sending appreciation any time
-
 
     Examples:
       | userType       |
