@@ -56,13 +56,39 @@ public class HomePage {
     @FindBy(xpath = "//span[.='Task']")
     public WebElement taskButton;
 
+    @FindBy (xpath = "(//div[.=\"marketing1@cybertekschool.com\"])[1]")
+    public WebElement addMarketingPeople;
 
+    @FindBy (xpath = "(//div[.=\"helpdesk4@cybertekschool.com\"])[1]")
+    public WebElement addHelpDeskPeople;
 
-    @FindBy (xpath = "(//a[@class=\"js-id-tdp-mem-sel-is-open-form task-form-field-when-filled task-form-field-link add\"])[1]\n")
-    public WebElement addmoreButton;
+@FindBy (xpath = "//a[@id='destDepartmentTab_172023425']")
+public WebElement employeesAndDepartments;
 
-            @FindBy (xpath = " //div[.=\"helpdesk30@cybertekschool.com\"]\n")
-            public WebElement addPeople;
+@FindBy (xpath = "(//input[@class=\"js-id-tdp-mem-sel-is-search js-id-network-selector-search task-form-field-search task-form-field-input\"])[1]")
+public WebElement responsiblePerson;
+
+@FindBy (xpath = "//span[@class='popup-window-close-icon']")
+public WebElement popUp;
+
+@FindBy (xpath = "(//a[@class=\"js-id-tdp-mem-sel-is-open-form task-form-field-when-filled task-form-field-link add\"])[1]")
+public WebElement addMore2People;
+
+            @FindBy (xpath = "//div[.=\"hr10@cybertekschool.com\"]")
+            public WebElement addPeople1;
+    @FindBy (xpath = "//div[.=\"marketing30@cybertekschool.com\"]")
+    public WebElement addPeople2;
+    @FindBy (xpath = "//div[.=\"helpdesk10@cybertekschool.com\"]")
+    public WebElement addPeople3;
+
+    @FindBy (xpath = "//input[@class=\"js-id-checklist-is-form-title task-checklist-field-add\"]")
+    public WebElement checkListField;
+
+    @FindBy (xpath = "(//input[@class=\"task-options-inp\"])[2]")
+    public WebElement startDate;
+
+    @FindBy (xpath = "(//input[@class=\"task-options-inp\"])[4]")
+    public  WebElement finishDate;
 
             @FindBy (xpath ="(//input[@data-bx-id=\"datepicker-display\"])[1]" )
             public WebElement deadlineButton;
@@ -70,6 +96,8 @@ public class HomePage {
             @FindBy (xpath = "//a[.=\"17\"]")
             public WebElement nov17;
 
+    @FindBy (xpath = "//a[.=\"23\"]")
+    public WebElement nov23;
             @FindBy (xpath = "//span[.=\"Select\"]")
             public WebElement selectButton;
 
@@ -79,6 +107,8 @@ public class HomePage {
 
             @FindBy (xpath = "(//button[@class=\"ui-btn ui-btn-lg ui-btn-primary\"])[1]\n")
             public WebElement sendButton;
+
+
 
 
             @FindBy (xpath = "//div[@class=\"task-info-panel\"]")
