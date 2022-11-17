@@ -69,6 +69,33 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
       | Human Resource |
       | Marketing      |
 
+  @mandatory
+  Scenario Outline: 5- User should be able to send event by filling the mandatory fields.
+
+    Given the user logs in as a "<userType>"
+    When user clicks to the event box
+    Then user should enter a event name "Meeting"
+    Then user should be able send event
+
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
+  Scenario Outline: 6- User should be able to cancel sending event at any time before sending.
+
+    Given the user logs in as a "<userType>"
+    When user clicks to the event box
+    Then user should enter a event name "Meeting"
+    Then the user should be able to click cancel button before sending event any time
+
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      | Human Resource |
+      | Marketing      |
+
 
 
 

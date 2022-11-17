@@ -89,4 +89,13 @@ public class EventPage {
     @FindBy(xpath = "//div[@id='bx-lm-category-relation-129']//a[1]")
     public WebElement selectedEmployees;
 
+    @FindBy(xpath = "(//div[@class='bx-finder-company-department-arrow'])[2]")
+    public WebElement eahdgfelrGroup;
+
+    @FindBy(xpath = "(//span[@class='bx-finder-company-department-check-inner']//div)[1]")
+    public WebElement allDepartmentsAndSubdepartments;
+
+    @FindBy(xpath = "(//button[@class='ui-btn ui-btn-lg ui-btn-link'])[1]")
+    public WebElement cancelButton;
+
 }

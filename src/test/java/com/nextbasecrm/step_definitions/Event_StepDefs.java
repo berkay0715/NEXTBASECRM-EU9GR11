@@ -86,10 +86,16 @@ public class Event_StepDefs {
         eventPage.selectedGroup.click();
         BrowserUtils.waitFor(1);
         eventPage.EmployeesAndDepartments.click();
-        eventPage.selectedEmployees.click();
+        eventPage.eahdgfelrGroup.click();
+        eventPage.allDepartmentsAndSubdepartments.click();
         BrowserUtils.waitFor(2);
 
 
+    }
+
+    @Then("the user should be able to click cancel button before sending event any time")
+    public void the_user_should_be_able_to_click_cancel_button_before_sending_event_any_time() {
+       eventPage.cancelButton.click();
     }
 
 
