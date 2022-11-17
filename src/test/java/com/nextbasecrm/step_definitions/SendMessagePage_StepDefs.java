@@ -1,5 +1,6 @@
 package com.nextbasecrm.step_definitions;
 
+import com.github.javafaker.Faker;
 import com.nextbasecrm.pages.LoginPage;
 import com.nextbasecrm.pages.SendMessagePage;
 import com.nextbasecrm.utilities.BrowserUtils;
@@ -17,6 +18,7 @@ public class SendMessagePage_StepDefs {
 
     LoginPage loginPage = new LoginPage();
     SendMessagePage sendMessagePage = new SendMessagePage();
+    Faker faker = new Faker();
 
 
 
@@ -35,18 +37,17 @@ public class SendMessagePage_StepDefs {
     @Given("the user is inside the message draft box")
     public void the_user_is_inside_the_message_draft_box() {
         sendMessagePage.messageBox.click();
-        //need code for switching iframe to message box
+        Driver.getDriver().switchTo().frame(sendMessagePage.InputTextBox);
     }
     @When("the user types a message inside the message draft box")
     public void the_user_types_a_message_inside_the_message_draft_box() {
-        //send keys
-        //switch back to parent frame
+        sendMessagePage.messageBox.sendKeys(faker.lorem().sentence(20)+". ");
 
 
     }
     @Then("the user sees all employees in the message box")
     public void the_user_sees_all_employees_in_the_message_box() {
-        Assert.assertTrue(sendMessagePage.allEmployeesEmailAddressGroup.isDisplayed());
+        BrowserUtils.verifyElementDisplayed(sendMessagePage.allEmployeesEmailAddressGroup);
 
     }
     @Given("the user clicks on add more to add recipients")
