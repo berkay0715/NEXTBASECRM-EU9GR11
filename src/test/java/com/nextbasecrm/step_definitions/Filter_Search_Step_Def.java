@@ -86,6 +86,7 @@ public class Filter_Search_Step_Def {
         filterSearchPage.searchButton.click();
         BrowserUtils.waitFor(1);
     }
+
     @Then("user should see the date type in the -Filter and search- box")
     public void user_should_see_the_date_type_in_the_filter_and_search_box() {
         Assert.assertTrue(filterSearchPage.yesterdayDateTypeVerifying.isDisplayed());
@@ -132,6 +133,7 @@ public class Filter_Search_Step_Def {
         filterSearchPage.typeSearchButton.click();
         BrowserUtils.waitFor(1);
     }
+
     @Then("user should see the selected multiple types in the -Filter and search- box")
     public void user_should_see_the_selected_multiple_types_in_the_filter_and_search_box() {
         Assert.assertTrue(filterSearchPage.filterResult.isDisplayed());
@@ -194,4 +196,35 @@ public class Filter_Search_Step_Def {
         BrowserUtils.waitFor(1);
     }
 
+    @When("user adds new filter and clicks the -reset filters to default- link")
+    public void user_adds_new_filter_and_clicks_the_reset_filters_to_default_link() {
+        filterSearchPage.saveFilterLink.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.newFilterLinkBox.sendKeys("SDET_FILTER");
+        BrowserUtils.waitFor(1);
+        filterSearchPage.saveButton.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.saveFilterLink.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.resetToDefaultLink.click();
+        BrowserUtils.waitFor(1);
+        filterSearchPage.continueButton.click();
+        BrowserUtils.waitFor(1);
+    }
+
+    @Then("user should not see the added filters after user resets the filters")
+    public void user_should_not_see_the_added_filters_after_user_resets_the_filters() {
+
+        Assert.assertFalse(filterSearchPage.newFilterLink.isDisplayed());
+
+            /*filterSearchPage.configureButton.click();
+            BrowserUtils.waitFor(1);
+            filterSearchPage.deleteButton.click();
+            BrowserUtils.waitFor(1);
+            filterSearchPage.saveButton.click();
+            BrowserUtils.waitFor(1);
+            filterSearchPage.resetButton.click();
+            BrowserUtils.waitFor(1);*/
+
+    }
 }
