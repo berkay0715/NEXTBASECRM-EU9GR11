@@ -8,6 +8,7 @@ Feature: As a user, I should be able to send messages by clicking on
   hr1@cybertekschool.com
 
 
+  @smoke
   Scenario Outline: Use logs in and is able to see the send message box inside message tab
     Given the user logs in as a "<userType>"
     When the use clicks on message tab on the dashboard page

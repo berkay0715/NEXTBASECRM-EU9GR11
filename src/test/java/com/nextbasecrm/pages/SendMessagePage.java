@@ -17,6 +17,9 @@ public class SendMessagePage {
     @FindBy(xpath = "//span[@class='feed-add-post-micro-title']")
     public WebElement sendMessageTextIsDisplayed;
 
+    @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
+    public WebElement InputTextBox;
+
     @FindBy(xpath = "//div[@class='feed-add-post-text']")
     public WebElement messageBox;
 
