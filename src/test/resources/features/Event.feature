@@ -13,6 +13,7 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
     And user should select Time Zone
     Then user should be able send event
 
+
     Examples:
       | userType       |
       | Helpdesk       |
