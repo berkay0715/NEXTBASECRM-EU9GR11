@@ -15,6 +15,7 @@ public class TaskPage {
 
 
 
+
     @FindBy(xpath = "//input[@id='tasks-task-priority-cb']")
     public WebElement highPriority;
 
