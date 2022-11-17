@@ -1,7 +1,7 @@
-@Event
+@NEXTBASE-1495
 Feature:As a user, I should be able to create events by clicking on Event tab under Activity Stream.
 
-  @NEXTBASE-1495
+@NEXTBASE-1517
   Scenario Outline: 1- User should be able to add Event start and ending date and time, select "All day" and specify the time zone.
 
     Given the user logs in as a "<userType>"
@@ -19,7 +19,7 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
       | Human Resource |
       | Marketing      |
 
-    @smoke
+    @NEXTBASE-1518
   Scenario Outline: 2-  User should be able to set reminder.
 
     Given the user logs in as a "<userType>"
@@ -37,6 +37,7 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
       | Human Resource |
       | Marketing      |
 
+  @NEXTBASE-1519
   Scenario Outline: 3-User should be able to select the event location from the dropdown.
 
     Given the user logs in as a "<userType>"
@@ -53,7 +54,7 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
-@people
+@NEXTBASE-1520
   Scenario Outline: 4- User should be able to add members
   by selecting contacts individually or adding groups and departments.
 
@@ -69,7 +70,7 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
       | Human Resource |
       | Marketing      |
 
-  @mandatory
+  @NEXTBASE-1521
   Scenario Outline: 5- User should be able to send event by filling the mandatory fields.
 
     Given the user logs in as a "<userType>"
@@ -82,7 +83,7 @@ Feature:As a user, I should be able to create events by clicking on Event tab un
       | Helpdesk       |
       | Human Resource |
       | Marketing      |
-
+@NEXTBASE-1522
   Scenario Outline: 6- User should be able to cancel sending event at any time before sending.
 
     Given the user logs in as a "<userType>"

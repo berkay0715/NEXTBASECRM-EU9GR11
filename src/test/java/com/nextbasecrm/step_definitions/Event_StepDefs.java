@@ -88,7 +88,6 @@ public class Event_StepDefs {
         eventPage.EmployeesAndDepartments.click();
         eventPage.eahdgfelrGroup.click();
         eventPage.allDepartmentsAndSubdepartments.click();
-        BrowserUtils.waitFor(2);
 
 
     }
