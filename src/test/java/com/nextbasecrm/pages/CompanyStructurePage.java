@@ -26,13 +26,14 @@ public class CompanyStructurePage {
   @FindBy(xpath ="//a[@title='Cyber Vet']")
     public WebElement parentDepartmentTitle;
 
-  @FindBy(className = "webform-small-button-text")
+
+  @FindBy(xpath = "(//span[.='Add department'])[1]")
     public WebElement addDepartmentButton;
 
    @FindBy(xpath = "//input[@id='NAME']")
     public WebElement departmentNameInput;
 
-   @FindBy(className = "popup-window-button-accept")
+   @FindBy(xpath = "//span[.='Add']")
     public WebElement addButton;
 
    @FindBy(xpath ="//select[@id='IBLOCK_SECTION_ID']")
@@ -76,8 +77,6 @@ public class CompanyStructurePage {
 
 
 
-    @FindBy(xpath = "//a[@title='Employees']")
-    public WebElement employeeTab;
 
     @FindBy(xpath = "//span[.='Close']")
     public WebElement closeButton;
@@ -85,20 +84,29 @@ public class CompanyStructurePage {
     @FindBy(xpath ="//a[.='New department']")
     public WebElement newDepartment;
 
+
     @FindBy(xpath ="(//div[@title='Edit department'])[1]")
     public WebElement editDepartment;
 
-     @FindBy(xpath ="//span[@class='popup-window-button popup-window-button-accept']")
-    public WebElement saveButton;
+     @FindBy(xpath ="//input[@id='NAME']")
+    public WebElement editDepartmentInput;
 
 
+
+     @FindBy(xpath ="//span[.='Save']")
+    public WebElement editSaveButton;
 
     @FindBy(xpath ="(//div[@title='Add child department'])[1]")
     public WebElement addChildDepartment;
 
+ @FindBy(xpath = "//input[@id='NAME']")
+ public WebElement childDepartmentNameInput;
 
     @FindBy(xpath ="(//div[@title='Delete department'])[1]")
     public WebElement deleteDepartment;
+
+    @FindBy(xpath = "//table[contains(@id,'bx_str_level2_table')]//div[@data-role='department_delete']")
+    public WebElement deleteChildDepartment;
 
 
 
