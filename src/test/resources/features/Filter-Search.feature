@@ -1,3 +1,4 @@
+  @ac
   @NEXTBASE-1500
 
   Feature: As a user, I should be able to use "Filter and search" functionality on Active Stream.
@@ -72,7 +73,7 @@
           | Helpdesk |
           | Human Resource |
           | Marketing      |
-@ac
+
   @NEXTBASE-1508
   Scenario Outline: 6- Verify that user should be able to save the filter.
     Given the user logs in as a "<userType>"
@@ -100,8 +101,12 @@
       | Human Resource |
       | Marketing      |
 
-  @NEXTBASE-1510
+  @ignore @NEXTBASE-1510
   Scenario Outline: 8- Verify that user should be able to reset filters to default.
+    Given the user logs in as a "<userType>"
+    When user clicks to the -Filter and search- box
+    And user adds new filter and clicks the -reset filters to default- link
+    Then user should not see the added filters after user resets the filters
 
     Examples:
       | userType |

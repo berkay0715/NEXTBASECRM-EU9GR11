@@ -1,6 +1,8 @@
 package com.nextbasecrm.pages;
 
 import com.nextbasecrm.utilities.Driver;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -114,6 +116,10 @@ public class Filter_Search_Page {
 
 
 
+    @FindBy(xpath = "//span[@class='main-ui-filter-field-button-item']")
+    public WebElement resetToDefaultLink;
 
+    @FindBy(xpath = "//span[@class='popup-window-button']")
+    public WebElement continueButton;
 
 }
