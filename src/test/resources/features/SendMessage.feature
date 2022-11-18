@@ -8,7 +8,7 @@ Feature: As a user, I should be able to send messages by clicking on
   hr1@cybertekschool.com
 
   #1. User should be able to send a message by filling in the mandatory fields.
-  @tc1maz
+  @tc1maz @smoke
   Scenario Outline: User logs in and sends the message by filling in the mandatory fields
     Given the user logs in as a "<userType>"
     When the use clicks on message tab on the dashboard page
@@ -19,8 +19,8 @@ Feature: As a user, I should be able to send messages by clicking on
     Examples:
       | userType       |
       | Helpdesk       |
-      #| Human Resource |
-      #| Marketing      |
+      | Human Resource |
+      | Marketing      |
 
     #2. The message delivery should be to 'All employees' by default and should be changeable.
   @tc1maz
