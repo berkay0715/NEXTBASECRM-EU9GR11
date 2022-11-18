@@ -143,7 +143,7 @@ public class Appreciation_StepDefs {
     }
 
 
-    @Then("the user should be able to click cancel button before sending appreciation any time")
+    @Then("the user should be able to click cancel button")
     public void the_user_should_be_able_to_cancel_sending_appreciation() {
 
         BrowserUtils.waitForClickablility(uploadFilesAndPicturesPage.cancelButton,10);

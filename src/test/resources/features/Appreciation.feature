@@ -63,7 +63,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     Given the user logs in as a "<userType>"
     When the user clicks more tab on portal homepage
     And  the user clicks appreciation item
-    Then the user should be able to click cancel button before sending appreciation any time
+    Then the user should be able to click cancel button
 
     Examples:
       | userType       |
