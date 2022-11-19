@@ -25,12 +25,6 @@ public class SendMessagePage_StepDefs {
     Faker faker = new Faker();
 
 
-    @When("the use clicks on message tab on the dashboard page")
-    public void the_use_clicks_on_message_tab_on_the_dashboard_page() {
-        homePage.messageTab.click();
-
-    }
-
     @And("the user writes the message in the message input box")
     public void theUserWritesTheMessageInTheMessageInputBox() {
         BrowserUtils.waitForVisibility(sendMessagePage.iframe,5);
@@ -54,7 +48,6 @@ public class SendMessagePage_StepDefs {
 
 
     }
-
 
 }
 
