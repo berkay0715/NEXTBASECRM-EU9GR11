@@ -44,7 +44,7 @@ public class Appreciation_StepDefs {
     }
     @Then("the user should be able to see appreciation on menu popup")
     public void the_user_should_be_able_to_see_appreciation_on_menu_popup() {
-
+        BrowserUtils.waitForVisibility(appreciationPage.moreTabAppreciationItem,10);
         Assert.assertTrue(appreciationPage.moreTabAppreciationItem.isDisplayed());
 
     }
@@ -69,6 +69,7 @@ public class Appreciation_StepDefs {
     public void the_user_should_be_able_to_see_recipient_as_all_employees_by_default() {
 
         Assert.assertTrue(appreciationPage.allEmployeesAsDefaultRecipient.isDisplayed());
+        BrowserUtils.waitForVisibility(uploadFilesAndPicturesPage.sendButton,10);
     }
 
     @When("the user clicks send button")
