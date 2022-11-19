@@ -7,12 +7,14 @@ Feature: As a user, I should be able to send messages by clicking on
   marketing1@cybertekschool.com
   hr1@cybertekschool.com
 
-
-  Scenario Outline: Use logs in and is able to see the send message box inside message tab
+  #1. User should be able to send a message by filling in the mandatory fields.
+  @tc1maz @smoke
+  Scenario Outline: User logs in and sends the message by filling in the mandatory fields
     Given the user logs in as a "<userType>"
     When the use clicks on message tab on the dashboard page
-    Then the user sees send message box
-
+    And the user writes the message in the message input box
+    And the user clicks send button
+    Then the user should be able to see the message on the dashboard
 
     Examples:
       | userType       |
@@ -20,32 +22,76 @@ Feature: As a user, I should be able to send messages by clicking on
       | Human Resource |
       | Marketing      |
 
-  Scenario Outline: User types the message in the message draft box
+    #2. The message delivery should be to 'All employees' by default and should be changeable.
+  @tc1maz
+  Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
     Given the user logs in as a "<userType>"
-    When the user is inside the message draft box
-    And the user types a message inside the message draft box
-    Then the user sees all employees in the message box
+    When the use clicks on message tab on the dashboard page
+    And the user writes the message in the message input box
+    Then the user should be able to see recipient as All employees by default
+    When the user deletes all recipients
+    And  the user clicks add persons link text
+    Then the user should be able to select different recipients from the list
 
     Examples:
       | userType       |
       | Helpdesk       |
-      | Human Resource |
-      | Marketing      |
+      #| Human Resource |
+      #| Marketing      |
 
+    #3. User should be able to cancel sending messages at any time before sending.
+  @tc1maz
   Scenario Outline:User is able to add recipients and send the message
     Given the user logs in as a "<userType>"
-    When the user clicks on add more to add recipients
-    And the user selects the recipients from recent
-    And the user selects the recipients from my groups
-    And the user selects the recipients from employees and departments
-    Then the user clicks on send and sends the message
+    When the use clicks on message tab on the dashboard page
+    And the user writes the message in the message input box
+    And the user should be able to click cancel button
+
+    Examples:
+     | userType       |
+     | Helpdesk       |
+     #| Human Resource |
+     #| Marketing      |
+
+
+
+
+
+  #Mandatory fields:  'Message Title'(content) & 'Recipient'.
+  #Error messages for mandatory fields:
+    #"The message title is not specified."
+    #"Please specify at least one person."
+
+  Scenario Outline: Verifying Error messages for mandatory fields
+    Given the user logs in as a "<userType>"
+    When the use clicks on message tab on the dashboard page
+    And  the user clicks send button
+    Then --The message title is not specified-- error message should be displayed
+    When the use clicks on message tab on the dashboard page
+    And the user writes the message in the message input box
+    And  the user deletes all recipients
+    And  the user clicks send button
+    Then --Please specify at least one person-- error message should be displayed
 
     Examples:
       | userType       |
       | Helpdesk       |
-      | Human Resource |
-      | Marketing      |
+      #| Human Resource |
+      #| Marketing      |
 
+      #Recipients should be selectable from "Recent", "My Groups"(enable to see this type of Recipients you need to join at least one of the groups beforehand) and "Employees and departments."
+      #Recipients can be added more than one and are deletable.
+  @errormessage
+  Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
+    Given the user logs in as a "<userType>"
+    When the use clicks on message tab on the dashboard page
+    And the user writes the message in the message input box
+    When the user deletes all recipients
+    And  the user clicks add persons link text
+    Then the user should be able to select different recipients from the list
 
-
-
+    Examples:
+      | userType       |
+      | Helpdesk       |
+      #| Human Resource |
+      #| Marketing      |
