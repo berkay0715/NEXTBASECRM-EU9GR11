@@ -3,7 +3,7 @@
 
   Feature: As a user, I should be able to use "Filter and search" functionality on Active Stream.
 
-  @NEXTBASE-1503
+  @smoke @NEXTBASE-1503
   Scenario Outline: 1- Verify that user should be able to see default filters as "my activity, work, favorite, announcements, and workflows".
 
   Given the user logs in as a "<userType>"
