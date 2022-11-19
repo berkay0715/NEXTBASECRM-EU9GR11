@@ -44,13 +44,13 @@ public class Appreciation_StepDefs {
     }
     @Then("the user should be able to see appreciation on menu popup")
     public void the_user_should_be_able_to_see_appreciation_on_menu_popup() {
-        BrowserUtils.waitForVisibility(appreciationPage.moreTabAppreciationItem,10);
+
         Assert.assertTrue(appreciationPage.moreTabAppreciationItem.isDisplayed());
 
     }
     @When("the user clicks appreciation item")
     public void the_user_clicks_appreciation_item() {
-        BrowserUtils.waitForVisibility(appreciationPage.moreTabAppreciationItem,10);
+
             appreciationPage.moreTabAppreciationItem.click();
     }
     @And("the user writes appreciation message title")
@@ -67,13 +67,14 @@ public class Appreciation_StepDefs {
 
     @Then("the user should be able to see recipient as All employees by default")
     public void the_user_should_be_able_to_see_recipient_as_all_employees_by_default() {
+
         Assert.assertTrue(appreciationPage.allEmployeesAsDefaultRecipient.isDisplayed());
     }
 
     @When("the user clicks send button")
     public void the_user_clicks_send_button() {
 
-        BrowserUtils.waitForVisibility(uploadFilesAndPicturesPage.sendButton,10);
+
         uploadFilesAndPicturesPage.sendButton.click();
 
     }
@@ -83,7 +84,7 @@ public class Appreciation_StepDefs {
         String expectedMessage = "Thank you for your assistance.";
         String actualMessage = homePage.firstSentActivity.getText();
             Assert.assertTrue(actualMessage.contains(expectedMessage));
-
+        BrowserUtils.waitForPageToLoad(5);
     }
 
     // TC2
