@@ -1,10 +1,15 @@
+<<<<<<<<< Temporary merge branch 1
+
+=========
 @c1
+>>>>>>>>> Temporary merge branch 2
 Feature:As a user, I should be able to add link, insert video, mention, quote, add tag in message.
 
   Users :
   helpdesk1@cybertekschool.com
   marketing1@cybertekschool.com
   hr1@cybertekschool.com
+
 
 
 
