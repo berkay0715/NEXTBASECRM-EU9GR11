@@ -89,6 +89,7 @@ public class AddingFunctionality_StepDefs {
     }
     @Then("verify that user should be able to mention the employee successfully.")
     public void verify_that_user_should_be_able_to_mention_the_employee_successfully() {
+        Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyAddMention);
     }
 

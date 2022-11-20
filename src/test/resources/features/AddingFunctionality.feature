@@ -1,3 +1,4 @@
+@c1
 Feature:As a user, I should be able to add link, insert video, mention, quote, add tag in message.
 
   Users :
@@ -7,7 +8,7 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
 
 
-
+  @c1 @TC01
   Scenario Outline: User should be able to add mentions about only department employees.
     Given the user logs in as a "<userType>"
 

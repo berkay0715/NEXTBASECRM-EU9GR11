@@ -38,10 +38,11 @@ public class ConversationsPage {
     @FindBy(xpath = "(//div[@class='bx-finder-company-department-employee-name'])[1]")
     public WebElement MailOfEmp;
 
-    @FindBy(xpath = "//span[@data-id='U522']")
+    //span[@data-id='U592']
+    @FindBy(xpath = "//body[@style='min-height: 184px;']//span[.='marketing1@cybertekschool.com']")
     public WebElement VerifyAddMention;
 
-    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='helpdesk32@cybertekschool.com']")
+    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='marketing1@cybertekschool.com']")
     public WebElement VerifyMentionedMsg;
 
 
