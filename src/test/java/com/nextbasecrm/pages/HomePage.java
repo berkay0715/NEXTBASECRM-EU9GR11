@@ -17,6 +17,11 @@ public class HomePage {
     @FindBy(xpath = "//div[@id='sonet-groups-content-container']//span[.='Join']")
     public List<WebElement> workGroupList;
 
+    @FindBy(className = "tasks-task-mpf-link")
+    public WebElement checkList;
+
+
+
     @FindBy(xpath = "//a[@title='Activity Stream']")
     public WebElement activityStreamTab;
 
@@ -45,16 +50,22 @@ public class HomePage {
     public WebElement firstSentActivity;
 
 
+
+
+
     public void joinWorkGroups(){
 
 
         workGroupsTab.click();
 
+
+        if (!workGroupList.get(1).isDisplayed()){
+                activityStreamTab.click();
+            }
+
         for (WebElement each : workGroupList) {
             if (each.isDisplayed()){
                 each.click();
-            }else {
-                activityStreamTab.click();
             }
         }
 

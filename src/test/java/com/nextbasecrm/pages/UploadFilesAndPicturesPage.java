@@ -58,7 +58,7 @@ public class UploadFilesAndPicturesPage {
 
     @FindBy(xpath = "//input[@class='files-name-edit-inp']")
     public WebElement changeableFileName;
-    //input[@class='files-name-edit-inp']
+
 
 
 
