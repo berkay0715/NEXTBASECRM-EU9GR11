@@ -12,9 +12,10 @@ Feature: As a user, I should be able to send messages by clicking on
   Scenario Outline: User logs in and sends the message by filling in the mandatory fields
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
-    And the user writes the message in the message input box
+    And  the user writes a message
     And the user clicks send button
-    Then the user should be able to see the message on the dashboard
+    Then the user should be able to see the message on activity stream
+
 
     Examples:
       | userType       |
@@ -27,7 +28,7 @@ Feature: As a user, I should be able to send messages by clicking on
   Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
-    And the user writes the message in the message input box
+    And  the user writes a message
     Then the user should be able to see recipient as All employees by default
     When the user deletes all recipients
     And  the user clicks add persons link text
@@ -44,7 +45,7 @@ Feature: As a user, I should be able to send messages by clicking on
   Scenario Outline:User is able to add recipients and send the message
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
-    And the user writes the message in the message input box
+    And  the user writes a message
     And the user should be able to click cancel button
 
     Examples:
@@ -52,9 +53,6 @@ Feature: As a user, I should be able to send messages by clicking on
      | Helpdesk       |
      #| Human Resource |
      #| Marketing      |
-
-
-
 
 
   #Mandatory fields:  'Message Title'(content) & 'Recipient'.
@@ -68,7 +66,7 @@ Feature: As a user, I should be able to send messages by clicking on
     And  the user clicks send button
     Then --The message title is not specified-- error message should be displayed
     When user clicks "messageTab" on the quick navigate menu
-    And the user writes the message in the message input box
+    And  the user writes a message
     And  the user deletes all recipients
     And  the user clicks send button
     Then --Please specify at least one person-- error message should be displayed
@@ -85,7 +83,7 @@ Feature: As a user, I should be able to send messages by clicking on
   Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
-    And the user writes the message in the message input box
+    And  the user writes a message
     When the user deletes all recipients
     And  the user clicks add persons link text
     Then the user should be able to select different recipients from the list
