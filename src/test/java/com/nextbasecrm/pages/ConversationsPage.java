@@ -95,7 +95,7 @@ public class ConversationsPage {
     @FindBy(xpath = "//span[@title='Video']")
     public WebElement VerifyVideoIsSaved;
 
-    @FindBy(xpath = "//div[@class='feed-post-text-block-inner-inner']/iframe")
+    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]/iframe")
     public WebElement VerifyVideoIsSentIframe;
 
     @FindBy(xpath = "//div[@id='player']")

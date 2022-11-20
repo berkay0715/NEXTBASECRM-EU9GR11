@@ -1,8 +1,4 @@
-<<<<<<<<< Temporary merge branch 1
-
-=========
 @c1
->>>>>>>>> Temporary merge branch 2
 Feature:As a user, I should be able to add link, insert video, mention, quote, add tag in message.
 
   Users :
@@ -37,7 +33,7 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
 
 
-
+  @c1 @TC02
   Scenario Outline: User should be able to attach a link to the specified text.
     Given the user logs in as a "<userType>"
 
@@ -60,7 +56,7 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
 
 
-
+  @c1 @TC03
   Scenario Outline: User should be able to insert YouTube and Vimeo videos.
     Given the user logs in as a "<userType>"
 
@@ -75,16 +71,16 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
     When user clicks the "Send Button".
     Then verify that user should be able to send the video added from Vimeo message successfully.
 
-    When user clicks the "Message Tab".
-    And user enters any message.
-    And user clicks the "Insert Video Button".
-    Then verify that user should be able to see video page.
-    When user enter the URL from Youtube to video source input box.
-    Then verify that user should be able to add the video successfully.
-    When user clicks the "Save Button".
-    Then verify that user should be able to save the add video function successfully.
-    When user clicks the "Send Button".
-    Then verify that user should be able to send the video added from Vimeo message successfully.
+   # When user clicks the "Message Tab".
+   # And user enters any message.
+    #And user clicks the "Insert Video Button".
+   # Then verify that user should be able to see video page.
+ #   When user enter the URL from Youtube to video source input box.
+  #  Then verify that user should be able to add the video successfully.
+  #  When user clicks the "Save Button".
+    #Then verify that user should be able to save the add video function successfully.
+  #  When user clicks the "Send Button".
+    #Then verify that user should be able to send the video added from Vimeo message successfully.
 
 
 

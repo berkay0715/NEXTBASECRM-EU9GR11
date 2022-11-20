@@ -141,7 +141,6 @@ public class AddingFunctionality_StepDefs {
     @When("user enter the URL from Vimeo to video source input box.")
     public void user_enter_the_url_from_vimeo_to_video_source_input_box() {
         conversationsPage.VideoSourceInputBox.sendKeys("https://vimeo.com/760830321");
-        BrowserUtils.waitForVisibility(conversationsPage.VerifyVideoIsAdded,10);
     }
     @Then("verify that user should be able to add the video successfully.")
     public void verify_that_user_should_be_able_to_add_the_video_successfully() {
@@ -168,8 +167,9 @@ public class AddingFunctionality_StepDefs {
     @When("user enter the URL from Youtube to video source input box.")
     public void userEnterTheURLFromYoutubeToVideoSourceInputBox() {
         conversationsPage.VideoSourceInputBox.sendKeys("https://youtu.be/53rCIbKHCeU");
-        BrowserUtils.waitForVisibility(conversationsPage.VerifyVideoIsAdded,10);
     }
+
+
 
 
     @When("user removes the {string} from message box.")
