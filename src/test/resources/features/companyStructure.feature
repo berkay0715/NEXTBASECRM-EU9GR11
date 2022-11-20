@@ -1,4 +1,4 @@
-#@NEXTBASE-1496
+@NEXTBASE-1496
 Feature:As a user, I should be able to use functions on Company Structure under Employee menu.
 
   Users :
@@ -51,6 +51,7 @@ Feature:As a user, I should be able to use functions on Company Structure under 
     Given the user logs in as a "Human Resource"
     When user clicks the employees link
     And user clicks the add department button
+    And user fills the department name
     And user clicks select from structure
     And  user clicks the recent box
     Then user should be able to select a supervisor from recent box

@@ -109,8 +109,8 @@ public class CompanyStructure_StepDefs {
 
     @Then("user should be able to select a supervisor from company box")
     public void user_should_be_able_to_select_a_supervisor_from_company_box() {
-
-        BrowserUtils.clickWithJS(companyStructurePage.supervisorCompany);
+          companyStructurePage.companySupervisor1a_QA.click();
+        BrowserUtils.clickWithJS(companyStructurePage.companySupervisor1);
         Assert.assertTrue(companyStructurePage.supervisorFullName.isDisplayed());
 
     }
@@ -123,9 +123,12 @@ public class CompanyStructure_StepDefs {
 
     @Then("user should be able to select a supervisor from search box")
     public void user_should_be_able_to_select_a_supervisor_from_search_box() {
-        companyStructurePage.searchInput.sendKeys("Guljannat");
-        companyStructurePage.GuljannatSearch.click();
-        Assert.assertTrue(companyStructurePage.GuljannatSearch.isDisplayed());
+        companyStructurePage.searchSupervisorInput.sendKeys("Guljannat");
+       BrowserUtils.clickWithJS(companyStructurePage.searchSupervisorGuljannat);
+       BrowserUtils.waitFor(3);
+        Assert.assertTrue(companyStructurePage.supervisorFullName.isDisplayed());
+
+
     }
 
 
@@ -175,7 +178,8 @@ public class CompanyStructure_StepDefs {
     }
     @Then("user should be able to delete departments")
     public void user_should_be_able_to_delete_departments() {
-
+        companyStructurePage.employeesLink.click();
+        BrowserUtils.verifyElementNotDisplayed(By.linkText("Qa1"));
       BrowserUtils.waitFor(3);
 
     }
