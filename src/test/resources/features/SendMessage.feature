@@ -37,8 +37,8 @@ Feature: As a user, I should be able to send messages by clicking on
     Examples:
       | userType       |
       | Helpdesk       |
-      #| Human Resource |
-      #| Marketing      |
+      | Human Resource |
+      | Marketing      |
 
     #3. User should be able to cancel sending messages at any time before sending.
   @tc1maz
@@ -51,8 +51,8 @@ Feature: As a user, I should be able to send messages by clicking on
     Examples:
      | userType       |
      | Helpdesk       |
-     #| Human Resource |
-     #| Marketing      |
+     | Human Resource |
+     | Marketing      |
 
 
   #Mandatory fields:  'Message Title'(content) & 'Recipient'.
@@ -74,8 +74,8 @@ Feature: As a user, I should be able to send messages by clicking on
     Examples:
       | userType       |
       | Helpdesk       |
-      #| Human Resource |
-      #| Marketing      |
+      | Human Resource |
+      | Marketing      |
 
       #Recipients should be selectable from "Recent", "My Groups"(enable to see this type of Recipients you need to join at least one of the groups beforehand) and "Employees and departments."
       #Recipients can be added more than one and are deletable.
@@ -91,5 +91,5 @@ Feature: As a user, I should be able to send messages by clicking on
     Examples:
       | userType       |
       | Helpdesk       |
-      #| Human Resource |
-      #| Marketing      |
+      | Human Resource |
+      | Marketing      |

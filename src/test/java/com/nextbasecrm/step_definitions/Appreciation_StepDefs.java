@@ -78,6 +78,7 @@ public class Appreciation_StepDefs {
 
 
         uploadFilesAndPicturesPage.sendButton.click();
+        BrowserUtils.waitForPageToLoad(2);
 
     }
     @Then("the user should be able to see the message on activity stream")
@@ -86,7 +87,7 @@ public class Appreciation_StepDefs {
         String expectedMessage = "Back To The Future Quote: ";
         String actualMessage = homePage.firstSentActivity.getText();
             Assert.assertTrue(actualMessage.contains(expectedMessage));
-        BrowserUtils.waitForPageToLoad(5);
+        BrowserUtils.waitForPageToLoad(2);
     }
 
     // TC2
