@@ -25,29 +25,7 @@ public class SendMessagePage_StepDefs {
     Faker faker = new Faker();
 
 
-    @And("the user writes the message in the message input box")
-    public void theUserWritesTheMessageInTheMessageInputBox() {
-        BrowserUtils.waitForVisibility(sendMessagePage.iframe,5);
-        Driver.getDriver().switchTo().frame(sendMessagePage.iframe);
 
-        sendMessagePage.writeMessageBox.sendKeys("Hello Everyone! "+"\n"+faker.lorem().sentence(20));
-        BrowserUtils.sleep(2);
-
-        // switch to parent frame
-        Driver.getDriver().switchTo().parentFrame();
-
-
-
-    }
-
-    @Then("the user should be able to see the message on the dashboard")
-    public void theUserShouldBeAbleToSeeTheMessageOnTheDashboard() {
-        String expectedMessage = "Hello Everyone!";
-        String actualMessage = homePage.firstSentActivity.getText();
-        Assert.assertTrue(actualMessage.contains(expectedMessage));
-
-
-    }
 
 }
 

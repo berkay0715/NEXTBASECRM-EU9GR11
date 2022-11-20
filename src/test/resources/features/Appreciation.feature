@@ -6,16 +6,16 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
   marketing1@cybertekschool.com
   hr1@cybertekschool.com
 
-  @NEXTBASE-1526 @smoke
+  @smoke @NEXTBASE-1526
   Scenario Outline: Verify that users can send a appreciation by filling the mandatory fields.
     Given the user logs in as a "<userType>"
     When the user clicks more tab on portal homepage
     Then the user should be able to see appreciation on menu popup
     When the user clicks appreciation item
-    And  the user writes appreciation message title
+    And  the user writes a message
     Then the user should be able to see recipient as All employees by default
     When the user clicks send button
-    Then the user should be able to see the appreciation message on activity stream
+    Then the user should be able to see the message on activity stream
 
     Examples:
       | userType       |
@@ -30,7 +30,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     And  the user clicks appreciation item
     And  the user clicks send button
     Then --The message title is not specified-- error message should be displayed
-    And  the user writes appreciation message title
+    And  the user writes a message
     And  the user deletes all recipients
     And  the user clicks send button
     Then --Please specify at least one person-- error message should be displayed
@@ -42,11 +42,11 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
       | Marketing      |
 
   @NEXTBASE-1528
-  Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
+  Scenario Outline: The Appreciation delivery should be to 'All employees' by default and should be changeable.
     Given the user logs in as a "<userType>"
     When the user clicks more tab on portal homepage
     And  the user clicks appreciation item
-    And  the user writes appreciation message title
+    And  the user writes a message
     Then the user should be able to see recipient as All employees by default
     When the user deletes all recipients
     And  the user clicks add persons link text
@@ -55,8 +55,8 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     Examples:
       | userType       |
       | Helpdesk       |
-      | Human Resource |
-      | Marketing      |
+      #| Human Resource |
+      #| Marketing      |
 
   @NEXTBASE-1529
   Scenario Outline: Verify Cancel Button
@@ -76,7 +76,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     Given the user logs in as a "<userType>"
     When the user clicks more tab on portal homepage
     And  the user clicks appreciation item
-    And the user writes appreciation message title
+    And  the user writes a message
     Then the user should be able to select different grat icons
     And the user selects a recipient
     And the user clicks send button
