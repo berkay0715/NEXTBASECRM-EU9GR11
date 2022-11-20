@@ -39,6 +39,7 @@ public class Appreciation_StepDefs {
 
     @When("the user clicks more tab on portal homepage")
     public void the_user_clicks_more_tab_on_portal_homepage() {
+        //homePage.joinWorkGroups();
         homePage.moreTab.click();
 
     }
@@ -50,15 +51,15 @@ public class Appreciation_StepDefs {
     }
     @When("the user clicks appreciation item")
     public void the_user_clicks_appreciation_item() {
-        BrowserUtils.waitForVisibility(appreciationPage.moreTabAppreciationItem,10);
+
             appreciationPage.moreTabAppreciationItem.click();
     }
-    @And("the user writes appreciation message title")
+    @And("the user writes a message")
     public void the_user_writes_appreciation_message_title() {
         // switch to iframe
         Driver.getDriver().switchTo().frame(appreciationPage.iframe);
 
-        appreciationPage.appreciationMessageTitleInput.sendKeys("Thank you for your assistance. "+faker.funnyName().name());
+        appreciationPage.appreciationMessageTitleInput.sendKeys("Back To The Future Quote: "+faker.backToTheFuture().quote());
 
         // switch to parent frame
         Driver.getDriver().switchTo().parentFrame();
@@ -67,23 +68,26 @@ public class Appreciation_StepDefs {
 
     @Then("the user should be able to see recipient as All employees by default")
     public void the_user_should_be_able_to_see_recipient_as_all_employees_by_default() {
+        BrowserUtils.waitForPageToLoad(2);
         Assert.assertTrue(appreciationPage.allEmployeesAsDefaultRecipient.isDisplayed());
+        BrowserUtils.waitForVisibility(uploadFilesAndPicturesPage.sendButton,10);
     }
 
     @When("the user clicks send button")
     public void the_user_clicks_send_button() {
 
-        BrowserUtils.waitForVisibility(uploadFilesAndPicturesPage.sendButton,10);
+
         uploadFilesAndPicturesPage.sendButton.click();
+        BrowserUtils.waitForPageToLoad(2);
 
     }
-    @Then("the user should be able to see the appreciation message on activity stream")
+    @Then("the user should be able to see the message on activity stream")
     public void the_user_should_be_able_to_see_the_appreciation_message_on_activity_stream() {
 
-        String expectedMessage = "Thank you for your assistance.";
+        String expectedMessage = "Back To The Future Quote: ";
         String actualMessage = homePage.firstSentActivity.getText();
             Assert.assertTrue(actualMessage.contains(expectedMessage));
-
+        BrowserUtils.waitForPageToLoad(2);
     }
 
     // TC2
@@ -123,12 +127,12 @@ public class Appreciation_StepDefs {
         //select recipients from Employees and Departments tab
         appreciationPage.employeesAndDepsRecipientsTab.click();
         appreciationPage.recipientsListFromEmployeesAndDeps.get(0).click();
-        appreciationPage.recipientsListFromEmployeesAndDeps.forEach(p -> Assert.assertTrue(p.isDisplayed()));
+        Assert.assertTrue(appreciationPage.recipientsListFromEmployeesAndDeps.get(0).isDisplayed());
         appreciationPage.appreciationRecipientsInputBox.sendKeys(Keys.BACK_SPACE);
         appreciationPage.recipientsListFromEmployeesAndDeps.get(1).click();
-        System.out.println("Employees and Departments"+appreciationPage.recipientsListFromEmployeesAndDeps.get(1).getText());
-        System.out.println("Employees and Departments"+appreciationPage.recipientsListFromEmployeesAndDeps.get(2).getText());
-        System.out.println("Employees and Departments"+appreciationPage.recipientsListFromEmployeesAndDeps.get(3).getText());
+        Assert.assertTrue(appreciationPage.recipientsListFromEmployeesAndDeps.get(1).isDisplayed());
+        System.out.println("Employees :"+appreciationPage.recipientsListFromEmployeesAndDeps.get(0).getText() + ", " + appreciationPage.recipientsListFromEmployeesAndDeps.get(1).getText());
+
 
         //select recipients from My groups tab
         appreciationPage.myGroupsRecipientstab.click();
@@ -143,7 +147,7 @@ public class Appreciation_StepDefs {
     }
 
 
-    @Then("the user should be able to click cancel button before sending appreciation any time")
+    @Then("the user should be able to click cancel button")
     public void the_user_should_be_able_to_cancel_sending_appreciation() {
 
         BrowserUtils.waitForClickablility(uploadFilesAndPicturesPage.cancelButton,10);
