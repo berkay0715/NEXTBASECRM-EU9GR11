@@ -17,7 +17,6 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/nextbasecrm/step_definitions",
         dryRun = false,
-        //tags = "@c1 and @TC01",
         tags="",
         publish = true
         
