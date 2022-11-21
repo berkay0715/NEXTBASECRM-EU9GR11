@@ -13,7 +13,7 @@ public class LoginPage {
     }
 
 
-   @FindBy(linkText = "Login")
+    @FindBy(linkText = "Login")
     public WebElement loginLink;
 
     @FindBy(xpath = "//input[@placeholder='Login']")
