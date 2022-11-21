@@ -178,16 +178,19 @@ public class CompanyStructure_StepDefs {
 
     @When("user clicks delete icon of the new added department")
     public void user_clicks_delete_icon_of_the_new_added_department() {
-        BrowserUtils.clickWithJS(companyStructurePage.deleteChildDepartment);
+BrowserUtils.clickWithJS(companyStructurePage.deleteChildDepartment);
         Alert alert=Driver.getDriver().switchTo().alert();
-        alert.accept();
+        BrowserUtils.waitFor(10);
+            alert.accept();
+
 
     }
     @Then("user should be able to delete departments")
     public void user_should_be_able_to_delete_departments() {
+
         companyStructurePage.employeesLink.click();
         BrowserUtils.verifyElementNotDisplayed((By.linkText("Qa1")));
-      BrowserUtils.waitFor(3);
+
 
     }
 

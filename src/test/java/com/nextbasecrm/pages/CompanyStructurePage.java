@@ -39,7 +39,7 @@ public class CompanyStructurePage {
    @FindBy(xpath ="//select[@id='IBLOCK_SECTION_ID']")
     public WebElement parentDepartmentDropdown;
 
-    @FindBy(xpath ="//span[@id='bx_str_154']")
+    @FindBy(xpath ="(//a[@title='New department'])[1]")
     public WebElement newDepartmentIsDisplayed;
 
 
@@ -111,7 +111,7 @@ public class CompanyStructurePage {
 
 
 
-    @FindBy(xpath = "//a[@title='Qa1']//div[@data-role='department_delete']")
+    @FindBy(xpath = "//span[contains(@id,'bx_str_')]//div[@data-role='department_delete']")
     public WebElement deleteChildDepartment;
 
 
