@@ -7,10 +7,7 @@ import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 public class CompanyStructure_StepDefs {
@@ -44,8 +41,9 @@ public class CompanyStructure_StepDefs {
 
     @When("user fills the department name")
     public void user_fills_the_department_name() {
-companyStructurePage.departmentNameInput.sendKeys("New department");
+        companyStructurePage.departmentNameInput.sendKeys("New department");
     }
+
     @When("user clicks the Add  button")
     public void user_clicks_the_add_button() {
         companyStructurePage.addButton.click();
@@ -55,7 +53,7 @@ companyStructurePage.departmentNameInput.sendKeys("New department");
 
     @Then("user should be able to add a department")
     public void user_should_be_able_to_add_a_department() {
-Assert.assertTrue(companyStructurePage.newDepartment.isDisplayed());
+        Assert.assertTrue(companyStructurePage.newDepartment.isDisplayed());
     }
 
 
@@ -64,6 +62,7 @@ Assert.assertTrue(companyStructurePage.newDepartment.isDisplayed());
     public void user_clicks_parent_department_dropdown() {
         companyStructurePage.parentDepartmentDropdown.click();
     }
+
     @Then("user should be able to select a parent department")
     public void user_should_be_able_to_select_a_parent_department() {
 
@@ -73,7 +72,7 @@ Assert.assertTrue(companyStructurePage.newDepartment.isDisplayed());
 
             option.getText();
         }
-           selectParentDrop.selectByVisibleText(" . New head office");
+        selectParentDrop.selectByVisibleText(" . New head office");
 
         System.out.println(selectParentDrop.getFirstSelectedOption().getText());
 
@@ -82,63 +81,120 @@ Assert.assertTrue(companyStructurePage.newDepartment.isDisplayed());
     }
 
 
-
     // TC4
     @When("user clicks select from structure")
     public void user_clicks_select_from_structure() {
-      companyStructurePage.selectFromStructure.click();
+        companyStructurePage.selectFromStructure.click();
     }
+
     @When("user clicks the recent box")
     public void user_clicks_the_recent_box() {
 
-      companyStructurePage.recentBox.click();
+        companyStructurePage.recentBox.click();
     }
+
     @Then("user should be able to select a supervisor from recent box")
     public void user_should_be_able_to_select_a_supervisor_from_recent_box() {
         BrowserUtils.clickWithJS(companyStructurePage.recentSupervisor1);
-        BrowserUtils.waitForVisibility(companyStructurePage.supervisorFullName,10);
+        BrowserUtils.waitForVisibility(companyStructurePage.supervisorFullName, 10);
 
         Assert.assertTrue(companyStructurePage.supervisorFullName.isDisplayed());
     }
+
     @Then("user clicks the company box")
     public void user_clicks_the_company_box() {
-      companyStructurePage.selectFromStructure.click();
-      companyStructurePage.companyBox.click();
+        companyStructurePage.selectFromStructure.click();
+        companyStructurePage.companyBox.click();
     }
+
     @Then("user should be able to select a supervisor from company box")
     public void user_should_be_able_to_select_a_supervisor_from_company_box() {
-
-        BrowserUtils.clickWithJS(companyStructurePage.supervisorCompany);
+          companyStructurePage.companySupervisor1a_QA.click();
+        BrowserUtils.clickWithJS(companyStructurePage.companySupervisor1);
         Assert.assertTrue(companyStructurePage.supervisorFullName.isDisplayed());
 
     }
+
     @Then("user clicks the search box")
     public void user_clicks_the_search_box() {
-       companyStructurePage.selectFromStructure.click();
-       companyStructurePage.searchBox.click();
-    }
-    @Then("user should be able to select a supervisor from search box")
-    public void user_should_be_able_to_select_a_supervisor_from_search_box() {
-        companyStructurePage.searchInput.sendKeys("Guljannat");
-        companyStructurePage.GuljannatSearch.click();
-        Assert.assertTrue(companyStructurePage.GuljannatSearch.isDisplayed());
+        companyStructurePage.selectFromStructure.click();
+        companyStructurePage.searchBox.click();
     }
 
+    @Then("user should be able to select a supervisor from search box")
+    public void user_should_be_able_to_select_a_supervisor_from_search_box() {
+        companyStructurePage.searchSupervisorInput.sendKeys("Guljannat");
+       BrowserUtils.clickWithJS(companyStructurePage.searchSupervisorGuljannat);
+       BrowserUtils.waitFor(3);
+        Assert.assertTrue(companyStructurePage.supervisorFullName.isDisplayed());
+
+
+    }
 
 
     // TC5
-
     @Then("user should be able to click to close at any time")
     public void user_should_be_able_to_click_to_close_at_any_time() {
 
         companyStructurePage.closeButton.click();
-        companyStructurePage.employeeTab.click();
+        companyStructurePage.employeesLink.click();
         BrowserUtils.waitFor(3);
         BrowserUtils.verifyElementNotDisplayed(By.xpath("//span[.='Close']"));
 
     }
+        // TC6
+
+    @When("user clicks edit departments")
+    public void user_clicks_edit_departments() {
+       BrowserUtils.clickWithJS(companyStructurePage.editDepartment);
+    }
+    @When("user edits departments information")
+    public void user_edits_departments_information() {
+      companyStructurePage.editDepartmentInput.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
+      companyStructurePage.editDepartmentInput.sendKeys("a_QA");
+      companyStructurePage.editSaveButton.click();
+    }
+    @When("user clicks  add child departments")
+    public void user_clicks_add_child_departments() {
+        BrowserUtils.clickWithJS(companyStructurePage.addChildDepartment);
+
+    }
+    @When("user adds a child department")
+    public void user_adds_a_child_department() {
+        BrowserUtils.waitForClickablility(companyStructurePage.employeesLink,10);
+        companyStructurePage.employeesLink.click();
+
+        BrowserUtils.clickWithJS(companyStructurePage.addChildDepartment);
+        companyStructurePage.childDepartmentNameInput.sendKeys("Qa1");
+        companyStructurePage.addButton.click();
     }
 
+    @When("user clicks delete icon of the new added department")
+    public void user_clicks_delete_icon_of_the_new_added_department() {
+        BrowserUtils.clickWithJS(companyStructurePage.deleteChildDepartment);
+        Alert alert=Driver.getDriver().switchTo().alert();
+        alert.accept();
+
+    }
+    @Then("user should be able to delete departments")
+    public void user_should_be_able_to_delete_departments() {
+        companyStructurePage.employeesLink.click();
+        BrowserUtils.verifyElementNotDisplayed(By.linkText("Qa1"));
+      BrowserUtils.waitFor(3);
+
+    }
+
+
+
+    //TC8
+
+    @Then("user should not be able to see add department button")
+    public void userShouldNotBeAbleToSeeAddDepartmentButton(){
+        BrowserUtils.verifyElementNotDisplayed(By.xpath("//span[.='Add department']"));
+
+
+    }
+}
 
 
 

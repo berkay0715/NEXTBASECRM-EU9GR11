@@ -1,4 +1,4 @@
-#@NEXTBASE-1496
+@NEXTBASE-1496
 Feature:As a user, I should be able to use functions on Company Structure under Employee menu.
 
   Users :
@@ -8,7 +8,7 @@ Feature:As a user, I should be able to use functions on Company Structure under 
 
 
 
-@wip1
+    @smoke
   Scenario Outline: Verify that  all user types should be able to display company structure.
     Given the user logs in as a "<userType>"
     When user clicks the employees link
@@ -51,6 +51,7 @@ Feature:As a user, I should be able to use functions on Company Structure under 
     Given the user logs in as a "Human Resource"
     When user clicks the employees link
     And user clicks the add department button
+    And user fills the department name
     And user clicks select from structure
     And  user clicks the recent box
     Then user should be able to select a supervisor from recent box
@@ -69,6 +70,32 @@ Feature:As a user, I should be able to use functions on Company Structure under 
     Then user should be able to click to close at any time
 
 
+
+  @wip6
+  Scenario:Hr user should be able to edit departments, add child departments, and delete departments after adding the department.
+    Given the user logs in as a "Human Resource"
+    When user clicks the employees link
+    And user clicks edit departments
+    And user edits departments information
+    And user clicks  add child departments
+    And user adds a child department
+    And user clicks delete icon of the new added department
+    Then user should be able to delete departments
+
+
+
+
+
+  @wip8
+ Scenario Outline:Helpdesk and marketing users can not change company structure.
+    Given the user logs in as a "<userType>"
+    When user clicks the employees link
+    Then user should not be able to see add department button
+
+    Examples:
+      | userType  |
+      | Helpdesk  |
+      | Marketing |
 
 
 
