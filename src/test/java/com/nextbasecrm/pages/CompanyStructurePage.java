@@ -39,6 +39,9 @@ public class CompanyStructurePage {
    @FindBy(xpath ="//select[@id='IBLOCK_SECTION_ID']")
     public WebElement parentDepartmentDropdown;
 
+    @FindBy(xpath ="//span[@id='bx_str_154']")
+    public WebElement newDepartmentIsDisplayed;
+
 
    @FindBy(linkText ="Select from structure")
     public WebElement selectFromStructure;
@@ -80,6 +83,7 @@ public class CompanyStructurePage {
 
 
 
+
     @FindBy(xpath = "//span[.='Close']")
     public WebElement closeButton;
 
@@ -107,8 +111,23 @@ public class CompanyStructurePage {
 
 
 
-    @FindBy(xpath = "//table[contains(@id,'bx_str_level2_table')]//div[@data-role='department_delete']")
+    @FindBy(xpath = "//a[@title='Qa1']//div[@data-role='department_delete']")
     public WebElement deleteChildDepartment;
+
+
+    @FindBy(xpath = "//a[.='A_DEPARTMENT']")
+    public WebElement A_DepartmentDragAndDrop;
+
+@FindBy(xpath = "//a[.='B_DEPARTMENT']")
+    public WebElement B_DepartmentDragAndDrop;
+
+
+@FindBy(xpath = "//span[@id='bx_str_129']")
+    public WebElement a_QA_DepartmentDropBack;
+
+
+
+
 
 
 

@@ -8,7 +8,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class CompanyStructure_StepDefs {
 
@@ -67,17 +71,22 @@ public class CompanyStructure_StepDefs {
     public void user_should_be_able_to_select_a_parent_department() {
 
         Select selectParentDrop = new Select(companyStructurePage.parentDepartmentDropdown);
+        selectParentDrop.selectByIndex(1);
+        BrowserUtils.waitFor(3);
+        Assert.assertTrue(companyStructurePage.newDepartmentIsDisplayed.isDisplayed());
 
-        for (WebElement option : selectParentDrop.getOptions()) {
+      /*  for (WebElement option : selectParentDrop.getOptions()) {
 
             option.getText();
         }
-        selectParentDrop.selectByVisibleText(" . New head office");
+        selectParentDrop.selectByVisibleText(". .A_DEPARTMENT");
 
         System.out.println(selectParentDrop.getFirstSelectedOption().getText());
 
 
         Assert.assertTrue(selectParentDrop.getFirstSelectedOption().isSelected());
+
+       */
     }
 
 
@@ -154,15 +163,13 @@ public class CompanyStructure_StepDefs {
       companyStructurePage.editDepartmentInput.sendKeys("a_QA");
       companyStructurePage.editSaveButton.click();
     }
-    @When("user clicks  add child departments")
-    public void user_clicks_add_child_departments() {
-        BrowserUtils.clickWithJS(companyStructurePage.addChildDepartment);
 
-    }
+
+
     @When("user adds a child department")
     public void user_adds_a_child_department() {
-        BrowserUtils.waitForClickablility(companyStructurePage.employeesLink,10);
-        companyStructurePage.employeesLink.click();
+       BrowserUtils.waitForClickablility(companyStructurePage.employeesLink,10);
+      companyStructurePage.employeesLink.click();
 
         BrowserUtils.clickWithJS(companyStructurePage.addChildDepartment);
         companyStructurePage.childDepartmentNameInput.sendKeys("Qa1");
@@ -179,11 +186,29 @@ public class CompanyStructure_StepDefs {
     @Then("user should be able to delete departments")
     public void user_should_be_able_to_delete_departments() {
         companyStructurePage.employeesLink.click();
-        BrowserUtils.verifyElementNotDisplayed(By.linkText("Qa1"));
+        BrowserUtils.verifyElementNotDisplayed((By.linkText("Qa1")));
       BrowserUtils.waitFor(3);
 
     }
 
+
+     //TC7
+     @When("user drags and drops department under another department")
+     public void user_drags_and_drops_department_under_another_department() {
+
+        Actions actions=new Actions(Driver.getDriver());
+        actions.dragAndDrop(companyStructurePage.A_DepartmentDragAndDrop,companyStructurePage.B_DepartmentDragAndDrop).perform();
+
+        BrowserUtils.waitFor(3);
+       actions.dragAndDrop(companyStructurePage.A_DepartmentDragAndDrop,companyStructurePage.a_QA_DepartmentDropBack).perform();
+       BrowserUtils.waitFor(3);
+
+     }
+    @Then("user should be able to drag and drop department")
+    public void user_should_be_able_to_drag_and_drop_department() {
+        Assert.assertTrue(companyStructurePage.A_DepartmentDragAndDrop.isDisplayed());
+
+    }
 
 
     //TC8
