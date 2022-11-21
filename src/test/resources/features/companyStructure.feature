@@ -77,13 +77,18 @@ Feature:As a user, I should be able to use functions on Company Structure under 
     When user clicks the employees link
     And user clicks edit departments
     And user edits departments information
-    And user clicks  add child departments
     And user adds a child department
     And user clicks delete icon of the new added department
     Then user should be able to delete departments
 
 
 
+  @wip7
+    Scenario: Verify that Hr user should be able to drag and drop the existing department under another department as a subdepartment.
+    Given the user logs in as a "Human Resource"
+    When user clicks the employees link
+    And user drags and drops department under another department
+    Then user should be able to drag and drop department
 
 
   @wip8
