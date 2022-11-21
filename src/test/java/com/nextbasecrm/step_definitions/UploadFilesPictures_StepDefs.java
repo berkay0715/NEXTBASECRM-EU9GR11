@@ -25,14 +25,6 @@ public class UploadFilesPictures_StepDefs {
 
 
 
-
-
-    @When("user clicks {string} on the quick navigate menu")
-    public void userClicksOnTheQuickNavigateMenu(String messageTab) {
-        homePage.messageTab.click();
-        BrowserUtils.sleep(2);
-    }
-
     @When("user clicks upload files icon")
     public void user_clicks_upload_files_icon() {
         uploadFilesAndPicturesPage.uploadFilesIcon.click();
@@ -155,13 +147,14 @@ public class UploadFilesPictures_StepDefs {
         uploadFilesAndPicturesPage.changeableFileName.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
         BrowserUtils.sleep(1);
        uploadFilesAndPicturesPage.changeableFileName.sendKeys("renamed"+ Keys.ENTER);
+        BrowserUtils.waitFor(2);
 
 
     }
     @Then("verify the file is renamed successfully")
     public void verify_the_file_is_renamed_successfully() {
-        BrowserUtils.waitFor(2);
-        BrowserUtils.verifyElementDisplayed(By.xpath("//img[contains(@data-bx-title,'renamed.jpg')]"));
+        BrowserUtils.sleep(1);
+        BrowserUtils.verifyElementDisplayed(By.xpath("//img[contains(@data-bx-title,'renamed')]"));
     }
 
 
