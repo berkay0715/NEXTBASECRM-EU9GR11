@@ -58,11 +58,14 @@ public class HomePage {
 
         workGroupsTab.click();
 
+
+        if (!workGroupList.get(1).isDisplayed()){
+                activityStreamTab.click();
+            }
+
         for (WebElement each : workGroupList) {
             if (each.isDisplayed()){
                 each.click();
-            }else {
-                activityStreamTab.click();
             }
         }
 
