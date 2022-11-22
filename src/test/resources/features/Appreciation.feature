@@ -14,7 +14,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     When the user clicks appreciation item
     And  the user writes a message
     Then the user should be able to see recipient as All employees by default
-    When user clicks the "Send Button".
+    When the user clicks send button
     Then the user should be able to see the message on activity stream
 
     Examples:
@@ -28,11 +28,11 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     Given the user logs in as a "<userType>"
     When the user clicks more tab on portal homepage
     And  the user clicks appreciation item
-    When user clicks the "Send Button".
+    And  the user clicks send button
     Then --The message title is not specified-- error message should be displayed
     And  the user writes a message
     And  the user deletes all recipients
-    When user clicks the "Send Button".
+    And  the user clicks send button
     Then --Please specify at least one person-- error message should be displayed
 
     Examples:
@@ -55,8 +55,8 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     Examples:
       | userType       |
       | Helpdesk       |
-      | Human Resource |
-      | Marketing      |
+      #| Human Resource |
+      #| Marketing      |
 
   @NEXTBASE-1529
   Scenario Outline: Verify Cancel Button
@@ -79,7 +79,7 @@ Feature: As a user, I should be able to send appreciation by clicking on Appreci
     And  the user writes a message
     Then the user should be able to select different grat icons
     And the user selects a recipient
-    And user clicks the "Send Button".
+    And the user clicks send button
 
     Examples:
       | userType       |

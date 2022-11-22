@@ -1,4 +1,4 @@
-@wipMz
+@wip
 Feature: As a user, I should be able to send messages by clicking on
   Message tab under Active Stream.
 
@@ -13,7 +13,7 @@ Feature: As a user, I should be able to send messages by clicking on
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
     And  the user writes a message
-    When user clicks the "Send Button".
+    And the user clicks send button
     Then the user should be able to see the message on activity stream
 
 
@@ -63,12 +63,12 @@ Feature: As a user, I should be able to send messages by clicking on
   Scenario Outline: Verifying Error messages for mandatory fields
     Given the user logs in as a "<userType>"
     When user clicks "messageTab" on the quick navigate menu
-    And user clicks the "Send Button".
+    And  the user clicks send button
     Then --The message title is not specified-- error message should be displayed
     When user clicks "messageTab" on the quick navigate menu
     And  the user writes a message
     And  the user deletes all recipients
-    When user clicks the "Send Button".
+    And  the user clicks send button
     Then --Please specify at least one person-- error message should be displayed
 
     Examples:
