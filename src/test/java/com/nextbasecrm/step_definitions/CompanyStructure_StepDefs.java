@@ -178,9 +178,11 @@ public class CompanyStructure_StepDefs {
 
     @When("user clicks delete icon of the new added department")
     public void user_clicks_delete_icon_of_the_new_added_department() {
-BrowserUtils.clickWithJS(companyStructurePage.deleteChildDepartment);
+
+
+
+     BrowserUtils.clickWithJS(companyStructurePage.deleteChildDepartment);
         Alert alert=Driver.getDriver().switchTo().alert();
-        BrowserUtils.waitFor(10);
             alert.accept();
 
 
