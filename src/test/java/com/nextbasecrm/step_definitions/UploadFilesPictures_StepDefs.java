@@ -4,6 +4,7 @@ import com.nextbasecrm.pages.HomePage;
 import com.nextbasecrm.pages.LoginPage;
 import com.nextbasecrm.pages.UploadFilesAndPicturesPage;
 import com.nextbasecrm.utilities.BrowserUtils;
+import com.nextbasecrm.utilities.ConfigurationReader;
 import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -68,9 +69,16 @@ public class UploadFilesPictures_StepDefs {
 
     @When("user uploads picture")
     public void user_uploads_picture() {
-        String path4="C:\\Users\\hicre\\OneDrive\\Masaüstü\\HTML Class\\sunnyDay.jpg";
-        uploadFilesAndPicturesPage.uploadFilesANDimagesLink.sendKeys(path4);
-        BrowserUtils.sleep(3);
+       // String path4="C:\\Users\\hicre\\OneDrive\\Masaüstü\\HTML Class\\sunnyDay.jpg";
+       // uploadFilesAndPicturesPage.uploadFilesANDimagesLink.sendKeys(path4);
+
+       String projectPath= System.getProperty("user.dir");
+       String filePathJPG= "src/test/resources/filesToUpload/sunnyDay.jpg";
+       String fullPath= projectPath+ "/"+filePathJPG;
+       uploadFilesAndPicturesPage.uploadFilesANDimagesLink.sendKeys(fullPath);
+       BrowserUtils.sleep(3);
+
+
     }
     @Then("verify the user sent the picture successfully")
     public void verify_the_user_sent_the_picture_successfully() {
