@@ -39,10 +39,10 @@ public class ConversationsPage {
     public WebElement MailOfEmp;
 
     //span[@data-id='U592']
-    @FindBy(xpath = "//body[@style='min-height: 184px;']//span[.='marketing1@cybertekschool.com']")
+    @FindBy(xpath = "//body[@style='min-height: 184px;']//span[.='hr2@cybertekschool.com']")
     public WebElement VerifyAddMention;
 
-    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='marketing1@cybertekschool.com']")
+    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='hr2@cybertekschool.com']")
     public WebElement VerifyMentionedMsg;
 
 
