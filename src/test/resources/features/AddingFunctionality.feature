@@ -106,15 +106,15 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
     And user clicks the "Save Button".
     Then verify that user should be able to add the link successfully.
 
-    And user clicks the "Insert Video Button".
-    Then verify that user should be able to see video page.
-    When user enter the URL from Vimeo to video source input box.
-    Then verify that user should be able to add the video successfully.
-    When user clicks the "Save Button".
-    Then verify that user should be able to save the add video function successfully.
+   # And user clicks the "Insert Video Button".
+   # Then verify that user should be able to see video page.
+  #  When user enter the URL from Vimeo to video source input box.
+  # Then verify that user should be able to add the video successfully.
+   # When user clicks the "Save Button".
+   # Then verify that user should be able to save the add video function successfully.
 
-    When user removes the "Video" from message box.
-   Then verify that user should be able to remove the video from message box.
+  #  When user removes the "Video" from message box.
+  # Then verify that user should be able to remove the video from message box.
     When user removes the "Link" from message box.
     Then verify that user should be able to remove the link from message box.
 

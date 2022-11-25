@@ -103,6 +103,15 @@ public class ConversationsPage {
 
 
 
+    @FindBy(xpath = "(//span[.='Remove link'])[2]")
+    public WebElement RemoveSavedLink;
+
+
+    @FindBy(xpath = "//span[.='Delete video']")
+    public WebElement RemoveSavedVideo;
+
+
+
 
 
     @FindBy(xpath = "//span[@title='Quote text']")

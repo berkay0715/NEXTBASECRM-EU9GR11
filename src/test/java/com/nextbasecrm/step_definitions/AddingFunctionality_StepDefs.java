@@ -10,12 +10,15 @@ import org.apache.poi.ss.formula.atp.Switch;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class AddingFunctionality_StepDefs {
 
     ConversationsPage conversationsPage=new ConversationsPage();
 
     Faker faker = new Faker();
+
+    Actions actions=new Actions(Driver.getDriver());
 
 
     @When("user clicks the {string}.")
@@ -25,7 +28,7 @@ public class AddingFunctionality_StepDefs {
 
             case "Message Tab":
                 conversationsPage.MessageTab.click();
-                BrowserUtils.waitForVisibility(conversationsPage.SendButton,10);
+                BrowserUtils.waitForVisibility(conversationsPage.SendButton,20);
                 BrowserUtils.verifyElementDisplayed(conversationsPage.SendButton);
                 break;
 
@@ -119,6 +122,7 @@ public class AddingFunctionality_StepDefs {
     @Then("verify that user should be able to add the link successfully.")
     public void verify_that_user_should_be_able_to_add_the_link_successfully() {
         Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyLinkIsAdded,10);
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyLinkIsAdded);
 
     }
@@ -178,12 +182,17 @@ public class AddingFunctionality_StepDefs {
         switch (arg) {
 
             case "Video":
-                Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
-                conversationsPage.VerifyVideoIsSaved.clear();
+                //Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+                //conversationsPage.VerifyVideoIsSaved.clear();
+                actions.contextClick(conversationsPage.VerifyVideoIsSaved).perform();
+                BrowserUtils.waitForVisibility(conversationsPage.RemoveSavedVideo,10);
+                conversationsPage.RemoveSavedVideo.click();
                 break;
             case "Link":
-                Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
-                conversationsPage.VerifyLinkIsAdded.clear();
+                //Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+                actions.contextClick(conversationsPage.VerifyLinkIsAdded).perform();
+                BrowserUtils.waitForVisibility(conversationsPage.RemoveSavedLink,10);
+                conversationsPage.RemoveSavedLink.click();
                 break;
             case "Tag":
                 break;
@@ -198,7 +207,7 @@ public class AddingFunctionality_StepDefs {
     }
 
     @Then("verify that user should be able to remove the link from message box.")
-    public void verifyThatUserShouldBeAbleToRemoveTheLinkFromMessageBox() {
+    public void  verifyThatUserShouldBeAbleToRemoveTheLinkFromMessageBox() {
         BrowserUtils.verifyElementNotDisplayed(By.xpath("//a[.='Surprise Link From JavaFaker ']"));
 
     }
