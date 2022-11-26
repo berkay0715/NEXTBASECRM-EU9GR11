@@ -132,7 +132,7 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
 
 
-
+  @c1 @TC05
   Scenario Outline: User should be able to add quotes.
     Given the user logs in as a "<userType>"
 
@@ -154,12 +154,20 @@ Feature:As a user, I should be able to add link, insert video, mention, quote, a
 
 
 
-
+  @c1 @TC06
   Scenario Outline: User should be able to add tags to messages.
     Given the user logs in as a "<userType>"
 
     When user clicks the "Message Tab".
     And user enters any message.
+    When user clicks the "Tag Button".
+    Then verify that user should be able to see tag page.
+    When user enters the tag name.
+    And user clicks the "Add Button".
+    Then verify that user should be able to add the tag successfully.
+    When user clicks the "Send Button".
+    Then verify that user should be able to send the tagged message successfully.
+
 
 
     Examples:

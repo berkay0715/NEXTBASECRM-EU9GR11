@@ -126,4 +126,22 @@ public class ConversationsPage {
 
 
 
+    @FindBy(xpath = "//span[@title='Add tag']")
+    public WebElement TagButton;
+
+    @FindBy(xpath = "//div[.='Tags:']")
+    public WebElement VerifyTagPage;
+
+    @FindBy(xpath = "//input[@name='TAGS_blogPostForm']")
+    public WebElement TagInputBox;
+
+    @FindBy(xpath = "//span[.='Add']")
+    public WebElement TagAddButton;
+
+    @FindBy(xpath = "//span[.='Stockholm']")
+    public WebElement VerifyTagIsAdded;
+
+    @FindBy(xpath = "//a[.='Stockholm']")
+    public WebElement VerifyTagIsSent;
+
 }

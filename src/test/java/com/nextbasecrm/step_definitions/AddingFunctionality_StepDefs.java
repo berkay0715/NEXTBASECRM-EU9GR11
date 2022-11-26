@@ -70,6 +70,13 @@ public class AddingFunctionality_StepDefs {
                 conversationsPage.QuoteTextButton.click();
                 break;
 
+            case "Tag Button":
+                Driver.getDriver().switchTo().parentFrame();
+                conversationsPage.TagButton.click();
+                break;
+
+            case "Add Button":
+                conversationsPage.TagAddButton.click();
 
 
         }
@@ -229,7 +236,7 @@ public class AddingFunctionality_StepDefs {
 
     @When("user types something.")
     public void userTypesSomething() {
-        conversationsPage.BlockQuote.sendKeys("The mind is like a parachute, it's useless if it's not open. Cagri");
+        conversationsPage.BlockQuote.sendKeys("The mind is like a parachute, it's useless if it's not open. Anonymous");
 
     }
 
@@ -237,5 +244,37 @@ public class AddingFunctionality_StepDefs {
     public void verifyThatUserShouldBeAbleToAddTheQuoteSuccessfully() {
         BrowserUtils.waitForVisibility(conversationsPage.VerifyQuoteIsSent,10);
         BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyQuoteIsSent);
+    }
+
+
+
+
+
+
+    @Then("verify that user should be able to see tag page.")
+    public void verifyThatUserShouldBeAbleToSeeTagPage() {
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyTagPage,10);
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyTagPage);
+    }
+
+    @When("user enters the tag name.")
+    public void userEntersTheTagName() {
+        conversationsPage.TagInputBox.sendKeys("Stockholm");
+    }
+
+    @Then("verify that user should be able to add the tag successfully.")
+    public void verifyThatUserShouldBeAbleToAddTheTagSuccessfully() {
+
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyTagIsAdded,10);
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyTagIsAdded);
+        //I need to go to iframe because before send button I go to parent frame because of other testcases step
+        Driver.getDriver().switchTo().frame(conversationsPage.InputTextBox);
+
+    }
+
+    @Then("verify that user should be able to send the tagged message successfully.")
+    public void verifyThatUserShouldBeAbleToSendTheTaggedMessageSuccessfully() {
+        BrowserUtils.waitForVisibility(conversationsPage.VerifyTagIsSent,10);
+        BrowserUtils.verifyElementDisplayed(conversationsPage.VerifyTagIsSent);
     }
 }
