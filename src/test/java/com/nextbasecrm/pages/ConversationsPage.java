@@ -38,10 +38,11 @@ public class ConversationsPage {
     @FindBy(xpath = "(//div[@class='bx-finder-company-department-employee-name'])[1]")
     public WebElement MailOfEmp;
 
-    @FindBy(xpath = "//span[@data-id='U522']")
+    //span[@data-id='U592']
+    @FindBy(xpath = "//body[@style='min-height: 184px;']//span[.='hr2@cybertekschool.com']")
     public WebElement VerifyAddMention;
 
-    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='helpdesk32@cybertekschool.com']")
+    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]//a[.='hr2@cybertekschool.com']")
     public WebElement VerifyMentionedMsg;
 
 
@@ -94,11 +95,20 @@ public class ConversationsPage {
     @FindBy(xpath = "//span[@title='Video']")
     public WebElement VerifyVideoIsSaved;
 
-    @FindBy(xpath = "//div[@class='feed-post-text-block-inner-inner']/iframe")
+    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]/iframe")
     public WebElement VerifyVideoIsSentIframe;
 
     @FindBy(xpath = "//div[@id='player']")
     public WebElement VerifyVideoSent;
+
+
+
+    @FindBy(xpath = "(//span[.='Remove link'])[2]")
+    public WebElement RemoveSavedLink;
+
+
+    @FindBy(xpath = "//span[.='Delete video']")
+    public WebElement RemoveSavedVideo;
 
 
 
@@ -115,5 +125,23 @@ public class ConversationsPage {
 
 
 
+
+    @FindBy(xpath = "//span[@title='Add tag']")
+    public WebElement TagButton;
+
+    @FindBy(xpath = "//div[.='Tags:']")
+    public WebElement VerifyTagPage;
+
+    @FindBy(xpath = "//input[@name='TAGS_blogPostForm']")
+    public WebElement TagInputBox;
+
+    @FindBy(xpath = "//span[.='Add']")
+    public WebElement TagAddButton;
+
+    @FindBy(xpath = "//span[.='Stockholm']")
+    public WebElement VerifyTagIsAdded;
+
+    @FindBy(xpath = "//a[.='Stockholm']")
+    public WebElement VerifyTagIsSent;
 
 }

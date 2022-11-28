@@ -1,14 +1,14 @@
-@hicret
+
 Feature: Upload files and pictures as messages
   User Story: As a user, I should be able to upload files and pictures as messages
 
   Users :
   helpdesk ,marketing, hr
 
-
+  @NEXTBASE-1511
   Scenario Outline: 1,2 - User should be able to upload multiple files in different formats at the same time(3 files).
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And user clicks upload files icon
     And user uploads file
     When the user clicks send button for uploading
@@ -21,10 +21,10 @@ Feature: Upload files and pictures as messages
       | Marketing      |
 
 
-
+  @NEXTBASE-1512 @smoke
   Scenario Outline: 3,4 - User should be able to upload pictures and then display the picture in Activity Stream.
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And user clicks upload files icon
     And user uploads picture
     When the user clicks send button for uploading
@@ -36,10 +36,10 @@ Feature: Upload files and pictures as messages
       | Human Resource |
       | Marketing      |
 
-
+  @NEXTBASE-1513
   Scenario Outline: 5- User should be able to insert the files and images into the text.
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And user clicks upload files icon
     And user uploads file and images then insert them into the text
     And the user clicks send button for uploading
@@ -52,10 +52,10 @@ Feature: Upload files and pictures as messages
       | Marketing      |
 
 
-
+  @NEXTBASE-1514
   Scenario Outline: 6- User should be able to allow a recipient to edit documents.
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And user clicks upload files icon
     And user uploads file
     And user allows a recipient to edit document
@@ -69,10 +69,10 @@ Feature: Upload files and pictures as messages
       | Marketing      |
 
 
-
+  @NEXTBASE-1515
   Scenario Outline: 7- User should be able to remove files and images at any time before sending.
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And user clicks upload files icon
     And user uploads a file
     And user remove the file
@@ -84,10 +84,10 @@ Feature: Upload files and pictures as messages
       | Human Resource |
       | Marketing      |
 
-
+  @NEXTBASE-1516
   Scenario Outline: 8- User should be able to RENAME the file before sending it.
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And user clicks upload files icon
     And user uploads picture
     And user rename the file before sending it

@@ -4,6 +4,7 @@ import com.nextbasecrm.pages.HomePage;
 import com.nextbasecrm.pages.LoginPage;
 import com.nextbasecrm.pages.UploadFilesAndPicturesPage;
 import com.nextbasecrm.utilities.BrowserUtils;
+import com.nextbasecrm.utilities.ConfigurationReader;
 import com.nextbasecrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,14 +25,6 @@ public class UploadFilesPictures_StepDefs {
     Actions actions= new Actions(Driver.getDriver());
 
 
-
-
-
-    @When("user clicks {string} on the quick navigate menu")
-    public void userClicksOnTheQuickNavigateMenu(String messageTab) {
-        homePage.messageTab.click();
-        BrowserUtils.sleep(2);
-    }
 
     @When("user clicks upload files icon")
     public void user_clicks_upload_files_icon() {
@@ -76,9 +69,16 @@ public class UploadFilesPictures_StepDefs {
 
     @When("user uploads picture")
     public void user_uploads_picture() {
-        String path4="C:\\Users\\hicre\\OneDrive\\Masaüstü\\HTML Class\\sunnyDay.jpg";
-        uploadFilesAndPicturesPage.uploadFilesANDimagesLink.sendKeys(path4);
-        BrowserUtils.sleep(3);
+       // String path4="C:\\Users\\hicre\\OneDrive\\Masaüstü\\HTML Class\\sunnyDay.jpg";
+       // uploadFilesAndPicturesPage.uploadFilesANDimagesLink.sendKeys(path4);
+
+       String projectPath= System.getProperty("user.dir");
+       String filePathJPG= "src/test/resources/filesToUpload/sunnyDay.jpg";
+       String fullPath= projectPath+ "/"+filePathJPG;
+       uploadFilesAndPicturesPage.uploadFilesANDimagesLink.sendKeys(fullPath);
+       BrowserUtils.sleep(3);
+
+
     }
     @Then("verify the user sent the picture successfully")
     public void verify_the_user_sent_the_picture_successfully() {
@@ -155,13 +155,14 @@ public class UploadFilesPictures_StepDefs {
         uploadFilesAndPicturesPage.changeableFileName.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
         BrowserUtils.sleep(1);
        uploadFilesAndPicturesPage.changeableFileName.sendKeys("renamed"+ Keys.ENTER);
+        BrowserUtils.waitFor(2);
 
 
     }
     @Then("verify the file is renamed successfully")
     public void verify_the_file_is_renamed_successfully() {
-        BrowserUtils.waitFor(2);
-        BrowserUtils.verifyElementDisplayed(By.xpath("//img[contains(@data-bx-title,'renamed.jpg')]"));
+        BrowserUtils.sleep(1);
+        BrowserUtils.verifyElementDisplayed(By.xpath("//img[contains(@data-bx-title,'renamed')]"));
     }
 
 

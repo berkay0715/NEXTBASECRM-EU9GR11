@@ -11,7 +11,7 @@ Feature: As a user, I should be able to send messages by clicking on
   @tc1maz @smoke
   Scenario Outline: User logs in and sends the message by filling in the mandatory fields
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And  the user writes a message
     And the user clicks send button
     Then the user should be able to see the message on activity stream
@@ -27,7 +27,7 @@ Feature: As a user, I should be able to send messages by clicking on
   @tc1maz
   Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And  the user writes a message
     Then the user should be able to see recipient as All employees by default
     When the user deletes all recipients
@@ -44,7 +44,7 @@ Feature: As a user, I should be able to send messages by clicking on
   @tc1maz
   Scenario Outline:User is able to add recipients and send the message
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And  the user writes a message
     And the user should be able to click cancel button
 
@@ -62,10 +62,10 @@ Feature: As a user, I should be able to send messages by clicking on
 
   Scenario Outline: Verifying Error messages for mandatory fields
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And  the user clicks send button
     Then --The message title is not specified-- error message should be displayed
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And  the user writes a message
     And  the user deletes all recipients
     And  the user clicks send button
@@ -82,7 +82,7 @@ Feature: As a user, I should be able to send messages by clicking on
   @errormessage
   Scenario Outline: The message delivery should be to 'All employees' by default and should be changeable.
     Given the user logs in as a "<userType>"
-    When user clicks "messageTab" on the quick navigate menu
+    When user clicks the "Message Tab".
     And  the user writes a message
     When the user deletes all recipients
     And  the user clicks add persons link text
